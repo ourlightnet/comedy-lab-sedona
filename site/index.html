@@ -235,12 +235,12 @@ a.btn{text-decoration:none;display:inline-block}
 .found .eyebrow{color:#3FCF9E}
 .found-q{font-family:var(--display);font-size:clamp(1.5rem,4.2vw,2.5rem);line-height:1.1;max-width:none}
 .found .btn{text-decoration:none;display:inline-block;background:#3FCF9E;color:#0B0B0B}
-.collab-row{display:grid;gap:10px;justify-items:start}
-.collab-label{font:500 .72rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
-.collab-logos{display:flex;flex-wrap:wrap;gap:8px}
-.collab-logos a{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 16px;background:#FFFFFF;border-radius:12px;text-decoration:none}
-.collab-logos img{width:auto;display:block}
-.collab-logos .wordmark{font:700 .95rem/1 Georgia,"Times New Roman",serif;color:#1B3A5C;letter-spacing:.02em}
+.collab-banner{background:#FFFFFF;border-top:0;padding-block:clamp(32px,5vw,48px)}
+.collab-banner .wrap{display:grid;gap:22px;justify-items:center;text-align:center}
+.collab-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(24px,5vw,64px)}
+.collab-logos a{display:block;border-radius:8px}
+.collab-logos img{width:auto;max-width:100%;display:block}
+@media (max-width:640px){.collab-logos img{transform:scale(.8)}}
 .board.houses{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:24px}
 .slot.in .bio a,.slot.open .bio a{color:inherit}
 </style>
@@ -274,15 +274,18 @@ a.btn{text-decoration:none;display:inline-block}
     <div class="facts"><span>12-person crew</span><span>60 sec or less</span><span>Monthly prizes</span></div>
     <p class="credit">With Zenka Caro and Freddie Bell Jr. of Big Laughs Festival</p>
     <p class="ig">Follow along on Instagram: <a href="https://instagram.com/comedylabsedona" target="_blank" rel="noopener" style="color:#FFFFFF">@comedylabsedona</a></p>
-    <div class="collab-row"><span class="collab-label">Year One Collaborators</span><div class="collab-logos">
-      <a href="https://thedreammachine.org" target="_blank" rel="noopener"><img src="assets/img/dream-machine.png" alt="The Dream Machine" width="208" height="31" style="height:20px"></a>
-      <a href="https://www.sedonaaz.gov" target="_blank" rel="noopener" class="wordmark">City of Sedona</a>
-      <a href="https://biglaughsfestival.com/" target="_blank" rel="noopener"><img src="assets/img/big-laughs-festival.png" alt="Big Laughs Festival" width="160" height="160" style="height:44px;border-radius:50%"></a>
-      <a href="https://humankind.center" target="_blank" rel="noopener"><img src="assets/img/humankind.jpg" alt="Humankind" width="338" height="287" style="height:44px"></a>
-    </div></div>
   </div>
 </header>
 <div class="tile-band" aria-hidden="true"></div>
+<section class="collab-banner" aria-label="Year One Collaborators"><div class="wrap">
+  <div class="eyebrow">Year One Collaborators</div>
+  <div class="collab-logos">
+    <a href="https://thedreammachine.org" target="_blank" rel="noopener"><img src="assets/img/collab/dream-machine.png" alt="The Dream Machine" width="887" height="233" style="height:54px"></a>
+    <a href="https://www.sedonaaz.gov" target="_blank" rel="noopener"><img src="assets/img/collab/city-of-sedona.png" alt="City of Sedona" width="227" height="189" style="height:96px"></a>
+    <a href="https://biglaughsfestival.com/" target="_blank" rel="noopener"><img src="assets/img/collab/big-laughs-festival.png" alt="Big Laughs Festival" width="602" height="600" style="height:104px"></a>
+    <a href="https://humankind.center" target="_blank" rel="noopener"><img src="assets/img/collab/humankind.png" alt="Humankind, humankind.center" width="214" height="215" style="height:100px"></a>
+  </div>
+</div></section>
 
 <main>
 <section><div class="wrap">
