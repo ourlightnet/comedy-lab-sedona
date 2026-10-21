@@ -16,21 +16,21 @@
 <style>
 body{margin:0}img{max-width:100%}[hidden]{display:none!important}
 
-/* Layout: a sandstone page with one dusk band up top; content in a 1080px column; lineup as a 3x3 board */
+/* Layout: black-and-white glam like the house: black hero over the great room, a geometric tile band, white page, emerald and brass accents; lineup as a 3x3 board */
 :root{
-  --bg:#FAFAFA; --surface:#FFFFFF; --fg:#111111; --muted:#4A4F55;
-  --rock:#08807F; --juniper:#111111; --dusk1:#000000; --dusk-mid:#0F2F33; --dusk2:#0B7472; --line:#DCDCDC;
+  --bg:#FFFFFF; --surface:#F5F5F2; --fg:#0B0B0B; --muted:#555B5E;
+  --rock:#0A7D5E; --juniper:#0B0B0B; --brass:#A9874E; --dusk1:#000000; --dusk-mid:#0F2F33; --dusk2:#0B7472; --line:#E2E2DE;
   --on-dusk:#FFFFFF;
   --display:"Dela Gothic One","Arial Black",Impact,sans-serif;
   --body:"Figtree","Segoe UI",system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0B0B0C; --surface:#151718; --fg:#F2F2F2; --muted:#A7B0B4;
-  --rock:#3FD6CF; --juniper:#3FD6CF; --dusk1:#000000; --dusk-mid:#0A2427; --dusk2:#0A6664; --line:#2A2F31; color-scheme:dark}}
+  --bg:#0B0B0B; --surface:#161616; --fg:#F4F4F2; --muted:#A9AEB0;
+  --rock:#3FCF9E; --juniper:#1E5E4A; --brass:#C9A66B; --dusk1:#000000; --dusk-mid:#0A2427; --dusk2:#0A6664; --line:#2A2F31; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0B0B0C; --surface:#151718; --fg:#F2F2F2; --muted:#A7B0B4;
-  --rock:#3FD6CF; --juniper:#3FD6CF; --dusk1:#000000; --dusk-mid:#0A2427; --dusk2:#0A6664; --line:#2A2F31; color-scheme:dark}
+  --bg:#0B0B0B; --surface:#161616; --fg:#F4F4F2; --muted:#A9AEB0;
+  --rock:#3FCF9E; --juniper:#1E5E4A; --brass:#C9A66B; --dusk1:#000000; --dusk-mid:#0A2427; --dusk2:#0A6664; --line:#2A2F31; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--body)}
 a{color:var(--rock);text-underline-offset:3px}
@@ -44,12 +44,15 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .stack{display:grid;gap:16px}
 
 /* Hero */
-.hero{background:linear-gradient(120deg,var(--dusk1) 0%,var(--dusk-mid) 55%,var(--dusk2) 100%);color:var(--on-dusk);position:relative;overflow:hidden}
+.hero{background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.86) 42%,rgba(0,0,0,.35) 100%),url("assets/img/house/great-room.jpg") center/cover no-repeat,#000;color:var(--on-dusk);position:relative;overflow:hidden}
 .hero .wrap{padding-block:clamp(56px,10vw,112px);display:grid;gap:24px;position:relative}
 .hero h1{font-size:clamp(2.6rem,9vw,6rem)}
 .hero .eyebrow{color:var(--on-dusk);opacity:.8}
 .hero p{font-size:clamp(1.1rem,2.2vw,1.35rem)}
-.mesa{position:absolute;inset:auto 0 0 0;height:90px;opacity:.35;pointer-events:none}
+.mesa{display:none}
+.tile-band{height:30px;background:repeating-linear-gradient(45deg,var(--fg) 0 2px,transparent 2px 13px),repeating-linear-gradient(-45deg,var(--fg) 0 2px,transparent 2px 13px),var(--bg);border-block:3px solid var(--fg)}
+.eyebrow{color:var(--brass)}
+.hero .eyebrow{color:#FFFFFF}
 .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
 .facts span{font:500 .85rem/1 var(--mono);border:1px solid color-mix(in srgb,var(--on-dusk) 45%,transparent);border-radius:999px;padding:9px 14px}
 .credit{font-size:1rem;opacity:.9}
@@ -88,9 +91,9 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .slot .n{font:500 .78rem/1 var(--mono);color:var(--muted)}
 .slot h3{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(1rem,2.4vw,1.45rem);line-height:1.15;overflow-wrap:anywhere}
 .tag{justify-self:start;font:500 .72rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:6px 10px}
-.slot.in{background:var(--juniper);border-color:var(--juniper);color:var(--bg)}
+.slot.in{background:var(--juniper);border-color:var(--juniper);color:#FFFFFF}
 .slot.in .n{color:inherit;opacity:.75}
-.slot.in .tag{background:var(--bg);color:var(--juniper)}
+.slot.in .tag{background:#FFFFFF;color:#0B0B0B}
 .slot.maybe{border:2px dashed var(--rock)}
 .slot.maybe .tag{background:var(--rock);color:var(--bg)}
 .slot.open{border-style:dashed}
@@ -118,7 +121,7 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:28px}
 .person{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 .person > div{display:grid;gap:6px;min-width:0}
-.avatar{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:1.2rem;color:var(--bg);background:var(--juniper)}
+.avatar{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:1.2rem;color:#FFFFFF;background:var(--juniper)}
 .avatar.alt{background:var(--rock)}
 .person h3{margin:0;font-size:1.2rem}
 .person .role{font:500 .75rem/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
@@ -177,6 +180,24 @@ textarea{min-height:70px;resize:vertical}
 .logo-tile{display:grid;gap:8px;justify-items:center;text-decoration:none;color:var(--muted);font:500 .72rem/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase}
 .logo-tile img.round{height:160px;object-fit:contain}
 .logo-tile img{width:160px;height:auto;max-width:100%;border-radius:12px;display:block}
+
+.photos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:8px;margin-top:28px}
+.ph{position:relative;padding:0;border:0;background:var(--surface);border-radius:6px;overflow:hidden;cursor:zoom-in;aspect-ratio:4/3;max-width:100%}
+.ph.wide{grid-column:span 2;grid-row:span 2}
+.ph.long{grid-column:span 2;aspect-ratio:8/3}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.ph span{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;font:500 .72rem/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#FFFFFF;background:linear-gradient(transparent,rgba(0,0,0,.7));text-align:left}
+.ph:hover img{transform:scale(1.04)}
+.ph:focus-visible{outline:3px solid var(--rock);outline-offset:2px}
+.credit-line{margin-top:12px;font-size:.88rem;color:var(--muted)}
+#lightbox{padding:0;border:0;background:#000;max-width:min(1100px,96vw);width:100%;border-radius:8px;color:#FFFFFF}
+#lightbox::backdrop{background:rgba(0,0,0,.85)}
+#lightbox img{display:block;width:100%;height:auto;max-height:80vh;object-fit:contain;background:#000}
+.lb-bar{display:flex;align-items:center;gap:10px;padding:10px 12px;font:500 .8rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.lb-bar span{flex:1}
+.lb-bar button{background:transparent;border:1px solid rgba(255,255,255,.4);color:#FFFFFF;border-radius:999px;width:38px;height:38px;cursor:pointer;font-size:1rem}
+@media (max-width:640px){.photos{grid-template-columns:repeat(2,minmax(0,1fr))}.ph.wide{grid-row:auto}}
+@media (prefers-reduced-motion:reduce){.ph img{transition:none}}
 footer{padding-block:40px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
 
 @media (max-width:820px){.vote-grid{grid-template-columns:1fr}}
@@ -209,7 +230,7 @@ a.btn{text-decoration:none;display:inline-block}
     <div class="eyebrow">Sedona, Arizona · 2027 season</div>
     <div class="logo">
       <svg viewBox="0 0 140 140" role="img" aria-label="What on Earth!? logo: a planet circled by five orbiting dimensions">
-        <defs><linearGradient id="dm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FD6CF"/><stop offset=".5" stop-color="#2BA7C9"/><stop offset="1" stop-color="#6B3FC4"/></linearGradient><clipPath id="globe"><circle cx="70" cy="70" r="40"/></clipPath></defs>
+        <defs><linearGradient id="dm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FD6CF"/><stop offset=".55" stop-color="#14A37F"/><stop offset="1" stop-color="#0A4F3E"/></linearGradient><clipPath id="globe"><circle cx="70" cy="70" r="40"/></clipPath></defs>
         <ellipse cx="70" cy="70" rx="64" ry="20" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity=".55" transform="rotate(-18 70 70)"/>
         <circle cx="70" cy="70" r="40" fill="url(#dm)"/>
         <g clip-path="url(#globe)">
@@ -233,6 +254,7 @@ a.btn{text-decoration:none;display:inline-block}
     <a class="dm-badge" href="https://thedreammachine.org" target="_blank" rel="noopener"><span>A project of</span><img src="assets/img/dream-machine.png" alt="The Dream Machine" width="208" height="31"></a>
   </div>
 </header>
+<div class="tile-band" aria-hidden="true"></div>
 
 <main>
 <section><div class="wrap">
@@ -255,21 +277,41 @@ a.btn{text-decoration:none;display:inline-block}
 <section id="house"><div class="wrap">
   <div class="stack">
     <div class="eyebrow">The house</div>
-    <h2>Twin Pines: our home base</h2>
-    <p>A luxury mountain cabin in Munds Park, up in the pines north of Sedona. It sleeps 12 across 4 bedrooms and 9 beds, with 2.5 baths, a chef's kitchen, a hot tub, a bunk room and a fenced outdoor living area. Plenty of sets for 9 clips a round.</p>
+    <h2>Twin Pines: 21 rooms, 21 sets</h2>
+    <p>Our home base is a luxury mountain cabin in Munds Park, up in the pines north of Sedona. It sleeps 12 across 4 bedrooms and 9 beds. There's a great room with a stone fireplace, an emerald kitchen, a hot tub, a bunk room, and a covered patio. Every room is a ready-made set for a 60-second clip.</p>
   </div>
-  <div class="gallery">
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#0F3B3E;--g2:#0B2E33"><span>The cabin<small>View photos on Airbnb ↗</small></span></a>
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#12575A;--g2:#10202A"><span>Hot tub<small>Photo on Airbnb ↗</small></span></a>
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#111111;--g2:#050808"><span>Bunk room<small>Photo on Airbnb ↗</small></span></a>
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#08807F;--g2:#081A1C"><span>Chef's kitchen<small>Photo on Airbnb ↗</small></span></a>
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#1C2A3A;--g2:#0B0B0C"><span>4 bedrooms<small>Photo on Airbnb ↗</small></span></a>
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#0E6664;--g2:#0B2E33"><span>Outdoor living<small>Photo on Airbnb ↗</small></span></a>
+  <div class="photos">
+    <button type="button" class="ph wide" data-i="0"><img src="assets/img/house/great-room.jpg" alt="Great room at Twin Pines" width="977" height="650" loading="lazy"><span>Great room</span></button>
+    <button type="button" class="ph" data-i="1"><img src="assets/img/house/fireplace.jpg" alt="Fireplace corner at Twin Pines" width="985" height="651" loading="lazy"><span>Fireplace corner</span></button>
+    <button type="button" class="ph" data-i="2"><img src="assets/img/house/living.jpg" alt="Living room at Twin Pines" width="978" height="649" loading="lazy"><span>Living room</span></button>
+    <button type="button" class="ph wide" data-i="3"><img src="assets/img/house/kitchen.jpg" alt="Emerald kitchen at Twin Pines" width="981" height="645" loading="lazy"><span>Emerald kitchen</span></button>
+    <button type="button" class="ph" data-i="4"><img src="assets/img/house/kitchen-2.jpg" alt="Kitchen at Twin Pines" width="991" height="642" loading="lazy"><span>Kitchen</span></button>
+    <button type="button" class="ph" data-i="5"><img src="assets/img/house/dining.jpg" alt="Dining table at Twin Pines" width="980" height="656" loading="lazy"><span>Dining table</span></button>
+    <button type="button" class="ph" data-i="6"><img src="assets/img/house/patio.jpg" alt="Covered patio at Twin Pines" width="886" height="646" loading="lazy"><span>Covered patio</span></button>
+    <button type="button" class="ph" data-i="7"><img src="assets/img/house/lounge.jpg" alt="Lounge at Twin Pines" width="969" height="644" loading="lazy"><span>Lounge</span></button>
+    <button type="button" class="ph" data-i="8"><img src="assets/img/house/primary-suite.jpg" alt="Primary suite at Twin Pines" width="980" height="647" loading="lazy"><span>Primary suite</span></button>
+    <button type="button" class="ph" data-i="9"><img src="assets/img/house/primary-suite-2.jpg" alt="Primary suite at Twin Pines" width="994" height="652" loading="lazy"><span>Primary suite</span></button>
+    <button type="button" class="ph" data-i="10"><img src="assets/img/house/primary-bath.jpg" alt="Primary bath at Twin Pines" width="974" height="637" loading="lazy"><span>Primary bath</span></button>
+    <button type="button" class="ph" data-i="11"><img src="assets/img/house/stone-bath.jpg" alt="Stone-wall bath at Twin Pines" width="995" height="648" loading="lazy"><span>Stone-wall bath</span></button>
+    <button type="button" class="ph" data-i="12"><img src="assets/img/house/forest-room.jpg" alt="Forest room at Twin Pines" width="973" height="636" loading="lazy"><span>Forest room</span></button>
+    <button type="button" class="ph" data-i="13"><img src="assets/img/house/forest-doorway.jpg" alt="Forest room at Twin Pines" width="927" height="641" loading="lazy"><span>Forest room</span></button>
+    <button type="button" class="ph" data-i="14"><img src="assets/img/house/western-room.jpg" alt="Western room at Twin Pines" width="979" height="646" loading="lazy"><span>Western room</span></button>
+    <button type="button" class="ph" data-i="15"><img src="assets/img/house/silver-room.jpg" alt="Silver room at Twin Pines" width="967" height="606" loading="lazy"><span>Silver room</span></button>
+    <button type="button" class="ph" data-i="16"><img src="assets/img/house/bunk-room.jpg" alt="Bunk room at Twin Pines" width="966" height="648" loading="lazy"><span>Bunk room</span></button>
+    <button type="button" class="ph" data-i="17"><img src="assets/img/house/crane-bath.jpg" alt="Crane bath at Twin Pines" width="1000" height="639" loading="lazy"><span>Crane bath</span></button>
+    <button type="button" class="ph" data-i="18"><img src="assets/img/house/upstairs-hall.jpg" alt="Upstairs hall at Twin Pines" width="980" height="646" loading="lazy"><span>Upstairs hall</span></button>
+    <button type="button" class="ph" data-i="19"><img src="assets/img/house/walk-in-closet.jpg" alt="Walk-in closet at Twin Pines" width="991" height="652" loading="lazy"><span>Walk-in closet</span></button>
+    <button type="button" class="ph long" data-i="20"><img src="assets/img/house/glassware.jpg" alt="The bar at Twin Pines" width="981" height="647" loading="lazy"><span>The bar</span></button>
   </div>
+  <p class="credit-line">Photos: <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">Twin Pines on Airbnb</a>, hosted by Amber and Amy.</p>
   <div class="house-meta">
-    <p>The photos live on the Airbnb listing. Tap any tile to see them and to <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">book Twin Pines on Airbnb</a>.</p>
+    <p>Want to stay where the Lab happens? <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">Book Twin Pines on Airbnb</a>.</p>
     <div class="note"><b>To our hosts, Amber and Amy</b><p>Hello from the Comedy Lab! We found your Airbnb through the Comedy Lab, and we can't wait to fill it with laughter.</p></div>
   </div>
+  <dialog id="lightbox" aria-label="House photo">
+    <img id="lb-img" alt="">
+    <div class="lb-bar"><button type="button" id="lb-prev" aria-label="Previous photo">←</button><span id="lb-cap"></span><button type="button" id="lb-next" aria-label="Next photo">→</button><button type="button" id="lb-close" aria-label="Close">✕</button></div>
+  </dialog>
 </div></section>
 
 <section id="comedians"><div class="wrap">

@@ -37,3 +37,15 @@
     document.getElementById('clip-soon').hidden = true;
   }
 })();
+
+(function(){
+  var d=document.getElementById("lightbox");if(!d||!d.showModal)return;
+  var tiles=[].slice.call(document.querySelectorAll(".photos .ph")),i=0;
+  function show(n){i=(n+tiles.length)%tiles.length;var t=tiles[i];document.getElementById("lb-img").src=t.querySelector("img").src;document.getElementById("lb-img").alt=t.querySelector("img").alt;document.getElementById("lb-cap").textContent=t.textContent+" · "+(i+1)+" of "+tiles.length}
+  tiles.forEach(function(t,n){t.addEventListener("click",function(){show(n);d.showModal()})});
+  document.getElementById("lb-prev").onclick=function(){show(i-1)};
+  document.getElementById("lb-next").onclick=function(){show(i+1)};
+  document.getElementById("lb-close").onclick=function(){d.close()};
+  d.addEventListener("click",function(e){if(e.target===d)d.close()});
+  d.addEventListener("keydown",function(e){if(e.key==="ArrowLeft")show(i-1);if(e.key==="ArrowRight")show(i+1)});
+})();
