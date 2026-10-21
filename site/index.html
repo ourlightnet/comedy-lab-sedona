@@ -18,19 +18,19 @@ body{margin:0}img{max-width:100%}[hidden]{display:none!important}
 
 /* Layout: a sandstone page with one dusk band up top; content in a 1080px column; lineup as a 3x3 board */
 :root{
-  --bg:#F1EBE2; --surface:#FBF8F3; --fg:#2A1E1A; --muted:#6E5A50;
-  --rock:#B8452B; --juniper:#2E5A4C; --dusk1:#3A1A5E; --dusk-mid:#8E1F78; --dusk2:#D9532B; --line:#D9CBBB;
-  --on-dusk:#FFF3E8;
+  --bg:#FAFAFA; --surface:#FFFFFF; --fg:#111111; --muted:#4A4F55;
+  --rock:#08807F; --juniper:#111111; --dusk1:#000000; --dusk-mid:#0F2F33; --dusk2:#0B7472; --line:#DCDCDC;
+  --on-dusk:#FFFFFF;
   --display:"Dela Gothic One","Arial Black",Impact,sans-serif;
   --body:"Figtree","Segoe UI",system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#1B1416; --surface:#261C1E; --fg:#F2E6DC; --muted:#BBA597;
-  --rock:#E8734F; --juniper:#7FBFA8; --dusk1:#24103C; --dusk-mid:#5E1450; --dusk2:#8E3420; --line:#3E2F2E; color-scheme:dark}}
+  --bg:#0B0B0C; --surface:#151718; --fg:#F2F2F2; --muted:#A7B0B4;
+  --rock:#3FD6CF; --juniper:#3FD6CF; --dusk1:#000000; --dusk-mid:#0A2427; --dusk2:#0A6664; --line:#2A2F31; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#1B1416; --surface:#261C1E; --fg:#F2E6DC; --muted:#BBA597;
-  --rock:#E8734F; --juniper:#7FBFA8; --dusk1:#24103C; --dusk-mid:#5E1450; --dusk2:#8E3420; --line:#3E2F2E; color-scheme:dark}
+  --bg:#0B0B0C; --surface:#151718; --fg:#F2F2F2; --muted:#A7B0B4;
+  --rock:#3FD6CF; --juniper:#3FD6CF; --dusk1:#000000; --dusk-mid:#0A2427; --dusk2:#0A6664; --line:#2A2F31; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--body)}
 a{color:var(--rock);text-underline-offset:3px}
@@ -127,7 +127,7 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .slot .bio{font-size:.85rem;line-height:1.4;opacity:.9}
 .partners a{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:10px 18px;font-weight:700;text-decoration:none;color:var(--fg)}
 .partners a:hover{border-color:var(--rock)}
-.dm-badge{justify-self:start;display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;background:#FFFFFF;color:#2A1E1A;border-radius:999px;padding:10px 18px;text-decoration:none;font:500 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;max-width:100%}
+.dm-badge{justify-self:start;display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;background:#FFFFFF;color:#111111;border-radius:999px;padding:10px 18px;text-decoration:none;font:500 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;max-width:100%}
 .dm-badge img{height:22px;width:auto;max-width:100%}
 .slot .face{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--bg)}
 .partners .invited{border-style:dashed}
@@ -204,25 +204,26 @@ a.btn{text-decoration:none;display:inline-block}
 </head>
 <body>
 <header class="hero">
-  <svg class="mesa" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"><path fill="#1a0f14" d="M0 90V62h90l20-22h130l14 18h120l30-40h160l22 30h80l18-14h200l26 26h120l30-20h140V90z"/></svg>
+  <svg class="mesa" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"><path fill="#000000" d="M0 90V62h90l20-22h130l14 18h120l30-40h160l22 30h80l18-14h200l26 26h120l30-20h140V90z"/></svg>
   <div class="wrap">
     <div class="eyebrow">Sedona, Arizona · 2027 season</div>
     <div class="logo">
-      <svg viewBox="0 0 140 140" role="img" aria-label="What on Earth!? logo: a red-rock planet circled by five orbiting dimensions">
-        <defs><linearGradient id="dm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F28A2E"/><stop offset=".5" stop-color="#D8337A"/><stop offset="1" stop-color="#6B2FA0"/></linearGradient><clipPath id="globe"><circle cx="70" cy="70" r="40"/></clipPath></defs>
+      <svg viewBox="0 0 140 140" role="img" aria-label="What on Earth!? logo: a planet circled by five orbiting dimensions">
+        <defs><linearGradient id="dm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FD6CF"/><stop offset=".5" stop-color="#2BA7C9"/><stop offset="1" stop-color="#6B3FC4"/></linearGradient><clipPath id="globe"><circle cx="70" cy="70" r="40"/></clipPath></defs>
+        <ellipse cx="70" cy="70" rx="64" ry="20" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity=".55" transform="rotate(-18 70 70)"/>
         <circle cx="70" cy="70" r="40" fill="url(#dm)"/>
         <g clip-path="url(#globe)">
-          <path fill="#4A1640" d="M28 84h14l6-8h16l4 6h10l8-12h14l6 10h14v40H28z"/>
-          <path fill="#2E5A4C" d="M28 98h84v20H28z"/>
-          <circle cx="56" cy="56" r="22" fill="#FFF3E8" opacity=".12"/>
+          <path fill="#0B2E33" d="M28 84h14l6-8h16l4 6h10l8-12h14l6 10h14v40H28z"/>
+          <path fill="#111111" d="M28 98h84v20H28z"/>
+          <circle cx="56" cy="56" r="22" fill="#FFFFFF" opacity=".12"/>
         </g>
-        <ellipse cx="70" cy="70" rx="64" ry="20" fill="none" stroke="#FFF3E8" stroke-width="2.5" transform="rotate(-18 70 70)"/>
-        <g fill="#FFF3E8" transform="rotate(-18 70 70)">
+        <path d="M6 70A64 20 0 0 0 134 70" fill="none" stroke="#FFFFFF" stroke-width="2.5" transform="rotate(-18 70 70)"/>
+        <g fill="#FFFFFF" transform="rotate(-18 70 70)">
           <circle cx="6" cy="70" r="4"/><circle cx="134" cy="70" r="4"/>
           <circle cx="30" cy="85.6" r="3.5"/><circle cx="110" cy="54.4" r="3.5"/>
           <circle cx="70" cy="90" r="4.5"/>
         </g>
-        <text x="70" y="79" text-anchor="middle" font-family="Dela Gothic One, Arial Black, sans-serif" font-size="28" fill="#FFF3E8">!?</text>
+        <text x="70" y="79" text-anchor="middle" font-family="Dela Gothic One, Arial Black, sans-serif" font-size="28" fill="#FFFFFF">!?</text>
       </svg>
       <div class="logo-words"><span class="by">The Comedy Lab presents</span><h1>What on Earth!?</h1></div>
     </div>
@@ -258,12 +259,12 @@ a.btn{text-decoration:none;display:inline-block}
     <p>A luxury mountain cabin in Munds Park, up in the pines north of Sedona. It sleeps 12 across 4 bedrooms and 9 beds, with 2.5 baths, a chef's kitchen, a hot tub, a bunk room and a fenced outdoor living area. Plenty of sets for 9 clips a round.</p>
   </div>
   <div class="gallery">
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#5A3A2E;--g2:#2E4A3E"><span>The cabin<small>View photos on Airbnb ↗</small></span></a>
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#8A4A30;--g2:#3B2350"><span>Hot tub<small>Photo on Airbnb ↗</small></span></a>
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#2E5A4C;--g2:#1F2A2A"><span>Bunk room<small>Photo on Airbnb ↗</small></span></a>
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#B8452B;--g2:#5A2A20"><span>Chef's kitchen<small>Photo on Airbnb ↗</small></span></a>
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#4A3A5A;--g2:#2A1E2A"><span>4 bedrooms<small>Photo on Airbnb ↗</small></span></a>
-    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#6A5A3A;--g2:#2E4A3E"><span>Outdoor living<small>Photo on Airbnb ↗</small></span></a>
+    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#0F3B3E;--g2:#0B2E33"><span>The cabin<small>View photos on Airbnb ↗</small></span></a>
+    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#12575A;--g2:#10202A"><span>Hot tub<small>Photo on Airbnb ↗</small></span></a>
+    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#111111;--g2:#050808"><span>Bunk room<small>Photo on Airbnb ↗</small></span></a>
+    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#08807F;--g2:#081A1C"><span>Chef's kitchen<small>Photo on Airbnb ↗</small></span></a>
+    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#1C2A3A;--g2:#0B0B0C"><span>4 bedrooms<small>Photo on Airbnb ↗</small></span></a>
+    <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener" style="--g1:#0E6664;--g2:#0B2E33"><span>Outdoor living<small>Photo on Airbnb ↗</small></span></a>
   </div>
   <div class="house-meta">
     <p>The photos live on the Airbnb listing. Tap any tile to see them and to <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">book Twin Pines on Airbnb</a>.</p>
