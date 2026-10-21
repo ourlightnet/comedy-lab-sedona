@@ -48,6 +48,16 @@ p{margin:0;max-width:65ch}
 
 main .wrap{display:grid;gap:28px;padding-block:36px 64px}
 footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.site-foot{background:#000;color:#C9CDCF;border-top:0;padding-block:56px 32px;font-size:.92rem}
+.site-foot a{color:#FFFFFF;text-decoration:none}
+.site-foot a:hover{color:#3FCF9E;text-decoration:underline}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr 1.4fr;gap:32px 28px}
+.foot-title{display:block;font:400 1.5rem/1.1 var(--display);color:#FFFFFF;margin-bottom:10px}
+.site-foot h4{margin:0 0 12px;font:500 .74rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#3FCF9E}
+.site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.site-foot li{overflow-wrap:anywhere}
+.foot-legal{margin-top:40px;padding-top:20px;border-top:1px solid #2A2F31;font:500 .74rem/1.4 var(--mono);letter-spacing:.06em;color:#8A9093;max-width:none}
+@media (max-width:900px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand,.foot-contact{grid-column:1/-1}}
 </style>
 <link rel="stylesheet" href="assets/css/lines.css">
 </head>
@@ -83,7 +93,44 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
   <ol class="list" id="list" aria-live="polite"></ol>
 </div></main>
 
-<footer><div class="wrap">What on Earth!? · The Comedy Lab, a Dream Machine project · Sedona, Arizona · <a href="./">Back to the main page</a> · Instagram <a href="https://instagram.com/comedylabsedona" target="_blank" rel="noopener">@comedylabsedona</a> · YouTube <a href="https://www.youtube.com/@comedylabsedona" target="_blank" rel="noopener">@comedylabsedona</a></div></footer>
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <b class="foot-title">What on Earth!?</b>
+      <p>The Comedy Lab, a Dream Machine project. Year 1: Incubation in Sedona, Arizona. With <a href="https://zenka.org" target="_blank" rel="noopener">Zenka Caro</a> and Freddie Bell Jr. of Big Laughs Festival.</p>
+    </div>
+    <nav aria-label="Explore"><h4>Explore</h4><ul>
+      <li><a href="./#how">How it works</a></li>
+      <li><a href="./#prompts">Monthly clips</a></li>
+      <li><a href="lines.html">Opening lines</a></li>
+      <li><a href="./#comedians">Comedians</a></li>
+      <li><a href="./#clip">Submit a clip</a></li>
+      <li><a href="./#donate">Donate</a></li>
+    </ul></nav>
+    <nav aria-label="The house"><h4>The house</h4><ul>
+      <li><a href="./#house">Twin Pines photos</a></li>
+      <li><a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">Book on Airbnb ↗</a></li>
+      <li><a href="./#houses">The Renegade House</a></li>
+    </ul></nav>
+    <nav aria-label="Partners"><h4>Partners</h4><ul>
+      <li><a href="https://thedreammachine.org" target="_blank" rel="noopener">The Dream Machine ↗</a></li>
+      <li><a href="https://biglaughsfestival.com/" target="_blank" rel="noopener">Big Laughs Festival ↗</a></li>
+      <li><a href="https://www.sedonaaz.gov" target="_blank" rel="noopener">City of Sedona ↗</a></li>
+      <li><a href="https://humankind.center" target="_blank" rel="noopener">Humankind ↗</a></li>
+      <li>Sedona Quantum Consciousness</li>
+      <li><a href="https://fashionlabsedona.com" target="_blank" rel="noopener">Fashion Lab Sedona ↗</a></li>
+      <li><a href="https://lightnet.org" target="_blank" rel="noopener">LightNet ↗</a></li>
+    </ul></nav>
+    <nav class="foot-contact" aria-label="Contact and follow"><h4>Contact</h4><ul>
+      <li><a href="mailto:lab@comedylabsedona.com">lab<wbr>@comedylabsedona.com</a></li>
+      <li><a href="mailto:donations@comedylabsedona.com">donations<wbr>@comedylabsedona.com</a></li>
+      <li><a href="sms:+14242809561">Text 424-280-9561</a></li>
+      <li><a href="https://instagram.com/comedylabsedona" target="_blank" rel="noopener">Instagram ↗</a></li>
+      <li><a href="https://www.youtube.com/@comedylabsedona" target="_blank" rel="noopener">YouTube ↗</a></li>
+    </ul></nav>
+  </div>
+  <p class="foot-legal">© 2026 The Comedy Lab Sedona · A Dream Machine project</p>
+</div></footer>
 
 <script src="assets/js/lines-config.js"></script>
 <script src="assets/js/lines.js"></script>

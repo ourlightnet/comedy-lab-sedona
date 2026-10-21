@@ -78,3 +78,12 @@
     });
   });
 })();
+
+/* Partner logos animate in when they scroll into view. */
+(function(){
+  var els=document.querySelectorAll('.collab-logos,.logo-grid');
+  if(!els.length)return;
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('seen')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target)}})},{threshold:.25});
+  els.forEach(function(e){io.observe(e)});
+})();

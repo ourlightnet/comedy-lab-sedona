@@ -11,6 +11,7 @@
 <meta property="og:url" content="https://comedylabsedona.com/">
 <meta name="twitter:card" content="summary_large_image">
 
+<script>document.documentElement.classList.add('js')</script>
 <script>
 /* Google Analytics 4: paste the Measurement ID (G-XXXXXXX) to switch it on. */
 (function(){var GA_ID='';if(!GA_ID)return;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',GA_ID);})();
@@ -227,6 +228,28 @@ footer{padding-block:40px;border-top:1px solid var(--line);color:var(--muted);fo
 .picks legend{font-weight:700;padding:0 6px}
 .picks .tag{background:transparent;border:1px solid var(--rock);color:var(--rock);margin-left:6px}
 a.btn{text-decoration:none;display:inline-block}
+.site-foot{background:#000;color:#C9CDCF;border-top:0;padding-block:56px 32px;font-size:.92rem}
+.site-foot a{color:#FFFFFF;text-decoration:none}
+.site-foot a:hover{color:#3FCF9E;text-decoration:underline}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr 1.4fr;gap:32px 28px}
+.foot-title{display:block;font:400 1.5rem/1.1 var(--display);color:#FFFFFF;margin-bottom:10px}
+.site-foot h4{margin:0 0 12px;font:500 .74rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#3FCF9E}
+.site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.site-foot li{overflow-wrap:anywhere}
+.foot-legal{margin-top:40px;padding-top:20px;border-top:1px solid #2A2F31;font:500 .74rem/1.4 var(--mono);letter-spacing:.06em;color:#8A9093;max-width:none}
+@media (max-width:900px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand,.foot-contact{grid-column:1/-1}}
+/* Partner logos: pop in one by one when scrolled into view, lift on hover. */
+@media (prefers-reduced-motion:no-preference){
+  .js .collab-logos>*,.js .logo-grid>*{opacity:0;transform:translateY(18px) scale(.92);transition:opacity .6s ease,transform .6s cubic-bezier(.2,1.4,.4,1),box-shadow .25s ease}
+  .js .seen>*{opacity:1;transform:none}
+  .seen>:nth-child(2){transition-delay:.08s}.seen>:nth-child(3){transition-delay:.16s}.seen>:nth-child(4){transition-delay:.24s}.seen>:nth-child(5){transition-delay:.32s}
+  .seen>*:hover{transition-delay:0s}
+  .collab-logos.seen>*{animation:bob 5s ease-in-out .9s infinite}
+  .collab-logos.seen>:nth-child(2n){animation-delay:1.9s}.collab-logos.seen>:nth-child(3n){animation-delay:2.6s}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -5px}}
+  .collab-logos>*:hover{transform:translateY(-4px) scale(1.08) rotate(-2deg)}
+  .logo-grid>*:hover{transform:translateY(-6px) rotate(-1.5deg);box-shadow:0 14px 28px rgba(0,0,0,.14)}
+}
 .donate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:28px}
 .donate{display:grid;grid-template-columns:1fr;justify-items:center;text-align:center;align-content:start;gap:18px;padding:24px;border-radius:16px;background:#0B0B0B;color:#FFFFFF;border:2px solid var(--rock)}
 .donate .qr{display:block;background:#FFFFFF;border-radius:12px;padding:8px;line-height:0}
@@ -314,7 +337,7 @@ a.btn{text-decoration:none;display:inline-block}
 </div></section>
 
 <main>
-<section><div class="wrap">
+<section id="how"><div class="wrap">
   <div class="stack"><div class="eyebrow">How it works</div><h2>One house. 48 Hours. Viral Comedy.</h2></div>
   <div class="how">
     <div><b>The crew</b><h3>12 people, one roof, 48 hours</h3><p>Comedians, editors and filmers move into one house together for <strong>48 hours</strong> and make comedy as a team.</p></div>
@@ -505,7 +528,7 @@ a.btn{text-decoration:none;display:inline-block}
       </div>
     </div>
   </div>
-  <p class="also" style="margin-top:20px">Questions about donating? Text <a href="sms:+14242809561">424-280-9561</a> or email <a href="mailto:donations@comedylabsedona.com">donations@comedylabsedona.com</a>.</p>
+  <p class="also" style="margin-top:20px">Questions about donating? Text <a href="sms:+14242809561">424-280-9561</a> or email <a href="mailto:donations@comedylabsedona.com">donations<wbr>@comedylabsedona.com</a>.</p>
 </div></section>
 
 <section id="partners"><div class="wrap">
@@ -525,7 +548,44 @@ a.btn{text-decoration:none;display:inline-block}
 </div></section>
 </main>
 
-<footer><div class="wrap">What on Earth!? · The Comedy Lab, a Dream Machine project · Year 1: Incubation · Sedona, Arizona · With <a href="https://zenka.org" target="_blank" rel="noopener">Zenka Caro</a> and Freddie Bell Jr. of Big Laughs Festival · Instagram <a href="https://instagram.com/comedylabsedona" target="_blank" rel="noopener">@comedylabsedona</a> · YouTube <a href="https://www.youtube.com/@comedylabsedona" target="_blank" rel="noopener">@comedylabsedona</a></div></footer>
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <b class="foot-title">What on Earth!?</b>
+      <p>The Comedy Lab, a Dream Machine project. Year 1: Incubation in Sedona, Arizona. With <a href="https://zenka.org" target="_blank" rel="noopener">Zenka Caro</a> and Freddie Bell Jr. of Big Laughs Festival.</p>
+    </div>
+    <nav aria-label="Explore"><h4>Explore</h4><ul>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#prompts">Monthly clips</a></li>
+      <li><a href="lines.html">Opening lines</a></li>
+      <li><a href="#comedians">Comedians</a></li>
+      <li><a href="#clip">Submit a clip</a></li>
+      <li><a href="#donate">Donate</a></li>
+    </ul></nav>
+    <nav aria-label="The house"><h4>The house</h4><ul>
+      <li><a href="#house">Twin Pines photos</a></li>
+      <li><a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">Book on Airbnb ↗</a></li>
+      <li><a href="#houses">The Renegade House</a></li>
+    </ul></nav>
+    <nav aria-label="Partners"><h4>Partners</h4><ul>
+      <li><a href="https://thedreammachine.org" target="_blank" rel="noopener">The Dream Machine ↗</a></li>
+      <li><a href="https://biglaughsfestival.com/" target="_blank" rel="noopener">Big Laughs Festival ↗</a></li>
+      <li><a href="https://www.sedonaaz.gov" target="_blank" rel="noopener">City of Sedona ↗</a></li>
+      <li><a href="https://humankind.center" target="_blank" rel="noopener">Humankind ↗</a></li>
+      <li>Sedona Quantum Consciousness</li>
+      <li><a href="https://fashionlabsedona.com" target="_blank" rel="noopener">Fashion Lab Sedona ↗</a></li>
+      <li><a href="https://lightnet.org" target="_blank" rel="noopener">LightNet ↗</a></li>
+    </ul></nav>
+    <nav class="foot-contact" aria-label="Contact and follow"><h4>Contact</h4><ul>
+      <li><a href="mailto:lab@comedylabsedona.com">lab<wbr>@comedylabsedona.com</a></li>
+      <li><a href="mailto:donations@comedylabsedona.com">donations<wbr>@comedylabsedona.com</a></li>
+      <li><a href="sms:+14242809561">Text 424-280-9561</a></li>
+      <li><a href="https://instagram.com/comedylabsedona" target="_blank" rel="noopener">Instagram ↗</a></li>
+      <li><a href="https://www.youtube.com/@comedylabsedona" target="_blank" rel="noopener">YouTube ↗</a></li>
+    </ul></nav>
+  </div>
+  <p class="foot-legal">© 2026 The Comedy Lab Sedona · A Dream Machine project</p>
+</div></footer>
 
 
 <script src="assets/js/main.js"></script>
