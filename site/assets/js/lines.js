@@ -70,6 +70,8 @@
     var sorted = rows.slice().sort(sort === 'top'
       ? function (a, b) { return b.score - a.score || (b.created_at > a.created_at ? 1 : -1); }
       : function (a, b) { return b.created_at > a.created_at ? 1 : -1; });
+    var limit = +list.dataset.limit || 0;
+    if (limit) sorted = sorted.slice(0, limit);
     if (!sorted.length) { list.innerHTML = '<li class="empty">No lines yet. Add the first one.</li>'; return; }
     list.innerHTML = sorted.map(function (l, i) {
       var m = mine[l.id] || 0;

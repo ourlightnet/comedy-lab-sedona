@@ -1,0 +1,34 @@
+/* Opening Lines widget, shared by lines.html and the home page. */
+.add{display:grid;gap:12px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.add label{font:500 .75rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.add textarea,.add input{width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.add textarea{min-height:88px;resize:vertical}
+.add textarea:focus,.add input:focus{outline:2px solid var(--rock);outline-offset:1px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:520px){.row{grid-template-columns:1fr}}
+.add-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.count{font:500 .8rem/1 var(--mono);color:var(--muted)}
+.add .btn{font:700 1rem/1 var(--body);padding:12px 20px;border-radius:999px;border:0;background:var(--rock);color:var(--bg);cursor:pointer}
+.add .btn:disabled{opacity:.5;cursor:not-allowed}
+.msg{font-size:.92rem;color:var(--rock)}
+.msg.err{color:var(--down)}
+
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line)}
+.tabs button{font:500 .85rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:12px 14px;cursor:pointer}
+.tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--rock)}
+
+.list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.line{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start;padding:16px 18px 16px 10px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.vote{display:grid;justify-items:center;gap:2px}
+.vote button{width:40px;height:34px;display:grid;place-items:center;background:none;border:0;border-radius:8px;color:var(--muted);cursor:pointer}
+.vote button:hover{background:color-mix(in srgb,var(--fg) 8%,transparent)}
+.vote button:focus-visible{outline:2px solid var(--rock)}
+.vote button svg{width:22px;height:22px}
+.vote .up[aria-pressed="true"]{color:var(--rock)}
+.vote .down[aria-pressed="true"]{color:var(--down)}
+.vote b{font:700 1rem/1 var(--mono);font-variant-numeric:tabular-nums;min-width:3ch;text-align:center}
+.line q{display:block;font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:500;line-height:1.4;quotes:"\201C" "\201D";overflow-wrap:anywhere}
+.by{margin-top:8px;font:500 .78rem/1.4 var(--mono);color:var(--muted)}
+.rank{font:500 .72rem/1 var(--mono);color:var(--brass);margin-right:8px}
+.empty,.lw-note{color:var(--muted);font-size:.95rem}
+.lw-note{padding:12px 14px;border:1px dashed var(--line);border-radius:10px}

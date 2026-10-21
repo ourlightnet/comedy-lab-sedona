@@ -249,6 +249,7 @@ a.btn{text-decoration:none;display:inline-block}
 .board.houses{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:24px}
 .slot.in .bio a,.slot.open .bio a{color:inherit}
 </style>
+<link rel="stylesheet" href="assets/css/lines.css">
 </head>
 <body>
 <header class="hero">
@@ -302,18 +303,32 @@ a.btn{text-decoration:none;display:inline-block}
 </div></section>
 
 <section id="prompts"><div class="wrap">
-  <div class="stack"><div class="eyebrow">Monthly Crowd Comedy Clips</div><h2>Winners Monthly</h2><p>Each month starts with one opening line. Here are two to get you going.</p></div>
-  <div class="prompts">
-    <div class="prompt"><q>Welcome to the simulation theory help line, where we care about your reality. How may I help you?</q><div class="timer"><span>0:00</span><i style="--w:72%"></i><span>1:00</span></div></div>
-    <div class="prompt"><q>My dead grandmother showed up in my kitchen last night and tried to explain the dimensions to me using a pizza.</q><div class="timer"><span>0:00</span><i style="--w:88%"></i><span>1:00</span></div></div>
+  <div class="stack"><div class="eyebrow">Monthly Crowd Comedy Clips</div><h2>Winners Monthly</h2><p>Each month starts with one opening line. Vote up the ones you want the comedians to play with, or add your own.</p></div>
+  <div class="lw" style="display:grid;gap:22px;margin-top:28px">
+    <div class="tabs" role="tablist" aria-label="Sort lines">
+      <button role="tab" aria-selected="true" data-sort="top">Top</button>
+      <button role="tab" aria-selected="false" data-sort="new">New</button>
+    </div>
+    <p class="lw-note" id="preview" hidden>Preview mode: votes and lines are saved only in this browser until the shared database is connected.</p>
+    <ol class="list" id="list" data-limit="5" aria-live="polite"></ol>
+    <form class="add" id="add" autocomplete="on">
+      <label for="text">Add a line</label>
+      <textarea id="text" name="text" maxlength="280" required placeholder="My dead grandmother showed up in my kitchen last night and…"></textarea>
+      <div class="row">
+        <div style="display:grid;gap:6px"><label for="name">Your name (optional)</label><input id="name" name="name" maxlength="60"></div>
+        <div style="display:grid;gap:6px"><label for="city">City (optional)</label><input id="city" name="city" maxlength="60"></div>
+      </div>
+      <div class="add-foot"><span class="count" id="count">0 / 280</span><button class="btn" type="submit">Post line</button></div>
+      <p class="msg" id="msg" role="status" hidden></p>
+    </form>
+    <p><a href="lines.html">See all lines →</a></p>
   </div>
-  <p style="margin-top:24px"><a class="btn" href="lines.html" style="text-decoration:none;display:inline-block">Vote on lines and add your own →</a></p>
 </div></section>
 
 <section id="house"><div class="wrap">
   <div class="stack">
     <div class="eyebrow">The house</div>
-    <h2>Twin Pines: every room is a set</h2>
+    <h2>Every Room is a Set</h2>
     <p>Our home base is a luxury mountain cabin in Munds Park, up in the pines north of Sedona. It sleeps 12 across 4 bedrooms and 9 beds. There's a great room with a stone fireplace, an emerald kitchen, a hot tub, a bunk room, and a covered patio. Every room is a ready-made set for a 60-second clip.</p>
   </div>
   <div class="photos">
@@ -460,5 +475,7 @@ a.btn{text-decoration:none;display:inline-block}
 
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/lines-config.js"></script>
+<script src="assets/js/lines.js"></script>
 </body>
 </html>
