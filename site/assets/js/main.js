@@ -67,3 +67,14 @@
   d.addEventListener("click",function(e){if(e.target===d)d.close()});
   d.addEventListener("keydown",function(e){if(e.key==="ArrowLeft")show(i-1);if(e.key==="ArrowRight")show(i+1)});
 })();
+
+/* Copy the Bitcoin address in the donate section. */
+(function(){
+  var b=document.getElementById('btc-copy');if(!b)return;
+  b.addEventListener('click',function(){
+    var a=document.getElementById('btc-addr').textContent.trim();
+    var done=function(){var m=document.querySelector('.btc-done');m.hidden=false;setTimeout(function(){m.hidden=true},2000)};
+    if(navigator.clipboard)navigator.clipboard.writeText(a).then(done);
+    else{var r=document.createRange();r.selectNodeContents(document.getElementById('btc-addr'));getSelection().removeAllRanges();getSelection().addRange(r);document.execCommand('copy');done()}
+  });
+})();
