@@ -227,13 +227,15 @@ footer{padding-block:40px;border-top:1px solid var(--line);color:var(--muted);fo
 .picks legend{font-weight:700;padding:0 6px}
 .picks .tag{background:transparent;border:1px solid var(--rock);color:var(--rock);margin-left:6px}
 a.btn{text-decoration:none;display:inline-block}
-.donate{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-top:28px;padding:24px;border-radius:16px;background:#0B0B0B;color:#FFFFFF;border:2px solid var(--rock)}
+.donate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:28px}
+.donate{display:grid;grid-template-columns:1fr;justify-items:center;text-align:center;align-content:start;gap:18px;padding:24px;border-radius:16px;background:#0B0B0B;color:#FFFFFF;border:2px solid var(--rock)}
 .donate .qr{display:block;background:#FFFFFF;border-radius:12px;padding:8px;line-height:0}
-.donate .qr img{width:184px;height:184px}
+.donate .qr img{width:150px;height:150px}
 .donate-info{display:grid;gap:12px;min-width:0}
 .donate-info .eyebrow{color:#3FCF9E}
-.donate code{font:500 clamp(.85rem,2.2vw,1.1rem)/1.4 var(--mono);overflow-wrap:anywhere;color:#FFFFFF}
-.donate-btns{display:flex;flex-wrap:wrap;gap:10px}
+.donate code{font:500 clamp(.8rem,1.6vw,.95rem)/1.4 var(--mono);overflow-wrap:anywhere;color:#FFFFFF}
+.donate-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.donate .tag-code{font-size:1.25rem;font-weight:700;color:#3FCF9E}
 .donate .btn{background:#3FCF9E;color:#0B0B0B;text-decoration:none;display:inline-block}
 .donate .btn.ghost{background:transparent;color:#3FCF9E;border:1.5px solid #3FCF9E}
 .donate .hint{color:#A9AEB0;font-size:.85rem}
@@ -467,16 +469,40 @@ a.btn{text-decoration:none;display:inline-block}
 </div></section>
 
 <section id="donate"><div class="wrap">
-  <div class="stack"><div class="eyebrow">Support the Lab</div><h2>Donate in Bitcoin</h2>
+  <div class="stack"><div class="eyebrow">Support the Lab</div><h2>Donate in crypto</h2>
   <p>Your gift goes to the comedians and the Lab: monthly bounty prizes for the winning clip teams, and the Renegade House. <strong>$6,000 in Bitcoin unlocks House 2.</strong></p></div>
-  <div class="donate">
-    <a class="qr" href="bitcoin:3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4" aria-label="Open in your Bitcoin wallet"><img src="assets/img/btc-qr.svg" alt="QR code for the Comedy Lab Bitcoin address" width="200" height="200"></a>
-    <div class="donate-info">
-      <span class="eyebrow">BTC deposit address</span>
-      <code id="btc-addr">3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4</code>
-      <div class="donate-btns"><button class="btn" type="button" id="btc-copy">Copy address</button><a class="btn ghost" href="bitcoin:3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4">Open in wallet</a></div>
-      <p class="hint">Send Bitcoin (BTC) only. Gifts in other coins sent to this address can't be recovered.</p>
-      <p class="btc-done" role="status" hidden>Copied!</p>
+  <div class="donate-grid">
+    <div class="donate">
+      <a class="qr" href="bitcoin:3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4" aria-label="Open in your Bitcoin wallet"><img src="assets/img/btc-qr.svg" alt="QR code for the Comedy Lab Bitcoin address" width="200" height="200"></a>
+      <div class="donate-info">
+        <span class="eyebrow">BTC deposit address</span>
+        <code>3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4</code>
+        <div class="donate-btns"><button class="btn copy" type="button" data-addr="3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4">Copy address</button><a class="btn ghost" href="bitcoin:3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4">Open in wallet</a></div>
+        <p class="hint">Send Bitcoin (BTC) only. Other coins sent here can't be recovered.</p>
+        <p class="btc-done" role="status" hidden>Copied!</p>
+      </div>
+    </div>
+    <div class="donate">
+      <a class="qr" href="ethereum:0xB891Bca38a41dCBA51d40F01527Fd446903FE132" aria-label="Open in your Ethereum wallet"><img src="assets/img/eth-qr.svg" alt="QR code for the Comedy Lab Ethereum address" width="200" height="200"></a>
+      <div class="donate-info">
+        <span class="eyebrow">ETH deposit address</span>
+        <code>0xB891Bca38a41dCBA51d40F01527Fd446903FE132</code>
+        <div class="donate-btns"><button class="btn copy" type="button" data-addr="0xB891Bca38a41dCBA51d40F01527Fd446903FE132">Copy address</button><a class="btn ghost" href="ethereum:0xB891Bca38a41dCBA51d40F01527Fd446903FE132">Open in wallet</a></div>
+        <p class="hint">Send ETH on the Ethereum network only. Other networks or coins can't be recovered.</p>
+        <p class="btc-done" role="status" hidden>Copied!</p>
+      </div>
+    </div>
+    <div class="donate">
+      <span class="qr"><img src="assets/img/xrp-qr.svg" alt="QR code for the Comedy Lab XRP address" width="200" height="200"></span>
+      <div class="donate-info">
+        <span class="eyebrow">XRP deposit address</span>
+        <code>rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh</code>
+        <span class="eyebrow">Destination tag (required)</span>
+        <code class="tag-code">3350527767</code>
+        <div class="donate-btns"><button class="btn copy" type="button" data-addr="rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh">Copy address</button><button class="btn ghost copy" type="button" data-addr="3350527767">Copy tag</button></div>
+        <p class="hint">Send XRP on the Ripple network and <strong>always include the tag</strong>, or the gift can't be credited.</p>
+        <p class="btc-done" role="status" hidden>Copied!</p>
+      </div>
     </div>
   </div>
 </div></section>
