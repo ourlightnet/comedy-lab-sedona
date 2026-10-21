@@ -223,6 +223,10 @@ footer{padding-block:40px;border-top:1px solid var(--line);color:var(--muted);fo
 .picks legend{font-weight:700;padding:0 6px}
 .picks .tag{background:transparent;border:1px solid var(--rock);color:var(--rock);margin-left:6px}
 a.btn{text-decoration:none;display:inline-block}
+.found{margin-top:28px;display:grid;gap:14px;justify-items:start;padding:clamp(22px,4vw,36px);border-radius:16px;background:#0B0B0B;color:#FFFFFF;border:2px solid var(--rock)}
+.found .eyebrow{color:#3FCF9E}
+.found-q{font-family:var(--display);font-size:clamp(1.5rem,4.2vw,2.5rem);line-height:1.1;max-width:none}
+.found .btn{text-decoration:none;display:inline-block;background:#3FCF9E;color:#0B0B0B}
 .collab-row{display:grid;gap:10px;justify-items:start}
 .collab-label{font:500 .72rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
 .collab-logos{display:flex;flex-wrap:wrap;gap:8px}
@@ -316,9 +320,10 @@ a.btn{text-decoration:none;display:inline-block}
     <button type="button" class="ph long" data-i="15"><img src="assets/img/house/walk-in-closet.jpg" alt="Walk-in closet at Twin Pines" width="991" height="652" loading="lazy"><span>Walk-in closet</span></button>
   </div>
   <p class="credit-line">Photos: <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">Twin Pines on Airbnb</a>, hosted by Amber and Amy.</p>
-  <div class="house-meta">
-    <p>Want to stay where the Lab happens? <a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">Book Twin Pines on Airbnb</a>.</p>
-    <div class="note"><b>To our hosts, Amber and Amy</b><p>Hello from the Comedy Lab! We found your Airbnb through the Comedy Lab, and we can't wait to fill it with laughter.</p></div>
+  <div class="found">
+    <span class="eyebrow">Booking Twin Pines? Tell Amber and Amy:</span>
+    <p class="found-q">&ldquo;We found your Airbnb through the Comedy Lab.&rdquo;</p>
+    <a class="btn" href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">Book Twin Pines on Airbnb ↗</a>
   </div>
   <dialog id="lightbox" aria-label="House photo">
     <img id="lb-img" alt="">
