@@ -13,6 +13,17 @@
         if (soon) soon.hidden = false;
         return;
       }
+      var sms = form.querySelector('[name="SMS"]');
+      if (sms) {
+        var digits = sms.value.replace(/\D/g, '').replace(/^1(?=\d{10}$)/, '');
+        var optin = form.querySelector('[name="SMS_OPTIN"]');
+        var keep = digits.length >= 10 && (!optin || optin.checked);
+        sms.value = digits;
+        sms.disabled = !keep;
+        form.querySelector('[name="SMS__COUNTRY_CODE"]').disabled = !keep;
+        if (optin) optin.disabled = true;
+        setTimeout(function () { sms.disabled = false; if (optin) optin.disabled = false; form.querySelector('[name="SMS__COUNTRY_CODE"]').disabled = false; }, 500);
+      }
       var name = 'signup-frame-' + i;
       if (!document.querySelector('iframe[name="' + name + '"]')) {
         var f = document.createElement('iframe');

@@ -228,6 +228,18 @@ footer{padding-block:40px;border-top:1px solid var(--line);color:var(--muted);fo
 .picks legend{font-weight:700;padding:0 6px}
 .picks .tag{background:transparent;border:1px solid var(--rock);color:var(--rock);margin-left:6px}
 a.btn{text-decoration:none;display:inline-block}
+.updates{background:#0B0B0B;color:#FFFFFF;border-top:0}
+.updates .eyebrow{color:#3FCF9E}
+.updates p{color:#C9CDCF}
+.updates-form{margin-top:24px;max-width:860px}
+.updates-row{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:12px}
+.updates label{color:#FFFFFF}
+.updates input:not([type=checkbox]){background:#161616;border-color:#2A2F31;color:#FFFFFF}
+.updates .consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.88rem;color:#A9AEB0}
+.updates .consent input{width:auto;margin-top:3px;accent-color:#3FCF9E}
+.updates .btn{background:#3FCF9E;color:#0B0B0B}
+.updates .signup__done{color:#3FCF9E}
+@media (max-width:720px){.updates-row{grid-template-columns:1fr}}
 .site-foot{background:#000;color:#C9CDCF;border-top:0;padding-block:56px 32px;font-size:.92rem}
 .site-foot a{color:#FFFFFF;text-decoration:none}
 .site-foot a:hover{color:#3FCF9E;text-decoration:underline}
@@ -465,6 +477,28 @@ a.btn{text-decoration:none;display:inline-block}
   </div>
 </div></section>
 
+<section id="updates" class="updates"><div class="wrap">
+  <div class="stack">
+    <div class="eyebrow">Stay in the loop</div>
+    <h2>Get the updates</h2>
+    <p>Monthly winners, new opening lines and news from the house, straight to your inbox. Add your phone if you want a text when a new clip drops.</p>
+  </div>
+  <form class="signup updates-form" method="POST" action="https://ebebc29d.sibforms.com/serve/MUIFAGD4Q0EuFgeiu5BGzitDXntGOHy7PNJilU8KoC3WadbklQfB9L9ypquO4AaVKCxkuJce8km9aCeuoJKdatqgSdCNFDuHfdNev3YS4pRTFTOiu8GHS8AaAQ_y37pYB6E0PmSgjT1PKMH2iywRkCBDZQ_0ZoCaH_do1rGMQ8PaM1TIdzk4EOwbqpNsQJ6wHdNtXQVLG3g2ikVt" aria-label="Sign up for Comedy Lab updates">
+    <div class="updates-row">
+      <label for="u-name">First name<input id="u-name" name="FIRSTNAME" maxlength="200" autocomplete="given-name"></label>
+      <label for="u-email">Email<input id="u-email" name="EMAIL" type="email" required maxlength="200" autocomplete="email"></label>
+      <label for="u-sms">Mobile (optional)<input id="u-sms" name="SMS" type="tel" maxlength="20" autocomplete="tel-national" placeholder="928 555 0123"></label>
+    </div>
+    <input type="hidden" name="SMS__COUNTRY_CODE" value="+1">
+    <label class="consent"><input type="checkbox" name="SMS_OPTIN" value="1"> Yes, text me Comedy Lab news. Msg and data rates may apply. Reply STOP to opt out.</label>
+    <input class="signup__trap" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="locale" value="en">
+    <button class="btn" type="submit">Sign me up</button>
+    <p class="signup__done" role="status" hidden>You're in! Watch your inbox for a welcome note.</p>
+    <p class="signup__soon" role="status" hidden>Sign-ups open soon.</p>
+  </form>
+</div></section>
+
 <section id="houses"><div class="wrap">
   <div class="stack"><div class="eyebrow">A Dream Machine project</div><h2>Year 1: Incubation</h2>
   <p style="max-width:62ch;margin:0;color:var(--muted)">This first year is the prototype: the house in Sedona plus a Renegade House funded through the Dream Budget. In Year 2, the Comedy Lab comes to your city.</p></div>
@@ -560,6 +594,7 @@ a.btn{text-decoration:none;display:inline-block}
       <li><a href="lines.html">Opening lines</a></li>
       <li><a href="#comedians">Comedians</a></li>
       <li><a href="#clip">Submit a clip</a></li>
+      <li><a href="#updates">Get updates</a></li>
       <li><a href="#donate">Donate</a></li>
     </ul></nav>
     <nav aria-label="The house"><h4>The house</h4><ul>
