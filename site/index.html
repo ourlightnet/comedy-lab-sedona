@@ -227,6 +227,12 @@ footer{padding-block:40px;border-top:1px solid var(--line);color:var(--muted);fo
 .picks legend{font-weight:700;padding:0 6px}
 .picks .tag{background:transparent;border:1px solid var(--rock);color:var(--rock);margin-left:6px}
 a.btn{text-decoration:none;display:inline-block}
+.logo-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:32px;align-items:center}
+.logo-grid>*{height:120px;display:flex;align-items:center;justify-content:center;padding:10px;background:#FFFFFF;border:1px solid var(--line);border-radius:14px}
+.logo-grid img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain}
+@media (max-width:820px){.logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:480px){.logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.logo-grid>*{height:100px}}
+.also{margin-top:16px;color:var(--muted);font-size:.95rem}
 .hero p.idc{font:500 clamp(.95rem,1.8vw,1.1rem)/1.4 var(--mono);color:#3FCF9E;margin-top:-10px}
 .slot.star{padding:0;overflow:hidden;align-content:start}
 .slot.star .portrait{width:100%;height:auto;aspect-ratio:1;object-fit:cover;display:block;align-self:start}
@@ -449,21 +455,14 @@ a.btn{text-decoration:none;display:inline-block}
 
 <section id="partners"><div class="wrap">
   <div class="stack"><div class="eyebrow">In partnership with</div><h2>Partners</h2></div>
-  <div class="partners">
-    <a href="https://www.sedonaaz.gov" target="_blank" rel="noopener">City of Sedona</a>
-    <span>Sedona Quantum Consciousness</span>
-    <span class="invited">Joda Capital <small>Invited</small></span>
-    <a class="collab" href="https://biglaughsfestival.com/" target="_blank" rel="noopener" style="border-color:var(--rock);color:var(--rock)">Big Laughs Festival</a>
-    <a href="https://humankind.center" target="_blank" rel="noopener">Humankind <small style="font:500 .68rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--rock);margin-left:6px">Results events</small></a>
-    <span>All Participants and Viewers</span>
+  <div class="logo-grid">
+    <a href="https://thedreammachine.org" target="_blank" rel="noopener"><img src="assets/img/collab/dream-machine.png" alt="The Dream Machine" width="887" height="233"></a>
+    <a href="https://biglaughsfestival.com/" target="_blank" rel="noopener"><img src="assets/img/collab/big-laughs-festival.png" alt="Big Laughs Festival" width="602" height="600"></a>
+    <a href="https://www.sedonaaz.gov" target="_blank" rel="noopener"><img src="assets/img/collab/city-of-sedona.png" alt="City of Sedona" width="227" height="189"></a>
+    <a href="https://humankind.center" target="_blank" rel="noopener"><img src="assets/img/collab/humankind.png" alt="Humankind, humankind.center" width="214" height="215"></a>
+    <span><img src="assets/img/collab/sedona-quantum-consciousness.png" alt="Sedona Quantum Consciousness" width="290" height="261"></span>
   </div>
-  <div class="collab-logos" style="margin-top:32px">
-    <a href="https://thedreammachine.org" target="_blank" rel="noopener"><img src="assets/img/collab/dream-machine.png" alt="The Dream Machine" width="887" height="233" style="height:54px"></a>
-    <a href="https://biglaughsfestival.com/" target="_blank" rel="noopener"><img src="assets/img/collab/big-laughs-festival.png" alt="Big Laughs Festival" width="602" height="600" style="height:104px"></a>
-    <a href="https://www.sedonaaz.gov" target="_blank" rel="noopener"><img src="assets/img/collab/city-of-sedona.png" alt="City of Sedona" width="227" height="189" style="height:96px"></a>
-    <a href="https://humankind.center" target="_blank" rel="noopener"><img src="assets/img/collab/humankind.png" alt="Humankind, humankind.center" width="214" height="215" style="height:100px"></a>
-    <span><img src="assets/img/collab/sedona-quantum-consciousness.png" alt="Sedona Quantum Consciousness" width="290" height="261" style="height:100px"></span>
-  </div>
+  <p class="also">Also invited: Joda Capital · And all participants and viewers</p>
   <div class="links">
     <a href="https://fashionlabsedona.com" target="_blank" rel="noopener"><b>48 Hour Fashion Lab ↗</b><span>The Comedy Lab follows the model of Fashion Lab Sedona, where designers turn thrift finds into runway looks in 48 hours. It heads into its 4th year in 2027.</span></a>
     <a href="https://thedreammachine.org" target="_blank" rel="noopener"><b>The Dream Machine ↗</b><span>The Comedy Lab is part of the Dream Machine, a platform that helps people turn dreams into community projects through collaboration and shared resources.</span></a>
