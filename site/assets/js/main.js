@@ -27,15 +27,33 @@
     });
   });
 
-  /* Clip uploads go to a hosted upload form (for example Tally).
-     Put its link in CLIP_FORM_URL to switch the button on. */
-  var CLIP_FORM_URL = '';
-  var clip = document.getElementById('clip-link');
-  if (clip && CLIP_FORM_URL) {
-    clip.href = CLIP_FORM_URL;
-    clip.hidden = false;
-    document.getElementById('clip-soon').hidden = true;
-  }
+  /* The seat and clip forms email each submission to the team through
+     FormSubmit (no account; the first submission sends an activation
+     email to the inbox below). */
+  var MAIL_TO = 'team@lightnet.org';
+  document.querySelectorAll('form.mailform').forEach(function (form) {
+    var done = form.querySelector('.signup__done');
+    var err = form.querySelector('.signup__err');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (form._honey.value) return;
+      var data = {};
+      new FormData(form).forEach(function (v, k) { if (k !== '_honey') data[k] = v; });
+      data._subject = form.dataset.subject;
+      data._template = 'table';
+      var btn = form.querySelector('button'); btn.disabled = true;
+      done.hidden = true; err.hidden = true;
+      fetch('https://formsubmit.co/ajax/' + MAIL_TO, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) { return r.json(); }).then(function (r) {
+        if (String(r.success) !== 'true') throw new Error(r.message);
+        form.reset(); done.hidden = false;
+      }).catch(function () { err.hidden = false; })
+        .then(function () { btn.disabled = false; });
+    });
+  });
 })();
 
 (function(){
