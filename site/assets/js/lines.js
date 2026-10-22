@@ -14,7 +14,9 @@
     { id: 5, text: 'My future self showed up and asked to borrow money.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:02Z', score: 0 },
     { id: 6, text: 'The aliens finally landed in Sedona and immediately asked for the Wi-Fi password.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:03Z', score: 0 },
     { id: 7, text: 'The universe answered my prayers, but it replied-all.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:04Z', score: 0 },
-    { id: 8, text: 'Today, at Time Travel Traffic School, we’ll be covering yesterday.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:05Z', score: 0 }
+    { id: 8, text: 'Today, at Time Travel Traffic School, we’ll be covering yesterday.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:05Z', score: 0 },
+    { id: 9, text: 'An alien moved into the guest room and keeps asking why we pay for water.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:01:00Z', score: 0 },
+    { id: 10, text: 'Welcome to Earth orientation. Rule one: never tell them you can read minds at the coffee shop.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:01:01Z', score: 0 }
   ];
 
   function store(k, v) {
