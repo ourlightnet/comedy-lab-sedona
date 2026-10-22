@@ -110,3 +110,20 @@
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target)}})},{threshold:.25});
   els.forEach(function(e){io.observe(e)});
 })();
+
+/* Moon parallax on Winners Monthly: the moon drifts slower than the page, the stars a little faster. */
+(function(){
+  var sec=document.querySelector('#prompts.moonlit');
+  if(!sec||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+  var ticking=false;
+  function move(){
+    ticking=false;
+    var r=sec.getBoundingClientRect();
+    if(r.bottom<0||r.top>innerHeight)return;
+    var t=r.top+r.height/2-innerHeight/2;
+    sec.style.setProperty('--my',(t*-.25).toFixed(1)+'px');
+    sec.style.setProperty('--sy',(t*.08).toFixed(1)+'px');
+  }
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(move)}},{passive:true});
+  move();
+})();
