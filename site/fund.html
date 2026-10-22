@@ -72,11 +72,41 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
 .bar{height:8px;border-radius:99px;background:var(--surface);overflow:hidden;border:1px solid var(--line)}
 .bar i{display:block;height:100%;background:var(--rock)}
 .left{font:500 .75rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.gift.done{opacity:.6}
 .small{color:var(--muted);font-size:.88rem}
 main .wrap{display:grid;gap:32px}
 main .wrap>*{min-width:0}
 h2{font-size:clamp(1.5rem,4vw,2rem)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.thanks{background:var(--rock);color:var(--bg);border-radius:14px;padding:16px 18px;font-weight:700;max-width:none}
+.donors-sec{display:grid;gap:14px}
+.donors{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.donor{background:#0B0B0B;color:#FFFFFF;border-radius:16px;padding:18px 20px;display:grid;gap:6px}
+.donor b{font:400 1.2rem/1.1 var(--display)}
+.donor .amt{font:400 1.8rem/1 var(--display);color:#3FCF9E}
+.donor p{color:#C9CDCF;font-size:.92rem}
+.gift-form{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.gift-form .dollar{font:400 1.4rem/1 var(--display)}
+.gift-form input{width:120px;font:inherit;font-size:1.1rem;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.gift .per,.gift .part{font:500 .75rem/1.3 var(--mono);letter-spacing:.04em;color:var(--muted)}
+.gift .part{color:var(--rock)}
+.gift .cov{font:700 .95rem/1 var(--body);color:var(--rock)}
+.gift.done{opacity:1;background:var(--surface);border-style:solid}
+.gift.done .amt{color:var(--muted);text-decoration:line-through}
+.step{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.88rem;color:var(--muted);font-weight:500}
+.step span{display:flex;align-items:center;gap:6px}
+.step button{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--rock);background:none;color:var(--rock);font:700 1.1rem/1 var(--body);cursor:pointer}
+.step output{min-width:2ch;text-align:center;font:700 1.05rem/1 var(--mono);color:var(--fg)}
+.cart{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:0 max(12px,env(safe-area-inset-left)) max(12px,env(safe-area-inset-bottom))}
+.cart-in{max-width:620px;margin:0 auto;background:#0B0B0B;color:#FFFFFF;border:2px solid #3FCF9E;border-radius:18px;padding:12px;display:grid;gap:10px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.cart-head{display:flex;justify-content:space-between;align-items:center;background:none;border:0;color:inherit;font:500 1rem/1 var(--body);cursor:pointer;padding:4px 6px}
+.cart-head b:last-child{font:400 1.3rem/1 var(--display);color:#3FCF9E}
+.cart-body ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;max-height:40vh;overflow:auto}
+.cart-body li{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;font-size:.92rem;padding:6px;border-top:1px solid #2A2F31}
+.cart-body li button{background:none;border:0;color:#A9AEB0;cursor:pointer;font-size:1rem}
+.cart .checkout{justify-self:stretch;background:#3FCF9E;color:#0B0B0B}
+.cart .checkout:disabled{background:#2A2F31;color:#A9AEB0;cursor:default}
+.cart-note{font-size:.82rem;color:#A9AEB0;text-align:center}
+body{padding-bottom:140px}
 .site-foot{background:#000;color:#C9CDCF;border-top:0;padding-block:56px 32px;font-size:.92rem}
 .site-foot a{color:#FFFFFF;text-decoration:none}
 .site-foot a:hover{color:#3FCF9E;text-decoration:underline}
@@ -102,14 +132,34 @@ h2{font-size:clamp(1.5rem,4vw,2rem)}
 <div class="tile-band" aria-hidden="true"></div>
 
 <main><div class="wrap">
+  <p class="thanks" id="thanks" hidden>🎉 Thank you! Your gift is in. Stripe has emailed you a receipt.</p>
+
+  <section class="donors-sec"><div class="eyebrow">Our donors</div><h2>Already covered</h2>
+    <div class="donors" id="donors"></div>
+  </section>
+
   <div class="big">
-    <div class="all"><div class="eyebrow">The whole thing</div><h3>Fund the whole Lab</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise for Year 1: the house, nine comedians, two editors, clip tags, food, crew beds, and a year of prizes and boosting.</p><span id="all-btn"></span></div>
-    <div class="any"><div class="eyebrow">Any size</div><h3>Chip in any amount</h3><p class="small">$5 or $5,000, it all goes into the Lab.</p><span id="any-btn"></span><p class="small">Prefer crypto? <a href="./#donate">Donate BTC, ETH or XRP →</a></p></div>
+    <div class="all"><div class="eyebrow">The whole thing</div><h3>Fund the whole Lab</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise for Year 1: nine comedians, two editors, and a year of prizes and boosting.</p><button class="btn" type="button" id="add-all">Add to cart</button></div>
+    <div class="any"><div class="eyebrow">Any size</div><h3>Chip in any amount</h3><p class="small">$5 or $5,000, it all goes into the Lab.</p>
+      <form id="gift-form" class="gift-form"><label for="gift-amt" class="sr">Amount in dollars</label><span class="dollar">$</span><input id="gift-amt" type="number" min="1" step="1" inputmode="numeric" placeholder="50" required><button class="btn" type="submit">Add to cart</button></form>
+      <p class="small">Prefer crypto? <a href="./#donate">Donate BTC, ETH or XRP →</a></p></div>
   </div>
+
   <section style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Pick a piece</div><h2>The registry</h2></div>
   <div class="reg" id="reg"></div></section>
   <p class="small">Payments are processed securely by Stripe for LightNet, the nonprofit behind the Comedy Lab. Questions? <a href="mailto:donations@comedylabsedona.com">donations@comedylabsedona.com</a> or text 424-280-9561. See where every dollar goes in our <a href="budget.html">Open Innovation Budget</a>.</p>
 </div></main>
+
+<aside class="cart" id="cart" hidden aria-label="Your cart">
+  <div class="cart-in">
+    <button type="button" class="cart-head" id="cart-toggle" aria-expanded="false"><span>🛒 <b id="cart-count">0</b> in your cart</span><b id="cart-total">$0</b></button>
+    <div class="cart-body" id="cart-body" hidden>
+      <ul id="cart-list"></ul>
+    </div>
+    <button type="button" class="btn checkout" id="checkout">Check out</button>
+    <p class="cart-note" id="cart-note" hidden></p>
+  </div>
+</aside>
 
 
 <footer class="site-foot"><div class="wrap">
@@ -155,21 +205,73 @@ h2{font-size:clamp(1.5rem,4vw,2rem)}
 </div></footer>
 <script src="assets/js/fund-config.js"></script>
 <script>
+/* Registry cart. Items go in a cart kept in this browser; checkout sends the
+   item ids and quantities to the Stripe checkout function, which prices them. */
 (function(){
-  var F=window.FUND;
+  var F=window.FUND, byId={};
+  F.items.forEach(function(i){byId[i.id]=i});
   function money(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2})}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-  function btn(link,label){return link?'<a class="btn" href="'+esc(link)+'" target="_blank" rel="noopener">'+label+'</a>':'<span class="btn soon" title="Payment link coming soon">Coming soon</span>'}
+  function load(){try{return JSON.parse(localStorage.getItem('cl-cart'))||{}}catch(e){return {}}}
+  function save(){try{localStorage.setItem('cl-cart',JSON.stringify(cart))}catch(e){}}
+  var cart=load();
+  function lines(){
+    var out=[];
+    if(cart.all)out.push({key:'all',title:F.all.title,qty:1,total:F.all.amount});
+    Object.keys(cart).forEach(function(k){
+      if(k==='all'||k==='gift')return; var i=byId[k]; if(!i)return;
+      out.push({key:k,title:i.title+(i.count>1?' · '+cart[k]+' '+i.label+(cart[k]>1?'s':''):''),qty:cart[k],total:cart[k]*i.unit});
+    });
+    if(cart.gift)out.push({key:'gift',title:'Gift, any amount',qty:1,total:cart.gift});
+    return out;
+  }
+  function refresh(){
+    var l=lines(),tot=l.reduce(function(a,x){return a+x.total},0);
+    var box=document.getElementById('cart');box.hidden=!l.length;
+    document.getElementById('cart-count').textContent=l.length;
+    document.getElementById('cart-total').textContent=money(Math.round(tot*100)/100);
+    document.getElementById('cart-list').innerHTML=l.map(function(x){return '<li><span>'+esc(x.title)+'</span><b>'+money(Math.round(x.total*100)/100)+'</b><button type="button" data-rm="'+x.key+'" aria-label="Remove '+esc(x.title)+'">✕</button></li>'}).join('');
+    var co=document.getElementById('checkout'),note=document.getElementById('cart-note');
+    if(F.checkoutUrl){co.disabled=false;co.textContent='Check out · '+money(Math.round(tot*100)/100);note.hidden=true}
+    else if(F.anyLink){co.disabled=false;co.textContent='Check out · '+money(Math.round(tot*100)/100);note.hidden=false;note.textContent='Stripe will ask for an amount: enter '+money(Math.round(tot*100)/100)+'.'}
+    else{co.disabled=true;co.textContent='Checkout opens soon';note.hidden=false;note.textContent='Card payments are being connected. Crypto donations work now.'}
+    save();
+  }
+  function bump(el){var c=document.querySelector('.cart-head');if(c&&c.animate)c.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:350})}
+
+  document.getElementById('donors').innerHTML=F.donors.map(function(d){return '<div class="donor"><b>'+esc(d.name)+'</b><span class="amt">'+money(d.amount)+'</span><p>'+esc(d.note)+'</p></div>'}).join('');
   document.getElementById('all-amt').textContent=money(F.all.amount);
-  document.getElementById('all-btn').innerHTML=btn(F.all.link,'Fund it all');
-  document.getElementById('any-btn').innerHTML=btn(F.any.link,'Chip in');
-  document.getElementById('reg').innerHTML=F.items.map(function(i){
-    var left=i.count-i.funded,done=left<=0,pct=Math.round(100*i.funded/i.count);
-    return '<div class="gift'+(done?' done':'')+'"><span class="ico" aria-hidden="true">'+i.icon+'</span><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p>'+
-      '<div class="amt">'+money(i.amount)+(i.count>1?'<small>each</small>':'')+'</div>'+
-      (i.count>1?'<div class="bar" aria-hidden="true"><i style="width:'+pct+'%"></i></div><span class="left">'+i.funded+' of '+i.count+' funded</span>':'')+
-      (done?'<span class="btn soon">Fully funded 🎉</span>':btn(i.link,'Fund this'))+'</div>';
+  document.getElementById('add-all').onclick=function(){cart={all:1};refresh();bump()};
+  document.getElementById('gift-form').onsubmit=function(e){e.preventDefault();var v=Math.round(+document.getElementById('gift-amt').value*100)/100;if(v>0){cart.gift=(cart.gift||0)+v;delete cart.all;refresh();bump();this.reset()}};
+
+  var covered=F.items.filter(function(i){return i.covered}),open=F.items.filter(function(i){return !i.covered});
+  document.getElementById('reg').innerHTML=open.concat(covered).map(function(i){
+    var total=i.unit*i.count;
+    if(i.covered)return '<div class="gift done"><span class="ico" aria-hidden="true">'+i.icon+'</span><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="amt">'+money(total)+'</div><span class="cov">✓ Covered by '+esc(i.covered)+'</span></div>';
+    var part=i.coveredAmount?'<span class="part">'+money(i.coveredAmount)+' already covered by City of Sedona</span>':'';
+    var step=i.count>1?'<label class="step">How many '+i.label+'s?<span><button type="button" data-d="-1" aria-label="Fewer">−</button><output>'+i.count+'</output><button type="button" data-d="1" aria-label="More">+</button></span></label>':'';
+    return '<div class="gift" data-id="'+i.id+'"><span class="ico" aria-hidden="true">'+i.icon+'</span><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="amt">'+money(total)+'<small>total</small></div>'+
+      (i.count>1?'<span class="per">'+i.count+' '+i.label+'s × '+money(i.unit)+'</span>':'')+part+step+'<button type="button" class="btn add">Add to cart</button></div>';
   }).join('');
+  document.getElementById('reg').addEventListener('click',function(e){
+    var g=e.target.closest('.gift[data-id]');if(!g)return;var i=byId[g.dataset.id],o=g.querySelector('output');
+    var d=e.target.closest('[data-d]');
+    if(d){var n=Math.min(i.count,Math.max(1,+o.textContent+ +d.dataset.d));o.textContent=n;g.querySelector('.btn.add').textContent='Add to cart · '+money(n*i.unit);return}
+    if(e.target.closest('.btn.add')){delete cart.all;cart[i.id]=o?+o.textContent:1;refresh();bump();e.target.textContent='In your cart ✓'}
+  });
+  document.getElementById('cart-list').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){delete cart[b.dataset.rm];refresh()}});
+  document.getElementById('cart-toggle').onclick=function(){var b=document.getElementById('cart-body');b.hidden=!b.hidden;this.setAttribute('aria-expanded',!b.hidden)};
+  document.getElementById('checkout').onclick=function(){
+    var btn=this;
+    if(F.checkoutUrl){
+      btn.disabled=true;btn.textContent='Opening Stripe…';
+      fetch(F.checkoutUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cart:cart})})
+        .then(function(r){return r.json()}).then(function(r){if(!r.url)throw 0;location.href=r.url})
+        .catch(function(){btn.disabled=false;refresh();var n=document.getElementById('cart-note');n.hidden=false;n.textContent='Checkout didn’t open. Please try again.'});
+    } else if(F.anyLink){window.open(F.anyLink,'_blank','noopener')}
+  };
+  if(/[?&]thanks=1/.test(location.search)){cart={};document.getElementById('thanks').hidden=false;setTimeout(function(){window.comedyLabCelebrate&&window.comedyLabCelebrate()},400)}
+  refresh();
 })();
 </script>
 <script src="assets/js/fun.js"></script>

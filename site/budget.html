@@ -123,7 +123,7 @@ main .wrap>*,#out>*{min-width:0}
     var inc=0,bud=0,spent=0,open=0,html='';
     var irows=b.income.map(function(i){if(i.amount!=null)inc+=i.amount;
       return '<tr><td>'+esc(i.item)+(i.note?'<div class="note">'+esc(i.note)+'</div>':'')+'</td><td class="num">'+(i.amount==null?'<span class="note">In-kind</span>':money(i.amount))+'</td></tr>'}).join('');
-    html+='<section class="sec"><h2>Income</h2><div class="tbl"><table class="narrow"><thead><tr><th>Source</th><th class="num">Amount</th></tr></thead><tbody>'+irows+'</tbody><tfoot><tr><td>Total income</td><td class="num">'+money(inc)+'</td></tr></tfoot></table></div></section>';
+    html+='<section class="sec"><h2>Donors</h2><div class="tbl"><table class="narrow"><thead><tr><th>Donor</th><th class="num">Amount</th></tr></thead><tbody>'+irows+'</tbody><tfoot><tr><td>Total from donors</td><td class="num">'+money(inc)+'</td></tr></tfoot></table></div></section>';
     b.sections.forEach(function(s){
       var sb=0,ss=0,rows=s.items.map(function(i){
         if(i.budget==null)open++;else sb+=i.budget; if(i.spent!=null)ss+=i.spent;
@@ -136,7 +136,7 @@ main .wrap>*,#out>*{min-width:0}
     if(b.wishlist&&b.wishlist.length)html+='<section class="sec"><h2>Wish list</h2><ul class="wish">'+b.wishlist.map(function(w){return '<li>'+esc(w)+'</li>'}).join('')+'</ul></section>';
     var gap=Math.max(0,bud-inc);
     var btc=p&&p.bitcoin&&p.bitcoin.usd;
-    var tiles='<div><span>Budgeted</span><b>'+money(Math.round(bud))+'</b></div><div><span>Income</span><b>'+money(inc)+'</b></div><div><span>Spent</span><b>'+money(spent)+'</b></div><div class="raise"><span>Still to raise</span><b>'+money(Math.round(gap))+'</b>'+(btc?'<em>≈ '+(gap/btc).toLocaleString('en-US',{maximumFractionDigits:3})+' BTC</em>':'')+'</div>';
+    var tiles='<div><span>Budgeted</span><b>'+money(Math.round(bud))+'</b></div><div><span>Donors</span><b>'+money(inc)+'</b></div><div><span>Spent</span><b>'+money(spent)+'</b></div><div class="raise"><span>Still to raise</span><b>'+money(Math.round(gap))+'</b>'+(btc?'<em>≈ '+(gap/btc).toLocaleString('en-US',{maximumFractionDigits:3})+' BTC</em>':'')+'</div>';
     var pr=p?'<div class="prices">'+COINS.map(function(c){return p[c[0]]?'<span>1 '+c[1]+' = '+usd(p[c[0]].usd)+'</span>':''}).join('')+'<span>Live prices from CoinGecko</span></div>':'<p class="small">Live crypto prices are unavailable right now, so only dollars are shown.</p>';
     out.innerHTML='<div class="stack" style="display:grid;gap:10px"><h2 style="font-size:1.6rem">'+esc(b.title)+'</h2><p class="small">'+esc(b.note||'')+' Updated '+esc(b.updated)+'.'+(open?' '+open+' item'+(open>1?'s are':' is')+' still open and not counted.':'')+'</p></div><div class="totals">'+tiles+'</div>'+pr+html+'<p class="small"><a href="fund.html">Fund a line on the registry →</a> · <a href="./#donate">Donate in crypto →</a></p>';
     out.style.display='grid';out.style.gap='28px';
