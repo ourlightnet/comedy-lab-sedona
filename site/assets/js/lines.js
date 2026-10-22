@@ -18,7 +18,12 @@
     { id: 10, text: 'Welcome to Earth orientation. Rule one: never tell them you can read minds at the coffee shop.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:01:01Z', score: 0 },
     { id: 11, text: 'So aliens finally landed and all they wanted to do was talk to the dolphins.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:02:00Z', score: 0 },
     { id: 12, text: 'I’m your guardian angel. We need to discuss your definition of ‘a sign.’', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:03:00Z', score: 0 },
-    { id: 13, text: 'You asked the universe for a partner. We sent three. You called them lessons.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:04:00Z', score: 0 }
+    { id: 13, text: 'You asked the universe for a partner. We sent three. You called them lessons.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:04:00Z', score: 0 },
+    { id: 14, text: 'We agreed you could work from home. We assumed your home was on Earth.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T01:00:00Z', score: 0 },
+    { id: 15, text: 'You can’t claim everyone on your home planet as dependents.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T01:01:00Z', score: 0 },
+    { id: 16, text: 'I understand you shed your skin, but this is a rental.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T01:02:00Z', score: 0 },
+    { id: 17, text: 'My baby’s first word was a set of coordinates. Should we write them down?', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T01:03:00Z', score: 0 },
+    { id: 18, text: 'You’ve adjusted to Sedona beautifully. Unfortunately, we need to practice blending in somewhere else.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T01:04:00Z', score: 0 }
   ];
 
   function store(k, v) {

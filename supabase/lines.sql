@@ -69,4 +69,9 @@ insert into public.lines (text, name, city) values
   ('Welcome to Earth orientation. Rule one: never tell them you can read minds at the coffee shop.', 'The Comedy Lab', 'Sedona'),
   ('So aliens finally landed and all they wanted to do was talk to the dolphins.', 'The Comedy Lab', 'Sedona'),
   ('I’m your guardian angel. We need to discuss your definition of ‘a sign.’', 'The Comedy Lab', 'Sedona'),
-  ('You asked the universe for a partner. We sent three. You called them lessons.', 'The Comedy Lab', 'Sedona');
+  ('You asked the universe for a partner. We sent three. You called them lessons.', 'The Comedy Lab', 'Sedona'),
+  ('We agreed you could work from home. We assumed your home was on Earth.', 'The Comedy Lab', 'Sedona'),
+  ('You can’t claim everyone on your home planet as dependents.', 'The Comedy Lab', 'Sedona'),
+  ('I understand you shed your skin, but this is a rental.', 'The Comedy Lab', 'Sedona'),
+  ('My baby’s first word was a set of coordinates. Should we write them down?', 'The Comedy Lab', 'Sedona'),
+  ('You’ve adjusted to Sedona beautifully. Unfortunately, we need to practice blending in somewhere else.', 'The Comedy Lab', 'Sedona');
