@@ -67,4 +67,5 @@ insert into public.lines (text, name, city) values
   ('The universe answered my prayers, but it replied-all.', 'The Comedy Lab', 'Sedona'),
   ('Today, at Time Travel Traffic School, we’ll be covering yesterday.', 'The Comedy Lab', 'Sedona'),
   ('An alien moved into the guest room and keeps asking why we pay for water.', 'The Comedy Lab', 'Sedona'),
-  ('Welcome to Earth orientation. Rule one: never tell them you can read minds at the coffee shop.', 'The Comedy Lab', 'Sedona');
+  ('Welcome to Earth orientation. Rule one: never tell them you can read minds at the coffee shop.', 'The Comedy Lab', 'Sedona'),
+  ('So aliens finally landed and all they wanted to do was talk to the dolphins.', 'The Comedy Lab', 'Sedona');
