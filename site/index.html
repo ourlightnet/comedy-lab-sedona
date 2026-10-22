@@ -372,29 +372,6 @@ a.btn{text-decoration:none;display:inline-block}
   </div>
 </div></section>
 
-<section id="prompts"><div class="wrap">
-  <div class="stack"><div class="eyebrow">Monthly Crowd Comedy Clips</div><h2>Winners Monthly</h2><p>Each month starts with one opening line. Vote up the ones you want the comedians to play with, or add your own.</p></div>
-  <div class="lw" style="display:grid;gap:22px;margin-top:28px">
-    <div class="tabs" role="tablist" aria-label="Sort lines">
-      <button role="tab" aria-selected="true" data-sort="top">Top</button>
-      <button role="tab" aria-selected="false" data-sort="new">New</button>
-    </div>
-    <p class="lw-note" id="preview" hidden>Preview mode: votes and lines are saved only in this browser until the shared database is connected.</p>
-    <ol class="list" id="list" data-limit="5" aria-live="polite"></ol>
-    <form class="add" id="add" autocomplete="on">
-      <label for="text">Add a line</label>
-      <textarea id="text" name="text" maxlength="280" required placeholder="My dead grandmother showed up in my kitchen last night and…"></textarea>
-      <div class="row">
-        <div style="display:grid;gap:6px"><label for="name">Your name (optional)</label><input id="name" name="name" maxlength="60"></div>
-        <div style="display:grid;gap:6px"><label for="city">City (optional)</label><input id="city" name="city" maxlength="60"></div>
-      </div>
-      <div class="add-foot"><span class="count" id="count">0 / 280</span><button class="btn" type="submit">Post line</button></div>
-      <p class="msg" id="msg" role="status" hidden></p>
-    </form>
-    <p><a href="lines.html">See all lines →</a></p>
-  </div>
-</div></section>
-
 <section id="house"><div class="wrap">
   <div class="stack">
     <div class="eyebrow">The house</div>
@@ -429,6 +406,29 @@ a.btn{text-decoration:none;display:inline-block}
     <img id="lb-img" alt="">
     <div class="lb-bar"><button type="button" id="lb-prev" aria-label="Previous photo">←</button><span id="lb-cap"></span><button type="button" id="lb-next" aria-label="Next photo">→</button><button type="button" id="lb-close" aria-label="Close">✕</button></div>
   </dialog>
+</div></section>
+
+<section id="prompts"><div class="wrap">
+  <div class="stack"><div class="eyebrow">Monthly Crowd Comedy Clips</div><h2>Winners Monthly</h2><p>Each month starts with one opening line. Vote up the ones you want the comedians to play with, or add your own.</p></div>
+  <div class="lw" style="display:grid;gap:22px;margin-top:28px">
+    <div class="tabs" role="tablist" aria-label="Sort lines">
+      <button role="tab" aria-selected="true" data-sort="top">Top</button>
+      <button role="tab" aria-selected="false" data-sort="new">New</button>
+    </div>
+    <p class="lw-note" id="preview" hidden>Preview mode: votes and lines are saved only in this browser until the shared database is connected.</p>
+    <ol class="list" id="list" data-limit="5" aria-live="polite"></ol>
+    <form class="add" id="add" autocomplete="on">
+      <label for="text">Add a line</label>
+      <textarea id="text" name="text" maxlength="280" required placeholder="My dead grandmother showed up in my kitchen last night and…"></textarea>
+      <div class="row">
+        <div style="display:grid;gap:6px"><label for="name">Your name (optional)</label><input id="name" name="name" maxlength="60"></div>
+        <div style="display:grid;gap:6px"><label for="city">City (optional)</label><input id="city" name="city" maxlength="60"></div>
+      </div>
+      <div class="add-foot"><span class="count" id="count">0 / 280</span><button class="btn" type="submit">Post line</button></div>
+      <p class="msg" id="msg" role="status" hidden></p>
+    </form>
+    <p><a href="lines.html">See all lines →</a></p>
+  </div>
 </div></section>
 
 <section id="comedians"><div class="wrap">
