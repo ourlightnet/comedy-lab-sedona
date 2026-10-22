@@ -232,7 +232,7 @@ a.btn{text-decoration:none;display:inline-block}
 .updates .eyebrow{color:#3FCF9E}
 .updates p{color:#C9CDCF}
 .updates-form{margin-top:24px;max-width:860px}
-.updates-row{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:12px}
+.updates-row{display:grid;grid-template-columns:1fr 1.4fr;gap:12px}
 .updates label{color:#FFFFFF}
 .updates input:not([type=checkbox]){background:#161616;border-color:#2A2F31;color:#FFFFFF}
 .updates .consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.88rem;color:#A9AEB0}
@@ -487,16 +487,13 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   <div class="stack">
     <div class="eyebrow">Stay in the loop</div>
     <h2>Get the updates</h2>
-    <p>Monthly winners, new opening lines and news from the house, straight to your inbox. Add your phone if you want a text when a new clip drops.</p>
+    <p>Monthly winners, new opening lines and news from the house, straight to your inbox.</p>
   </div>
   <form class="signup updates-form" method="POST" action="https://ebebc29d.sibforms.com/serve/MUIFAGD4Q0EuFgeiu5BGzitDXntGOHy7PNJilU8KoC3WadbklQfB9L9ypquO4AaVKCxkuJce8km9aCeuoJKdatqgSdCNFDuHfdNev3YS4pRTFTOiu8GHS8AaAQ_y37pYB6E0PmSgjT1PKMH2iywRkCBDZQ_0ZoCaH_do1rGMQ8PaM1TIdzk4EOwbqpNsQJ6wHdNtXQVLG3g2ikVt" aria-label="Sign up for Comedy Lab updates">
     <div class="updates-row">
       <label for="u-name">First name<input id="u-name" name="FIRSTNAME" maxlength="200" autocomplete="given-name"></label>
       <label for="u-email">Email<input id="u-email" name="EMAIL" type="email" required maxlength="200" autocomplete="email"></label>
-      <label for="u-sms">Mobile (optional)<input id="u-sms" name="SMS" type="tel" maxlength="20" autocomplete="tel-national" placeholder="928 555 0123"></label>
     </div>
-    <input type="hidden" name="SMS__COUNTRY_CODE" value="+1">
-    <label class="consent"><input type="checkbox" name="SMS_OPTIN" value="1"> Yes, text me Comedy Lab news. Msg and data rates may apply. Reply STOP to opt out.</label>
     <input class="signup__trap" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
     <input type="hidden" name="locale" value="en">
     <button class="btn" type="submit">Sign me up</button>
