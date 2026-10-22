@@ -68,4 +68,5 @@ insert into public.lines (text, name, city) values
   ('An alien moved into the guest room and keeps asking why we pay for water.', 'The Comedy Lab', 'Sedona'),
   ('Welcome to Earth orientation. Rule one: never tell them you can read minds at the coffee shop.', 'The Comedy Lab', 'Sedona'),
   ('So aliens finally landed and all they wanted to do was talk to the dolphins.', 'The Comedy Lab', 'Sedona'),
-  ('I’m your guardian angel. We need to discuss your definition of ‘a sign.’', 'The Comedy Lab', 'Sedona');
+  ('I’m your guardian angel. We need to discuss your definition of ‘a sign.’', 'The Comedy Lab', 'Sedona'),
+  ('You asked the universe for a partner. We sent three. You called them lessons.', 'The Comedy Lab', 'Sedona');
