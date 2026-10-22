@@ -12,7 +12,6 @@
     { id: 3, text: 'Hi, I’m your spirit guide. I’m new, so bear with me.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:00Z', score: 0 },
     { id: 4, text: 'The vortex in my backyard started charging admission.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:01Z', score: 0 },
     { id: 5, text: 'My future self showed up and asked to borrow money.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:02Z', score: 0 },
-    { id: 6, text: 'The aliens finally landed in Sedona and immediately asked for the Wi-Fi password.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:03Z', score: 0 },
     { id: 7, text: 'The universe answered my prayers, but it replied-all.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:04Z', score: 0 },
     { id: 8, text: 'Today, at Time Travel Traffic School, we’ll be covering yesterday.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:05Z', score: 0 },
     { id: 9, text: 'An alien moved into the guest room and keeps asking why we pay for water.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:01:00Z', score: 0 },
@@ -49,6 +48,9 @@
   })() : (function () {
     var lines = store('cl-lines') || SEED.slice();
     // Starting lines added after someone's first visit still show up for them.
+    // Starting lines we've taken down disappear for returning visitors too.
+    var REMOVED = [6];
+    lines = lines.filter(function (l) { return REMOVED.indexOf(l.id) < 0; });
     SEED.forEach(function (s) { if (!lines.some(function (l) { return l.id === s.id; })) lines.push(s); });
     var votes = store('cl-votes') || {};
     return {
