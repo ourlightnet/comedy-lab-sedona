@@ -69,6 +69,8 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .how h3{margin:0;font-size:1.2rem}
 .how p{color:var(--muted)}
 .how p a{color:var(--rock);font-weight:700}
+.how-logo{display:block;width:72px}
+.how-logo img{display:block;width:100%;height:auto;border-radius:8px}
 
 /* Prompts */
 .prompts{display:grid;gap:20px;margin-top:28px}
@@ -275,10 +277,12 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 .exp span{color:var(--muted)}
 .exp-next{margin-top:18px;font-weight:700}
 .exp a{color:inherit;text-decoration:underline}
-.save{margin-top:22px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:24px;border-radius:18px;background:var(--rock);color:var(--bg)}
+.save{margin-top:22px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;padding:24px;border-radius:18px;background:var(--rock);color:var(--bg)}
 .save__date{display:grid;justify-items:center;width:92px;padding:12px 0;border-radius:14px;background:var(--bg);color:var(--rock);font:700 .8rem/1.2 var(--mono);text-transform:uppercase;letter-spacing:.08em}
 .save__date b{font:400 2.6rem/1 var(--display);letter-spacing:0}
-.save__body{display:grid;gap:8px}
+.save__body{display:grid;gap:8px;grid-column:2;grid-row:1}
+.save__logo{grid-column:3;grid-row:1;display:block;width:120px;border-radius:14px;overflow:hidden;background:#fff;align-self:start}
+.save__logo img{display:block;width:100%;height:auto}
 .save .eyebrow{color:inherit;opacity:.8}
 .save h3{margin:0;font:400 1.5rem/1.15 var(--display)}
 .save p{margin:0;max-width:62ch}
@@ -286,7 +290,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 .save a:not(.btn){color:inherit;text-decoration:underline}
 .save .btn{background:var(--bg);color:var(--rock)}
 .save .btn.ghost{background:transparent;color:inherit;border-color:currentColor}
-@media(max-width:560px){.save{grid-template-columns:1fr}}
+@media(max-width:560px){.save{grid-template-columns:auto 1fr}.save__body{grid-column:1/-1;grid-row:2}.save__logo{grid-column:2;width:92px;justify-self:end}}
 .exp2{margin-top:22px;padding:22px 24px;border:3px dashed var(--rock);border-radius:18px;display:grid;gap:8px}
 .exp2 h3{margin:0;font:400 1.5rem/1.15 var(--display)}
 .exp2 p{margin:0;color:var(--muted);max-width:62ch}
@@ -426,7 +430,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   <div class="how">
     <div><b>The crew</b><h3>12 people, one roof, 48 hours</h3><p>Comedians, editors and filmers move into one house together for <strong>48 hours</strong> and make comedy as a team.</p></div>
     <div><b>The prompt</b><h3>It starts with a line</h3><p>Each round opens with an absurd, irresistible prompt. The team turns it into a 60-second-or-less micro clip for Instagram, TikTok and YouTube Shorts.</p></div>
-    <div><b>The reveal</b><h3>Watch what happened</h3><p>Then we show every clip live at <a href="https://humankind.center" target="_blank" rel="noopener">Humankind.center</a>, plus live improv. <a href="#results">Friday, March 19, 2027, 8 to 10pm →</a></p></div>
+    <div><b>The reveal</b><h3>Watch what happened</h3><a href="https://humankind.center" target="_blank" rel="noopener" class="how-logo"><img src="assets/img/collab/humankind.png" alt="Humankind, humankind.center" width="214" height="215" loading="lazy"></a><p>Then we show every clip live at <a href="https://humankind.center" target="_blank" rel="noopener">Humankind.center</a>, plus live improv. <a href="#results">Friday, March 19, 2027, 8 to 10pm →</a></p></div>
   </div>
 </div></section>
 
@@ -590,10 +594,11 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
     <li><b>✍️ Opening lines, picked by you</b><span>You vote on the lines that start the clips, and add your own.</span></li>
     <li><b>🎬 60-second clips</b><span>Short, strange and made for Instagram, TikTok and YouTube Shorts.</span></li>
     <li><b>🍿 The showing at Humankind</b><span>Every clip on the big screen, plus live improv. Friday, March 19, 2027, 8 to 10pm at <a href="https://humankind.center" target="_blank" rel="noopener">Humankind.center</a>.</span></li>
-    <li><b>📊 An open budget</b><span>Funded by the City of Sedona, LightNet and people like you, with every dollar accounted for.</span></li>
+    <li><b>📊 <a href="fund.html">An open budget</a></b><span>Funded by the City of Sedona, LightNet and people like you, with every dollar accounted for.</span></li>
   </ol>
   <div class="save" id="results">
     <div class="save__date" aria-hidden="true"><span>Mar</span><b>19</b><span>2027</span></div>
+    <a class="save__logo" href="https://humankind.center" target="_blank" rel="noopener"><img src="assets/img/collab/humankind.png" alt="Humankind, humankind.center" width="214" height="215" loading="lazy"></a>
     <div class="save__body"><div class="eyebrow">Save the date · Results night</div>
       <h3>See the clips. Watch it live.</h3>
       <p>Every clip from the house weekend on the big screen, plus live improv from the comedians. Friday, March 19, 2027, 8 to 10pm at <a href="https://humankind.center" target="_blank" rel="noopener">Humankind.center</a>.</p>
