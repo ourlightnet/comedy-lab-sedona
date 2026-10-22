@@ -138,7 +138,7 @@ main .wrap>*,#out>*{min-width:0}
     var btc=p&&p.bitcoin&&p.bitcoin.usd;
     var tiles='<div><span>Budgeted</span><b>'+money(Math.round(bud))+'</b></div><div><span>Income</span><b>'+money(inc)+'</b></div><div><span>Spent</span><b>'+money(spent)+'</b></div><div class="raise"><span>Still to raise</span><b>'+money(Math.round(gap))+'</b>'+(btc?'<em>≈ '+(gap/btc).toLocaleString('en-US',{maximumFractionDigits:3})+' BTC</em>':'')+'</div>';
     var pr=p?'<div class="prices">'+COINS.map(function(c){return p[c[0]]?'<span>1 '+c[1]+' = '+usd(p[c[0]].usd)+'</span>':''}).join('')+'<span>Live prices from CoinGecko</span></div>':'<p class="small">Live crypto prices are unavailable right now, so only dollars are shown.</p>';
-    out.innerHTML='<div class="stack" style="display:grid;gap:10px"><h2 style="font-size:1.6rem">'+esc(b.title)+'</h2><p class="small">'+esc(b.note||'')+' Updated '+esc(b.updated)+'.'+(open?' '+open+' item'+(open>1?'s are':' is')+' still open and not counted.':'')+'</p></div><div class="totals">'+tiles+'</div>'+pr+html+'<p class="small"><a href="./#donate">Donate in crypto →</a></p>';
+    out.innerHTML='<div class="stack" style="display:grid;gap:10px"><h2 style="font-size:1.6rem">'+esc(b.title)+'</h2><p class="small">'+esc(b.note||'')+' Updated '+esc(b.updated)+'.'+(open?' '+open+' item'+(open>1?'s are':' is')+' still open and not counted.':'')+'</p></div><div class="totals">'+tiles+'</div>'+pr+html+'<p class="small"><a href="fund.html">Fund a line on the registry →</a> · <a href="./#donate">Donate in crypto →</a></p>';
     out.style.display='grid';out.style.gap='28px';
   }
   async function go(pass,quiet){
