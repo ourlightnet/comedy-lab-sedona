@@ -59,4 +59,10 @@ grant execute on function public.my_votes(uuid) to anon;
 -- Starting lines
 insert into public.lines (text, name, city) values
   ('Welcome to the simulation theory help line, where we care about your reality. How may I help you?', 'The Comedy Lab', 'Sedona'),
-  ('My dead grandmother showed up in my kitchen last night and tried to explain the dimensions to me using a pizza.', 'The Comedy Lab', 'Sedona');
+  ('My dead grandmother showed up in my kitchen last night and tried to explain the dimensions to me using a pizza.', 'The Comedy Lab', 'Sedona'),
+  ('Hi, I’m your spirit guide. I’m new, so bear with me.', 'The Comedy Lab', 'Sedona'),
+  ('The vortex in my backyard started charging admission.', 'The Comedy Lab', 'Sedona'),
+  ('My future self showed up and asked to borrow money.', 'The Comedy Lab', 'Sedona'),
+  ('The aliens finally landed in Sedona and immediately asked for the Wi-Fi password.', 'The Comedy Lab', 'Sedona'),
+  ('The universe answered my prayers, but it replied-all.', 'The Comedy Lab', 'Sedona'),
+  ('Today, at Time Travel Traffic School, we’ll be covering yesterday.', 'The Comedy Lab', 'Sedona');

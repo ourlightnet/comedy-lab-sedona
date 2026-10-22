@@ -8,7 +8,13 @@
   var live = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY);
   var SEED = [
     { id: 1, text: 'Welcome to the simulation theory help line, where we care about your reality. How may I help you?', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-01T00:00:00Z', score: 0 },
-    { id: 2, text: 'My dead grandmother showed up in my kitchen last night and tried to explain the dimensions to me using a pizza.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-01T00:00:01Z', score: 0 }
+    { id: 2, text: 'My dead grandmother showed up in my kitchen last night and tried to explain the dimensions to me using a pizza.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-01T00:00:01Z', score: 0 },
+    { id: 3, text: 'Hi, I’m your spirit guide. I’m new, so bear with me.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:00Z', score: 0 },
+    { id: 4, text: 'The vortex in my backyard started charging admission.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:01Z', score: 0 },
+    { id: 5, text: 'My future self showed up and asked to borrow money.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:02Z', score: 0 },
+    { id: 6, text: 'The aliens finally landed in Sedona and immediately asked for the Wi-Fi password.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:03Z', score: 0 },
+    { id: 7, text: 'The universe answered my prayers, but it replied-all.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:04Z', score: 0 },
+    { id: 8, text: 'Today, at Time Travel Traffic School, we’ll be covering yesterday.', name: 'The Comedy Lab', city: 'Sedona', created_at: '2026-10-22T00:00:05Z', score: 0 }
   ];
 
   function store(k, v) {
@@ -39,6 +45,8 @@
     };
   })() : (function () {
     var lines = store('cl-lines') || SEED.slice();
+    // Starting lines added after someone's first visit still show up for them.
+    SEED.forEach(function (s) { if (!lines.some(function (l) { return l.id === s.id; })) lines.push(s); });
     var votes = store('cl-votes') || {};
     return {
       list: function () {
