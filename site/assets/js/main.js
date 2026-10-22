@@ -127,3 +127,9 @@
   addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(move)}},{passive:true});
   move();
 })();
+
+/* Cosmic alter egos on the comedian portraits: hover on desktop, tap on phones. */
+document.querySelectorAll('.pic[data-alter]').forEach(function(p){
+  p.addEventListener('click',function(e){if(e.target.closest('a'))return;p.classList.toggle('on')});
+  p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();p.classList.toggle('on')}});
+});
