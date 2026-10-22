@@ -265,6 +265,17 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 .fund-cta b{font:400 clamp(1.3rem,3vw,1.8rem)/1.1 var(--display)}
 .fund-cta span:last-child{color:var(--muted)}
 .fund-cta:hover b{color:var(--rock)}
+.vote-grid.solo{grid-template-columns:minmax(0,1fr);max-width:640px}
+.exp{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;counter-reset:x}
+.exp li{counter-increment:x;position:relative;display:grid;gap:6px;padding:20px 20px 20px 64px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.exp li::before{content:counter(x);position:absolute;left:18px;top:18px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--rock);color:var(--bg);font:700 .95rem/1 var(--mono)}
+.exp b{font:400 1.15rem/1.2 var(--display)}
+.exp span{color:var(--muted)}
+.exp-next{margin-top:18px;font-weight:700}
+.exp a{color:inherit;text-decoration:underline}
+.exp2{margin-top:22px;padding:22px 24px;border:3px dashed var(--rock);border-radius:18px;display:grid;gap:8px}
+.exp2 h3{margin:0;font:400 1.5rem/1.15 var(--display)}
+.exp2 p{margin:0;color:var(--muted);max-width:62ch}
 .site-foot{background:#000;color:#C9CDCF;border-top:0;padding-block:56px 32px;font-size:.92rem}
 .site-foot a{color:#FFFFFF;text-decoration:none}
 .site-foot a:hover{color:#3FCF9E;text-decoration:underline}
@@ -462,17 +473,18 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 
 <section id="vote"><div class="wrap">
   <div class="stack">
-    <div class="eyebrow">Join · Submit</div>
+    <div class="eyebrow">Join</div>
     <h2>Get in the house</h2>
-    <p>Five seats are still open. Apply for one or suggest someone, then send us your 60-second clip.</p>
+    <p>Five seats are still open. Apply for one, or suggest someone who belongs in the house.</p>
   </div>
-  <div class="vote-grid">
+  <div class="vote-grid solo">
       <div class="panel seat-cta">
         <h3>Want a seat in the house?</h3>
         <p class="hint">Comedians, editors and filmers: apply for one of the five open seats, or suggest someone who belongs in the house.</p>
         <div class="cta-row"><a class="btn" href="seat.html">Apply for a seat →</a><a class="btn ghost" href="seat.html?mode=suggest">Suggest someone</a></div>
       </div>
-      <div class="panel" id="clip">
+      <!-- Public clip submissions are paused. Remove "hidden" to bring them back. -->
+      <div class="panel" id="clip" hidden>
         <h3>Submit a clip</h3>
         <p class="hint">60 seconds or less, made from a Comedy Lab prompt. Post it anywhere (Instagram, TikTok, YouTube Shorts or a Google Drive link) and send us the link with your name and city. The team reviews every clip.</p>
         <form class="mailform" data-subject="Comedy Lab: new clip" aria-label="Submit a clip">
@@ -509,15 +521,34 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   </form>
 </div></section>
 
+<section id="experiment"><div class="wrap">
+  <div class="stack"><div class="eyebrow">A Dream Machine project · Year 1</div><h2>The Experiment</h2>
+  <p style="max-width:62ch;margin:0;color:var(--muted)">Year 1 is a prototype. Here's what we're doing right now.</p></div>
+  <ol class="exp">
+    <li><b>🏡 One house</b><span>Twin Pines in Munds Park, above Sedona, March 7 to 10, 2027.</span></li>
+    <li><b>🎤 Nine comedians, two editors</b><span>One roof, 48 hours, making comedy as a team.</span></li>
+    <li><b>✍️ Opening lines, picked by you</b><span>You vote on the lines that start the clips, and add your own.</span></li>
+    <li><b>🎬 60-second clips</b><span>Short, strange and made for Instagram, TikTok and YouTube Shorts.</span></li>
+    <li><b>🍿 A screening</b><span>After the house weekend, we show every clip at <a href="https://humankind.center" target="_blank" rel="noopener">Humankind.center</a>.</span></li>
+    <li><b>🏆 A monthly winner</b><span>You upvote your favorite clip, and the winning team takes the $300 bounty.</span></li>
+    <li><b>📊 An open budget</b><span>Funded by the City of Sedona, LightNet and people like you, with every dollar accounted for.</span></li>
+  </ol>
+  <div class="exp2"><div class="eyebrow">Experiment 2 · Coming next</div>
+    <h3>You play along</h3>
+    <p>When the clips start going viral, it's your turn. Take the month's opening line, film your own 60-second clip, and compete for the $300 bounty.</p></div>
+  <p class="exp-next">If it works, the Comedy Lab comes to more houses and more cities.</p>
+</div></section>
+<!-- Paused: the phases with public play-along. Restore by swapping this back in.
 <section id="houses"><div class="wrap">
   <div class="stack"><div class="eyebrow">A Dream Machine project</div><h2>How it grows</h2>
-  <p style="max-width:62ch;margin:0;color:var(--muted)">Phase 1 is the house in Sedona. Phase 2 opens the game to everyone: play along from wherever you are and compete for the $300 monthly prize. Then the Comedy Lab comes to your city.</p></div>
+  <p style="max-width:62ch;margin:0;color:var(- -muted)">Phase 1 is the house in Sedona. Phase 2 opens the game to everyone: play along from wherever you are and compete for the $300 monthly prize. Then the Comedy Lab comes to your city.</p></div>
   <div class="board houses">
     <div class="slot in"><span class="n">PHASE 1 · NOW</span><h3>Incubation in Sedona</h3><span class="bio">Twin Pines. Nine comedians. 48 hours.</span><span class="tag">Year 1</span></div>
     <div class="slot maybe"><span class="n">PHASE 2 · PLAY ALONG</span><h3>Your clip, our prompt</h3><span class="bio">Anyone, anywhere: take the month's opening line, film a 60-second clip and compete for the <strong>$300 bounty</strong>. Upvoted by you. <a href="#clip">Submit a clip ↓</a></span><a class="unlock" href="#donate"><span class="unlock-k">✂ Unlocks at</span><span class="unlock-v">$6K in Bitcoin</span><span class="unlock-k">Donate to unlock ↓</span></a></div>
     <div class="slot open"><span class="n">PHASE 3</span><h3>Your city</h3><span class="bio">The Comedy Lab comes to more cities and more houses.</span><span class="tag">Year 2</span></div>
   </div>
 </div></section>
+-->
 
 <section id="hosts"><div class="wrap">
   <div class="stack"><div class="eyebrow">Produced with</div><h2>Zenka and Freddie</h2></div>
@@ -537,7 +568,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 
 <section id="donate"><div class="wrap">
   <div class="stack"><div class="eyebrow">Support the Lab</div><h2>Donate in crypto</h2>
-  <p>Your gift goes to the comedians and the Lab: paying the comedians and the monthly $300 bounty for the winning clip team. <strong>$6,000 in Bitcoin unlocks Phase 2.</strong></p></div>
+  <p>Your gift goes to the comedians and the Lab: paying the comedians and the monthly $300 bounty for the winning clip team.</p></div>
   <div class="donate-grid">
     <div class="donate">
       <a class="qr" href="bitcoin:3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4" aria-label="Open in your Bitcoin wallet"><img src="assets/img/btc-qr.svg" alt="QR code for the Comedy Lab Bitcoin address" width="200" height="200"></a>
@@ -605,7 +636,6 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
       <li><a href="lines.html">Opening lines</a></li>
       <li><a href="#comedians">Comedians</a></li>
       <li><a href="seat.html">Get a seat</a></li>
-      <li><a href="#clip">Submit a clip</a></li>
       <li><a href="#updates">Get updates</a></li>
       <li><a href="#donate">Donate</a></li>
       <li><a href="fund.html">Fund the Lab</a></li>
@@ -613,7 +643,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
     <nav aria-label="The house"><h4>The house</h4><ul>
       <li><a href="#house">Twin Pines photos</a></li>
       <li><a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">Book on Airbnb ↗</a></li>
-      <li><a href="#houses">Phase 2: Play along</a></li>
+      <li><a href="#experiment">The Experiment</a></li>
     </ul></nav>
     <nav aria-label="Partners"><h4>Partners</h4><ul>
       <li><a href="https://thedreammachine.org" target="_blank" rel="noopener">The Dream Machine ↗</a></li>
