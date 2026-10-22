@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Fund the Fun · What on Earth!?</title>
+<title>Fund the Research · What on Earth!?</title>
 <meta name="description" content="Fund a comedian, a month of prizes or the whole house. A registry for the Comedy Lab.">
-<meta property="og:title" content="Fund the Fun | The Comedy Lab Sedona">
+<meta property="og:title" content="Fund the Research | The Comedy Lab Sedona">
 <meta property="og:description" content="Fund a comedian, a month of prizes or the whole house.">
 <meta property="og:image" content="https://comedylabsedona.com/assets/img/og-card.jpg">
 <meta property="og:url" content="https://comedylabsedona.com/fund.html">
@@ -79,6 +79,11 @@ h2{font-size:clamp(1.5rem,4vw,2rem)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .thanks{background:var(--rock);color:var(--bg);border-radius:14px;padding:16px 18px;font-weight:700;max-width:none}
 .donors-sec{display:grid;gap:14px}
+.beaker{position:relative;height:46px;border:3px solid var(--rock,#0A7D5E);border-radius:999px;overflow:hidden;background:#F5F5F2}
+.beaker__fill{position:absolute;inset:0 auto 0 0;width:0;background:repeating-linear-gradient(-45deg,#3FCF9E 0 14px,#14A37F 14px 28px);transition:width 1.6s cubic-bezier(.2,.9,.3,1);animation:fizz 1.2s linear infinite}
+@keyframes fizz{to{background-position:40px 0}}
+.beaker__txt{position:relative;display:flex;align-items:center;height:100%;padding:0 18px;font:700 .95rem/1 var(--mono,monospace);color:#0B0B0B}
+@media(prefers-reduced-motion:reduce){.beaker__fill{animation:none;transition:none}}
 .donors{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
 .donor{background:#0B0B0B;color:#FFFFFF;border-radius:16px;padding:18px 20px;display:grid;gap:6px}
 .donor b{font:400 1.2rem/1.1 var(--display)}
@@ -125,42 +130,43 @@ body{padding-bottom:140px}
     <svg viewBox="0 0 140 140" aria-hidden="true"><defs><linearGradient id="dm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FD6CF"/><stop offset=".55" stop-color="#14A37F"/><stop offset="1" stop-color="#0A4F3E"/></linearGradient></defs><ellipse cx="70" cy="70" rx="64" ry="20" fill="none" stroke="#FFFFFF" stroke-width="5" opacity=".55" transform="rotate(-18 70 70)"/><circle cx="70" cy="70" r="40" fill="url(#dm)"/><path d="M6 70A64 20 0 0 0 134 70" fill="none" stroke="#FFFFFF" stroke-width="5" transform="rotate(-18 70 70)"/></svg>
     ← What on Earth!?
   </a>
-  <div class="eyebrow" style="color:#FFFFFF;opacity:.8">The Comedy Lab · Registry</div>
-  <h1>Fund the Fun</h1>
-  <p>Like a wedding registry, but for Interdimensional Comedy. Fund the whole thing, or pick a piece: a comedian’s seat, a month of prizes, the pizza.</p>
+  <div class="eyebrow" style="color:#FFFFFF;opacity:.8">The Comedy Lab · Research department</div>
+  <h1>Fund the Research 🧪</h1>
+  <p>We’re running a slightly dangerous experiment: nine comedians, one house, 48 hours, no safety net. Science needs funding. Pick your part in it, or dare to fund the whole thing.</p>
 </div></header>
 <div class="tile-band" aria-hidden="true"></div>
 
 <main><div class="wrap">
-  <p class="thanks" id="thanks" hidden>🎉 Thank you! Your gift is in. Stripe has emailed you a receipt.</p>
+  <p class="thanks" id="thanks" hidden>🧪 Experiment funded! You’re officially part of the research. Stripe has emailed you a donation receipt.</p>
 
-  <section class="donors-sec"><div class="eyebrow">Our donors</div><h2>Already covered</h2>
+  <section class="donors-sec"><div class="eyebrow">Our donors</div><h2>Already in the lab</h2>
+    <div class="beaker" role="img" aria-label="Research funded so far"><div class="beaker__fill" id="beaker-fill"></div><span class="beaker__txt" id="beaker-txt"></span></div>
     <div class="donors" id="donors"></div>
   </section>
 
   <div class="big">
-    <div class="all"><div class="eyebrow">The whole thing</div><h3>Fund all the fun</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise for Year 1: nine comedians, two editors, and a year of prizes and boosting.</p><button class="btn" type="button" id="add-all">Add to cart</button></div>
-    <div class="any"><div class="eyebrow">Any size</div><h3>Chip in any amount</h3><p class="small">$5 or $5,000, it all goes into the Lab.</p>
-      <form id="gift-form" class="gift-form"><label for="gift-amt" class="sr">Amount in dollars</label><span class="dollar">$</span><input id="gift-amt" type="number" min="1" step="1" inputmode="numeric" placeholder="50" required><button class="btn" type="submit">Add to cart</button></form>
+    <div class="all"><div class="eyebrow">The big dare</div><h3>Fund the entire experiment</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise: nine comedians, two editors, and a year of prizes and launch fuel. Legends only.</p><button class="btn" type="button" id="add-all">I dare. Add it all 🔥</button></div>
+    <div class="any"><div class="eyebrow">Any size</div><h3>Drop something in the beaker</h3><p class="small">$5 or $5,000. Every drop makes the reaction bigger.</p>
+      <form id="gift-form" class="gift-form"><label for="gift-amt" class="sr">Amount in dollars</label><span class="dollar">$</span><input id="gift-amt" type="number" min="1" step="1" inputmode="numeric" placeholder="50" required><button class="btn" type="submit">Pour it in 🧪</button></form>
       <p class="small">Prefer crypto? <a href="./#donate">Donate BTC, ETH or XRP →</a></p></div>
   </div>
 
-  <section style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Pick a piece · The house weekend</div><h2>The registry</h2></div>
+  <section style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Lab supplies · The house weekend</div><h2>Pick your part in the experiment</h2></div>
   <div class="reg" id="reg"></div></section>
 
-  <section id="phase2" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Experiment 2 · Our Phase 2 request</div><h2>The contests and the virality</h2>
-    <p style="margin:0;max-width:62ch;opacity:.85">After the house weekend, the clips go out into the world. Phase 2 keeps them moving: a $300 bounty each month for the best clip, and boosting so people actually see them. When the clips take off, everyone gets to play along.</p></div>
+  <section id="phase2" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Experiment 2 · Our Phase 2 grant request</div><h2>The contests and the virality</h2>
+    <p style="margin:0;max-width:62ch;opacity:.85">Hypothesis: if we put a prize on it and push it into the feeds, the whole internet starts playing along. Help us test it with a $300 prize pot every month and the launch fuel to get the clips seen.</p></div>
   <div class="reg" id="reg2"></div></section>
   <p class="small">Payments are processed securely by Stripe for LightNet, the nonprofit behind the Comedy Lab. Questions? <a href="mailto:donations@comedylabsedona.com">donations@comedylabsedona.com</a> or text 424-280-9561. See where every dollar goes in our <a href="budget.html">Open Innovation Budget</a>.</p>
 </div></main>
 
 <aside class="cart" id="cart" hidden aria-label="Your cart">
   <div class="cart-in">
-    <button type="button" class="cart-head" id="cart-toggle" aria-expanded="false"><span>🛒 <b id="cart-count">0</b> in your cart</span><b id="cart-total">$0</b></button>
+    <button type="button" class="cart-head" id="cart-toggle" aria-expanded="false"><span>🧪 <b id="cart-count">0</b> in your beaker</span><b id="cart-total">$0</b></button>
     <div class="cart-body" id="cart-body" hidden>
       <ul id="cart-list"></ul>
     </div>
-    <button type="button" class="btn checkout" id="checkout">Check out</button>
+    <button type="button" class="btn checkout" id="checkout">Fund the research</button>
     <p class="cart-note" id="cart-note" hidden></p>
   </div>
 </aside>
@@ -180,7 +186,7 @@ body{padding-bottom:140px}
       <li><a href="seat.html">Get a seat</a></li>
       <li><a href="./#updates">Get updates</a></li>
       <li><a href="./#donate">Donate</a></li>
-      <li><a href="fund.html">Fund the Fun</a></li>
+      <li><a href="fund.html">Fund the Research</a></li>
     </ul></nav>
     <nav aria-label="The house"><h4>The house</h4><ul>
       <li><a href="./#house">Twin Pines photos</a></li>
@@ -235,8 +241,8 @@ body{padding-bottom:140px}
     document.getElementById('cart-total').textContent=money(Math.round(tot*100)/100);
     document.getElementById('cart-list').innerHTML=l.map(function(x){return '<li><span>'+esc(x.title)+'</span><b>'+money(Math.round(x.total*100)/100)+'</b><button type="button" data-rm="'+x.key+'" aria-label="Remove '+esc(x.title)+'">✕</button></li>'}).join('');
     var co=document.getElementById('checkout'),note=document.getElementById('cart-note');
-    if(F.checkoutUrl){co.disabled=false;co.textContent='Check out · '+money(Math.round(tot*100)/100);note.hidden=true}
-    else if(F.anyLink){co.disabled=false;co.textContent='Check out · '+money(Math.round(tot*100)/100);note.hidden=false;note.textContent='Stripe will ask for an amount: enter '+money(Math.round(tot*100)/100)+'.'}
+    if(F.checkoutUrl){co.disabled=false;co.textContent='Fund the research · '+money(Math.round(tot*100)/100);note.hidden=true}
+    else if(F.anyLink){co.disabled=false;co.textContent='Fund the research · '+money(Math.round(tot*100)/100);note.hidden=false;note.textContent='Stripe will ask for an amount: enter '+money(Math.round(tot*100)/100)+'.'}
     else{co.disabled=true;co.textContent='Checkout opens soon';note.hidden=false;note.textContent='Card payments are being connected. Crypto donations work now.'}
     save();
   }
@@ -244,6 +250,9 @@ body{padding-bottom:140px}
 
   document.getElementById('donors').innerHTML=F.donors.map(function(d){return '<div class="donor"><b>'+esc(d.name)+'</b><span class="amt">'+money(d.amount)+'</span><p>'+esc(d.note)+'</p></div>'}).join('');
   document.getElementById('all-amt').textContent=money(F.all.amount);
+  var raised=F.donors.reduce(function(a,d){return a+d.amount},0),goal=raised+F.all.amount,pct=Math.round(raised/goal*100);
+  document.getElementById('beaker-txt').textContent=pct+'% funded · '+money(raised)+' of '+money(Math.round(goal*100)/100);
+  setTimeout(function(){document.getElementById('beaker-fill').style.width=pct+'%'},200);
   document.getElementById('add-all').onclick=function(){cart={all:1};refresh();bump()};
   document.getElementById('gift-form').onsubmit=function(e){e.preventDefault();var v=Math.round(+document.getElementById('gift-amt').value*100)/100;if(v>0){cart.gift=(cart.gift||0)+v;delete cart.all;refresh();bump();this.reset()}};
 
@@ -253,7 +262,7 @@ body{padding-bottom:140px}
     var part=i.coveredAmount?'<span class="part">'+money(i.coveredAmount)+' already covered by City of Sedona</span>':'';
     var step=i.count>1?'<label class="step">How many '+i.label+'s?<span><button type="button" data-d="-1" aria-label="Fewer">−</button><output>'+i.count+'</output><button type="button" data-d="1" aria-label="More">+</button></span></label>':'';
     return '<div class="gift" data-id="'+i.id+'"><span class="ico" aria-hidden="true">'+i.icon+'</span><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="amt">'+money(total)+'<small>total</small></div>'+
-      (i.count>1?'<span class="per">'+i.count+' '+i.label+'s × '+money(i.unit)+'</span>':'')+part+step+'<button type="button" class="btn add">Add to cart</button></div>';
+      (i.count>1?'<span class="per">'+i.count+' '+i.label+'s × '+money(i.unit)+'</span>':'')+part+step+'<button type="button" class="btn add">Fund it 🧪</button></div>';
   }
   var p1=F.items.filter(function(i){return i.phase!==2}),p2=F.items.filter(function(i){return i.phase===2});
   document.getElementById('reg').innerHTML=p1.filter(function(i){return !i.covered}).concat(p1.filter(function(i){return i.covered})).map(card).join('');
@@ -261,8 +270,8 @@ body{padding-bottom:140px}
   function regClick(e){
     var g=e.target.closest('.gift[data-id]');if(!g)return;var i=byId[g.dataset.id],o=g.querySelector('output');
     var d=e.target.closest('[data-d]');
-    if(d){var n=Math.min(i.count,Math.max(1,+o.textContent+ +d.dataset.d));o.textContent=n;g.querySelector('.btn.add').textContent='Add to cart · '+money(n*i.unit);return}
-    if(e.target.closest('.btn.add')){delete cart.all;cart[i.id]=o?+o.textContent:1;refresh();bump();e.target.textContent='In your cart ✓'}
+    if(d){var n=Math.min(i.count,Math.max(1,+o.textContent+ +d.dataset.d));o.textContent=n;g.querySelector('.btn.add').textContent='Fund it · '+money(n*i.unit);return}
+    if(e.target.closest('.btn.add')){delete cart.all;cart[i.id]=o?+o.textContent:1;refresh();bump();e.target.textContent='In the beaker ✓'}
   }
   document.getElementById('reg').addEventListener('click',regClick);
   document.getElementById('reg2').addEventListener('click',regClick);

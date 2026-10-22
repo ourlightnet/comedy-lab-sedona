@@ -1,4 +1,4 @@
-// Stripe Checkout for the Fund the Lab cart (site/fund.html).
+// Stripe Checkout for the Fund the Research cart (site/fund.html).
 // The browser sends item ids and quantities; prices come from the table
 // below, never from the browser. Keep it in step with site/assets/js/fund-config.js.
 //
@@ -9,7 +9,7 @@
 const SITE = "https://comedylabsedona.com";
 
 const PRICES: Record<string, { name: string; cents: number; max: number }> = {
-  all: { name: "Fund the whole Comedy Lab", cents: 1247511, max: 1 },
+  all: { name: "Fund the entire Comedy Lab experiment", cents: 1247511, max: 1 },
   comedian: { name: "Comedian stipend", cents: 50000, max: 9 },
   editor: { name: "Editor stipend", cents: 50000, max: 2 },
   bounty: { name: "Monthly bounty prize", cents: 30000, max: 12 },
