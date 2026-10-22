@@ -240,6 +240,20 @@ a.btn{text-decoration:none;display:inline-block}
 .updates .btn{background:#3FCF9E;color:#0B0B0B}
 .updates .signup__done{color:#3FCF9E}
 @media (max-width:720px){.updates-row{grid-template-columns:1fr}}
+/* Fun: hover wiggles and lifts. Click effects live in fun.js. */
+@media (prefers-reduced-motion:no-preference){
+  .btn,a.btn{transition:transform .2s cubic-bezier(.3,1.6,.5,1),box-shadow .2s}
+  .btn:hover,a.btn:hover{transform:translateY(-2px) rotate(-1.5deg);box-shadow:0 8px 18px rgba(0,0,0,.18)}
+  .slot,.ph,.how>div,.links a,.donate{transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
+  .slot:hover,.how>div:hover,.links a:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,0,0,.12)}
+  .slot.star:hover .portrait{animation:jiggle .5s ease}
+  @keyframes jiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-2deg) scale(1.02)}75%{transform:rotate(2deg) scale(1.02)}}
+  .hero svg,.back svg{cursor:pointer;transition:transform .3s}
+  .hero svg:hover{animation:float 2.4s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-6deg)}}
+  .slot.maybe{animation:glow 2.8s ease-in-out infinite}
+  @keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(63,207,158,0)}50%{box-shadow:0 0 0 6px rgba(63,207,158,.25)}}
+}
 .site-foot{background:#000;color:#C9CDCF;border-top:0;padding-block:56px 32px;font-size:.92rem}
 .site-foot a{color:#FFFFFF;text-decoration:none}
 .site-foot a:hover{color:#3FCF9E;text-decoration:underline}
@@ -500,12 +514,12 @@ a.btn{text-decoration:none;display:inline-block}
 </div></section>
 
 <section id="houses"><div class="wrap">
-  <div class="stack"><div class="eyebrow">A Dream Machine project</div><h2>Year 1: Incubation</h2>
-  <p style="max-width:62ch;margin:0;color:var(--muted)">This first year is the prototype: the house in Sedona plus a Renegade House funded through the Dream Budget. In Year 2, the Comedy Lab comes to your city.</p></div>
+  <div class="stack"><div class="eyebrow">A Dream Machine project</div><h2>How it grows</h2>
+  <p style="max-width:62ch;margin:0;color:var(--muted)">Phase 1 is the house in Sedona. Phase 2 opens the game to everyone: play along from wherever you are and compete for the $300 monthly prize. Then the Comedy Lab comes to your city.</p></div>
   <div class="board houses">
-    <div class="slot in"><span class="n">YEAR 1 · NOW</span><h3>Incubation in Sedona</h3><span class="bio">Twin Pines. Nine comedians.</span><span class="tag">Year 1</span></div>
-    <div class="slot maybe"><span class="n">YEAR 1</span><h3>The Renegade House</h3><span class="bio">A wild-card house, funded through the Dream Machine's Dream Budget. <strong>$6,000 in Bitcoin unlocks House 2.</strong> <a href="#donate">Donate ↓</a></span><span class="tag">Year 1 · Unlocks at $6K BTC</span></div>
-    <div class="slot open"><span class="n">YEAR 2</span><h3>Your city</h3><span class="bio">The Comedy Lab comes to more cities and more houses.</span><span class="tag">Year 2</span></div>
+    <div class="slot in"><span class="n">PHASE 1 · NOW</span><h3>Incubation in Sedona</h3><span class="bio">Twin Pines. Nine comedians. 48 hours.</span><span class="tag">Year 1</span></div>
+    <div class="slot maybe"><span class="n">PHASE 2 · PLAY ALONG</span><h3>Your clip, our prompt</h3><span class="bio">Anyone, anywhere: take the month's opening line, film a 60-second clip and compete for the <strong>$300 bounty</strong>. Upvoted by you. <a href="#clip">Submit a clip ↓</a></span><span class="tag">Year 1 · $300 monthly</span></div>
+    <div class="slot open"><span class="n">PHASE 3</span><h3>Your city</h3><span class="bio">The Comedy Lab comes to more cities and more houses.</span><span class="tag">Year 2</span></div>
   </div>
 </div></section>
 
@@ -527,7 +541,7 @@ a.btn{text-decoration:none;display:inline-block}
 
 <section id="donate"><div class="wrap">
   <div class="stack"><div class="eyebrow">Support the Lab</div><h2>Donate in crypto</h2>
-  <p>Your gift goes to the comedians and the Lab: monthly bounty prizes for the winning clip teams, and the Renegade House. <strong>$6,000 in Bitcoin unlocks House 2.</strong></p></div>
+  <p>Your gift goes to the comedians and the Lab: paying the comedians and the monthly $300 bounty for the winning clip team.</p></div>
   <div class="donate-grid">
     <div class="donate">
       <a class="qr" href="bitcoin:3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4" aria-label="Open in your Bitcoin wallet"><img src="assets/img/btc-qr.svg" alt="QR code for the Comedy Lab Bitcoin address" width="200" height="200"></a>
@@ -600,7 +614,7 @@ a.btn{text-decoration:none;display:inline-block}
     <nav aria-label="The house"><h4>The house</h4><ul>
       <li><a href="#house">Twin Pines photos</a></li>
       <li><a href="https://www.airbnb.com/rooms/805076411524991297" target="_blank" rel="noopener">Book on Airbnb ↗</a></li>
-      <li><a href="#houses">The Renegade House</a></li>
+      <li><a href="#houses">Phase 2: Play along</a></li>
     </ul></nav>
     <nav aria-label="Partners"><h4>Partners</h4><ul>
       <li><a href="https://thedreammachine.org" target="_blank" rel="noopener">The Dream Machine ↗</a></li>
@@ -624,6 +638,7 @@ a.btn{text-decoration:none;display:inline-block}
 
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/fun.js"></script>
 <script src="assets/js/lines-config.js"></script>
 <script src="assets/js/lines.js"></script>
 </body>
