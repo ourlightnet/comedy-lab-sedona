@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Budget · The Comedy Lab</title>
+<title>Open Innovation Budget · The Comedy Lab</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Figtree:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
@@ -73,6 +73,12 @@ tfoot td{font-weight:700;background:var(--surface)}
 .tbd{color:var(--brass);font:500 .78rem/1 var(--mono)}
 .note{color:var(--muted);font-size:.85rem}
 .small{color:var(--muted);font-size:.85rem}
+table.narrow{min-width:0}
+.totals .raise{background:var(--rock)}
+.totals .raise b{color:#FFFFFF}
+.totals em{font:500 .8rem/1 var(--mono);font-style:normal;opacity:.85}
+.wish{margin:0;padding-left:1.2em;display:grid;gap:8px;max-width:65ch}
+td a{color:var(--rock)}
 main .wrap>*,#out>*{min-width:0}
 </style>
 </head>
@@ -80,8 +86,8 @@ main .wrap>*,#out>*{min-width:0}
 <header class="top"><div class="wrap">
   <a class="back" href="./">← What on Earth!?</a>
   <div class="eyebrow" style="color:#FFFFFF;opacity:.8">The Comedy Lab · Team only</div>
-  <h1>Budget</h1>
-  <p>Costs in dollars, with live crypto equivalents.</p>
+  <h1>Open Innovation Budget</h1>
+  <p>Where the money comes from and where it goes, in dollars with live crypto equivalents.</p>
 </div></header>
 <div class="tile-band" aria-hidden="true"></div>
 <main><div class="wrap">
@@ -112,19 +118,27 @@ main .wrap>*,#out>*{min-width:0}
     try{var r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple&vs_currencies=usd');return await r.json()}catch(e){return null}
   }
   function crypto2(n,p){if(!p)return '';return COINS.map(function(c){var v=p[c[0]]&&p[c[0]].usd;return v?(n/v).toLocaleString('en-US',{maximumFractionDigits:c[2]})+' '+c[1]:''}).filter(Boolean).join(' · ')}
+  function money(n){return n==null?'<span class="tbd">TBD</span>':'$'+n.toLocaleString('en-US',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2})}
   function render(b,p){
-    var grand=0,tbd=0,html='';
+    var inc=0,bud=0,spent=0,open=0,html='';
+    var irows=b.income.map(function(i){if(i.amount!=null)inc+=i.amount;
+      return '<tr><td>'+esc(i.item)+(i.note?'<div class="note">'+esc(i.note)+'</div>':'')+'</td><td class="num">'+(i.amount==null?'<span class="note">In-kind</span>':money(i.amount))+'</td></tr>'}).join('');
+    html+='<section class="sec"><h2>Income</h2><div class="tbl"><table class="narrow"><thead><tr><th>Source</th><th class="num">Amount</th></tr></thead><tbody>'+irows+'</tbody><tfoot><tr><td>Total income</td><td class="num">'+money(inc)+'</td></tr></tfoot></table></div></section>';
     b.sections.forEach(function(s){
-      var sub=0,rows=s.items.map(function(i){
-        var t=i.unit==null?null:i.qty*i.unit; if(t==null)tbd++; else sub+=t;
-        return '<tr><td>'+esc(i.item)+(i.note&&i.unit!=null?'<div class="note">'+esc(i.note)+'</div>':'')+'</td><td class="num">'+i.qty+'</td><td class="num">'+(i.unit==null?'<span class="tbd">TBD</span>':usd(i.unit))+'</td><td class="num">'+(t==null?'<span class="tbd">TBD</span>':usd(t))+'</td><td class="num small">'+(t==null?'':crypto2(t,p))+'</td></tr>';
+      var sb=0,ss=0,rows=s.items.map(function(i){
+        if(i.budget==null)open++;else sb+=i.budget; if(i.spent!=null)ss+=i.spent;
+        var name=i.link?'<a href="'+esc(i.link)+'" target="_blank" rel="noopener">'+esc(i.item)+' ↗</a>':esc(i.item);
+        return '<tr><td>'+name+(i.note?'<div class="note">'+esc(i.note)+'</div>':'')+'</td><td class="num">'+(i.budget==null?'<span class="tbd">Open</span>':money(i.budget))+'</td><td class="num">'+(i.spent==null?'<span class="note">–</span>':money(i.spent))+'</td><td class="num small">'+(i.budget?crypto2(i.budget,p):'')+'</td></tr>';
       }).join('');
-      grand+=sub;
-      html+='<section class="sec"><h2>'+esc(s.name)+'</h2><div class="tbl"><table><thead><tr><th>Item</th><th class="num">Qty</th><th class="num">Each</th><th class="num">Total</th><th class="num">In crypto</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr><td colspan="3">Subtotal</td><td class="num">'+usd(sub)+'</td><td class="num small">'+crypto2(sub,p)+'</td></tr></tfoot></table></div></section>';
+      bud+=sb;spent+=ss;
+      html+='<section class="sec"><h2>'+esc(s.name)+'</h2><div class="tbl"><table><thead><tr><th>Item</th><th class="num">Budgeted</th><th class="num">Spent</th><th class="num">In crypto</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr><td>Subtotal</td><td class="num">'+money(sb)+'</td><td class="num">'+money(ss)+'</td><td class="num small">'+crypto2(sb,p)+'</td></tr></tfoot></table></div></section>';
     });
-    var tiles='<div class="tile"><span>Total so far</span><b>'+usd(grand)+'</b></div>'+COINS.map(function(c){var v=p&&p[c[0]]&&p[c[0]].usd;return v?'<div><span>In '+c[1]+'</span><b>'+(grand/v).toLocaleString('en-US',{maximumFractionDigits:c[2]})+'</b></div>':''}).join('');
+    if(b.wishlist&&b.wishlist.length)html+='<section class="sec"><h2>Wish list</h2><ul class="wish">'+b.wishlist.map(function(w){return '<li>'+esc(w)+'</li>'}).join('')+'</ul></section>';
+    var gap=Math.max(0,bud-inc);
+    var btc=p&&p.bitcoin&&p.bitcoin.usd;
+    var tiles='<div><span>Budgeted</span><b>'+money(Math.round(bud))+'</b></div><div><span>Income</span><b>'+money(inc)+'</b></div><div><span>Spent</span><b>'+money(spent)+'</b></div><div class="raise"><span>Still to raise</span><b>'+money(Math.round(gap))+'</b>'+(btc?'<em>≈ '+(gap/btc).toLocaleString('en-US',{maximumFractionDigits:3})+' BTC</em>':'')+'</div>';
     var pr=p?'<div class="prices">'+COINS.map(function(c){return p[c[0]]?'<span>1 '+c[1]+' = '+usd(p[c[0]].usd)+'</span>':''}).join('')+'<span>Live prices from CoinGecko</span></div>':'<p class="small">Live crypto prices are unavailable right now, so only dollars are shown.</p>';
-    out.innerHTML='<div class="stack" style="display:grid;gap:10px"><h2 style="font-size:1.6rem">'+esc(b.title)+'</h2><p class="small">Updated '+esc(b.updated)+'. '+esc(b.note||'')+(tbd?' '+tbd+' line'+(tbd>1?'s':'')+' still TBD, not counted in the total.':'')+'</p></div><div class="totals">'+tiles.replace('class="tile"','')+'</div>'+pr+html;
+    out.innerHTML='<div class="stack" style="display:grid;gap:10px"><h2 style="font-size:1.6rem">'+esc(b.title)+'</h2><p class="small">'+esc(b.note||'')+' Updated '+esc(b.updated)+'.'+(open?' '+open+' item'+(open>1?'s are':' is')+' still open and not counted.':'')+'</p></div><div class="totals">'+tiles+'</div>'+pr+html+'<p class="small"><a href="./#donate">Donate in crypto →</a></p>';
     out.style.display='grid';out.style.gap='28px';
   }
   async function go(pass,quiet){
