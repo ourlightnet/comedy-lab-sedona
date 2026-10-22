@@ -1,14 +1,15 @@
-/* Fund the Lab registry.
+/* Fund the Fun registry.
    checkoutUrl: the Supabase "checkout" function URL. Once it is set, the cart
    checks out through Stripe with every item listed. Prices are re-checked on
    the server (supabase/functions/checkout), so keep both lists in step.
    anyLink: optional Stripe "customers choose what to pay" Payment Link, used
    as a fallback checkout before checkoutUrl is set.
-   covered / coveredAmount: what donors have already paid for. */
+   covered / coveredAmount: what donors have already paid for.
+   phase: 2 puts an item in the Phase 2 (play along) request. */
 window.FUND = {
   checkoutUrl: '',
   anyLink: '',
-  all: { id: 'all', title: 'Fund the whole Lab', amount: 12475.11 },
+  all: { id: 'all', title: 'Fund all the fun', amount: 12475.11 },
   donors: [
     { name: 'City of Sedona', amount: 4600, note: 'Grant. Covers the house, crew beds, food and clip tags, with $224.89 toward the editors.' },
     { name: 'LightNet', amount: 250, note: 'Costumes, plus the website, donated in kind.' }
@@ -20,7 +21,7 @@ window.FUND = {
     { id: 'tags', icon: '🎞️', title: 'Clip tags', desc: 'The branded opening and closing tags on every clip.', unit: 500, count: 1, covered: 'City of Sedona' },
     { id: 'comedian', icon: '🎤', title: 'The comedians', desc: '$500 stipends for the nine comedians in the house.', unit: 500, count: 9, label: 'seat' },
     { id: 'editor', icon: '🎬', title: 'The editors', desc: '$500 stipends for the two editors cutting the clips.', unit: 500, count: 2, label: 'editor', coveredAmount: 224.89 },
-    { id: 'bounty', icon: '🏆', title: 'The monthly bounty', desc: '$300 a month to the winning clip team.', unit: 300, count: 12, label: 'month' },
-    { id: 'boost', icon: '🚀', title: 'Social boosting', desc: '$300 a month to get the clips seen.', unit: 300, count: 12, label: 'month' }
+    { id: 'bounty', icon: '🏆', title: 'The monthly bounty', desc: '$300 a month to the winning clip team.', unit: 300, count: 12, label: 'month', phase: 2 },
+    { id: 'boost', icon: '🚀', title: 'Social boosting', desc: '$300 a month to get the clips seen.', unit: 300, count: 12, label: 'month', phase: 2 }
   ]
 };

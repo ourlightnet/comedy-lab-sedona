@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Fund the Lab · What on Earth!?</title>
+<title>Fund the Fun · What on Earth!?</title>
 <meta name="description" content="Fund a comedian, a month of prizes or the whole house. A registry for the Comedy Lab.">
-<meta property="og:title" content="Fund the Lab | The Comedy Lab Sedona">
+<meta property="og:title" content="Fund the Fun | The Comedy Lab Sedona">
 <meta property="og:description" content="Fund a comedian, a month of prizes or the whole house.">
 <meta property="og:image" content="https://comedylabsedona.com/assets/img/og-card.jpg">
 <meta property="og:url" content="https://comedylabsedona.com/fund.html">
@@ -126,7 +126,7 @@ body{padding-bottom:140px}
     ← What on Earth!?
   </a>
   <div class="eyebrow" style="color:#FFFFFF;opacity:.8">The Comedy Lab · Registry</div>
-  <h1>Fund the Lab</h1>
+  <h1>Fund the Fun</h1>
   <p>Like a wedding registry, but for Interdimensional Comedy. Fund the whole thing, or pick a piece: a comedian’s seat, a month of prizes, the pizza.</p>
 </div></header>
 <div class="tile-band" aria-hidden="true"></div>
@@ -139,14 +139,18 @@ body{padding-bottom:140px}
   </section>
 
   <div class="big">
-    <div class="all"><div class="eyebrow">The whole thing</div><h3>Fund the whole Lab</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise for Year 1: nine comedians, two editors, and a year of prizes and boosting.</p><button class="btn" type="button" id="add-all">Add to cart</button></div>
+    <div class="all"><div class="eyebrow">The whole thing</div><h3>Fund all the fun</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise for Year 1: nine comedians, two editors, and a year of prizes and boosting.</p><button class="btn" type="button" id="add-all">Add to cart</button></div>
     <div class="any"><div class="eyebrow">Any size</div><h3>Chip in any amount</h3><p class="small">$5 or $5,000, it all goes into the Lab.</p>
       <form id="gift-form" class="gift-form"><label for="gift-amt" class="sr">Amount in dollars</label><span class="dollar">$</span><input id="gift-amt" type="number" min="1" step="1" inputmode="numeric" placeholder="50" required><button class="btn" type="submit">Add to cart</button></form>
       <p class="small">Prefer crypto? <a href="./#donate">Donate BTC, ETH or XRP →</a></p></div>
   </div>
 
-  <section style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Pick a piece</div><h2>The registry</h2></div>
+  <section style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Pick a piece · The house weekend</div><h2>The registry</h2></div>
   <div class="reg" id="reg"></div></section>
+
+  <section id="phase2" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Experiment 2 · Our Phase 2 request</div><h2>The contests and the virality</h2>
+    <p style="margin:0;max-width:62ch;opacity:.85">After the house weekend, the clips go out into the world. Phase 2 keeps them moving: a $300 bounty each month for the best clip, and boosting so people actually see them. When the clips take off, everyone gets to play along.</p></div>
+  <div class="reg" id="reg2"></div></section>
   <p class="small">Payments are processed securely by Stripe for LightNet, the nonprofit behind the Comedy Lab. Questions? <a href="mailto:donations@comedylabsedona.com">donations@comedylabsedona.com</a> or text 424-280-9561. See where every dollar goes in our <a href="budget.html">Open Innovation Budget</a>.</p>
 </div></main>
 
@@ -176,7 +180,7 @@ body{padding-bottom:140px}
       <li><a href="seat.html">Get a seat</a></li>
       <li><a href="./#updates">Get updates</a></li>
       <li><a href="./#donate">Donate</a></li>
-      <li><a href="fund.html">Fund the Lab</a></li>
+      <li><a href="fund.html">Fund the Fun</a></li>
     </ul></nav>
     <nav aria-label="The house"><h4>The house</h4><ul>
       <li><a href="./#house">Twin Pines photos</a></li>
@@ -243,21 +247,25 @@ body{padding-bottom:140px}
   document.getElementById('add-all').onclick=function(){cart={all:1};refresh();bump()};
   document.getElementById('gift-form').onsubmit=function(e){e.preventDefault();var v=Math.round(+document.getElementById('gift-amt').value*100)/100;if(v>0){cart.gift=(cart.gift||0)+v;delete cart.all;refresh();bump();this.reset()}};
 
-  var covered=F.items.filter(function(i){return i.covered}),open=F.items.filter(function(i){return !i.covered});
-  document.getElementById('reg').innerHTML=open.concat(covered).map(function(i){
+  function card(i){
     var total=i.unit*i.count;
     if(i.covered)return '<div class="gift done"><span class="ico" aria-hidden="true">'+i.icon+'</span><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="amt">'+money(total)+'</div><span class="cov">✓ Covered by '+esc(i.covered)+'</span></div>';
     var part=i.coveredAmount?'<span class="part">'+money(i.coveredAmount)+' already covered by City of Sedona</span>':'';
     var step=i.count>1?'<label class="step">How many '+i.label+'s?<span><button type="button" data-d="-1" aria-label="Fewer">−</button><output>'+i.count+'</output><button type="button" data-d="1" aria-label="More">+</button></span></label>':'';
     return '<div class="gift" data-id="'+i.id+'"><span class="ico" aria-hidden="true">'+i.icon+'</span><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="amt">'+money(total)+'<small>total</small></div>'+
       (i.count>1?'<span class="per">'+i.count+' '+i.label+'s × '+money(i.unit)+'</span>':'')+part+step+'<button type="button" class="btn add">Add to cart</button></div>';
-  }).join('');
-  document.getElementById('reg').addEventListener('click',function(e){
+  }
+  var p1=F.items.filter(function(i){return i.phase!==2}),p2=F.items.filter(function(i){return i.phase===2});
+  document.getElementById('reg').innerHTML=p1.filter(function(i){return !i.covered}).concat(p1.filter(function(i){return i.covered})).map(card).join('');
+  document.getElementById('reg2').innerHTML=p2.map(card).join('');
+  function regClick(e){
     var g=e.target.closest('.gift[data-id]');if(!g)return;var i=byId[g.dataset.id],o=g.querySelector('output');
     var d=e.target.closest('[data-d]');
     if(d){var n=Math.min(i.count,Math.max(1,+o.textContent+ +d.dataset.d));o.textContent=n;g.querySelector('.btn.add').textContent='Add to cart · '+money(n*i.unit);return}
     if(e.target.closest('.btn.add')){delete cart.all;cart[i.id]=o?+o.textContent:1;refresh();bump();e.target.textContent='In your cart ✓'}
-  });
+  }
+  document.getElementById('reg').addEventListener('click',regClick);
+  document.getElementById('reg2').addEventListener('click',regClick);
   document.getElementById('cart-list').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){delete cart[b.dataset.rm];refresh()}});
   document.getElementById('cart-toggle').onclick=function(){var b=document.getElementById('cart-body');b.hidden=!b.hidden;this.setAttribute('aria-expanded',!b.hidden)};
   document.getElementById('checkout').onclick=function(){

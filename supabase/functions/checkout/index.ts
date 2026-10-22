@@ -63,6 +63,10 @@ Deno.serve(async (req) => {
 
   form.append("mode", "payment");
   form.append("submit_type", "donate");
+  // Shows on the donor's Stripe receipt, which Stripe emails when
+  // Settings > Customer emails > "Successful payments" is on.
+  form.append("payment_intent_data[description]", "Donation to LightNet for the Comedy Lab. No goods or services were provided in exchange.");
+  form.append("customer_creation", "always");
   form.append("success_url", `${SITE}/fund.html?thanks=1`);
   form.append("cancel_url", `${SITE}/fund.html`);
 

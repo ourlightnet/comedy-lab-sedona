@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Comedy Lab Sedona//Results Night//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:results-night-2027@comedylabsedona.com
+DTSTAMP:20261022T000000Z
+DTSTART:20270320T030000Z
+DTEND:20270320T050000Z
+SUMMARY:Comedy Lab Results Night
+DESCRIPTION:See every clip from the Comedy Lab house weekend\, plus live improv. https://comedylabsedona.com
+LOCATION:Humankind.center
+URL:https://comedylabsedona.com/#results
+END:VEVENT
+END:VCALENDAR
