@@ -48,6 +48,11 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (form._honey.value) return;
+      // Accept links typed without https://, like zenka.org
+      form.querySelectorAll('[data-url]').forEach(function (i) {
+        var v = i.value.trim();
+        if (v && !/^[a-z]+:\/\//i.test(v) && !/^@/.test(v)) i.value = 'https://' + v;
+      });
       var data = {};
       new FormData(form).forEach(function (v, k) { if (k !== '_honey') data[k] = v; });
       data._subject = form.dataset.subject;
