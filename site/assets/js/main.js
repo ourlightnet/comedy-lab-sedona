@@ -64,9 +64,16 @@
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data)
       }).then(function (r) { return r.json(); }).then(function (r) {
-        if (String(r.success) !== 'true') throw new Error(r.message);
+        if (String(r.success) !== 'true') throw new Error(r.message || 'not sent');
         form.reset(); done.hidden = false;
-      }).catch(function () { err.hidden = false; })
+      }).catch(function (x) {
+        // FormSubmit answers the very first submission with an activation
+        // notice; say so plainly instead of a generic failure.
+        var msg = String(x && x.message || '');
+        if (/activat/i.test(msg)) err.textContent = 'Almost there: this form is waiting to be activated by the Comedy Lab team. Please try again soon.';
+        if (window.console) console.warn('Form not sent:', msg);
+        err.hidden = false;
+      })
         .then(function () { btn.disabled = false; });
     });
   });
