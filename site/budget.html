@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Budget · The Comedy Lab</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Figtree:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+body{margin:0}[hidden]{display:none!important}
+:root{
+  --bg:#FFFFFF; --surface:#F5F5F2; --fg:#0B0B0B; --muted:#555B5E;
+  --rock:#0A7D5E; --brass:#A9874E; --line:#E2E2DE; --down:#8A3B3B;
+  --display:"Dela Gothic One","Arial Black",Impact,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B0B0B; --surface:#161616; --fg:#F4F4F2; --muted:#A9AEB0;
+  --rock:#3FCF9E; --brass:#C9A66B; --line:#2A2F31; --down:#E08A8A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B0B0B; --surface:#161616; --fg:#F4F4F2; --muted:#A9AEB0;
+  --rock:#3FCF9E; --brass:#C9A66B; --line:#2A2F31; --down:#E08A8A; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--body)}
+a{color:var(--rock);text-underline-offset:3px}
+.wrap{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--display);font-weight:400;line-height:1.05;text-wrap:balance;margin:0}
+p{margin:0;max-width:65ch}
+.eyebrow{font:500 .78rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+
+.top{background:#000;color:#FFFFFF}
+.top .wrap{display:grid;gap:18px;padding-block:28px 40px}
+.back{display:inline-flex;align-items:center;gap:10px;color:#FFFFFF;text-decoration:none;font:500 .8rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.back svg{width:40px;height:40px}
+.top h1{font-size:clamp(2.2rem,7vw,3.6rem)}
+.top p{opacity:.85}
+.tile-band{height:22px;background:repeating-linear-gradient(45deg,var(--fg) 0 2px,transparent 2px 13px),repeating-linear-gradient(-45deg,var(--fg) 0 2px,transparent 2px 13px),var(--bg);border-block:3px solid var(--fg)}
+
+main .wrap{display:grid;gap:28px;padding-block:36px 64px}
+footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.site-foot{background:#000;color:#C9CDCF;border-top:0;padding-block:56px 32px;font-size:.92rem}
+.site-foot a{color:#FFFFFF;text-decoration:none}
+.site-foot a:hover{color:#3FCF9E;text-decoration:underline}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr 1.4fr;gap:32px 28px}
+.foot-title{display:block;font:400 1.5rem/1.1 var(--display);color:#FFFFFF;margin-bottom:10px}
+.site-foot h4{margin:0 0 12px;font:500 .74rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#3FCF9E}
+.site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.site-foot li{overflow-wrap:anywhere}
+.foot-legal{margin-top:40px;padding-top:20px;border-top:1px solid #2A2F31;font:500 .74rem/1.4 var(--mono);letter-spacing:.06em;color:#8A9093;max-width:none}
+@media (max-width:900px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand,.foot-contact{grid-column:1/-1}}
+
+.lock{max-width:440px;display:grid;gap:12px;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.lock label{font-weight:700}
+.lock input{font:inherit;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.btn{justify-self:start;font:700 1rem/1 var(--body);padding:12px 20px;border-radius:999px;border:0;background:var(--rock);color:var(--bg);cursor:pointer}
+.err{color:var(--down);font-weight:500}
+.prices{display:flex;flex-wrap:wrap;gap:8px;font:500 .8rem/1 var(--mono);color:var(--muted)}
+.prices span{border:1px solid var(--line);border-radius:999px;padding:7px 11px}
+.totals{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.totals div{background:#0B0B0B;color:#FFFFFF;border-radius:14px;padding:16px;display:grid;gap:6px}
+.totals b{font:400 1.5rem/1.1 var(--display);color:#3FCF9E}
+.totals span{font:500 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.sec h2{font-size:1.25rem;margin-bottom:10px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.95rem;min-width:560px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 .72rem/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+tfoot td{font-weight:700;background:var(--surface)}
+.tbd{color:var(--brass);font:500 .78rem/1 var(--mono)}
+.note{color:var(--muted);font-size:.85rem}
+.small{color:var(--muted);font-size:.85rem}
+main .wrap>*,#out>*{min-width:0}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="back" href="./">← What on Earth!?</a>
+  <div class="eyebrow" style="color:#FFFFFF;opacity:.8">The Comedy Lab · Team only</div>
+  <h1>Budget</h1>
+  <p>Costs in dollars, with live crypto equivalents.</p>
+</div></header>
+<div class="tile-band" aria-hidden="true"></div>
+<main><div class="wrap">
+  <form class="lock" id="lock">
+    <label for="pw">Team password</label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <button class="btn" type="submit">Open budget</button>
+    <p class="err" id="err" role="status" hidden>That password didn't work. Try again.</p>
+  </form>
+  <div id="out" hidden></div>
+</div></main>
+<footer><div class="wrap">The Comedy Lab, a Dream Machine project · <a href="./">Back to the main page</a></div></footer>
+<script>
+(function(){
+  var COINS=[['bitcoin','BTC',6],['ethereum','ETH',4],['ripple','XRP',0]];
+  var form=document.getElementById('lock'),pw=document.getElementById('pw'),err=document.getElementById('err'),out=document.getElementById('out');
+  function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
+  function usd(n){return '$'+n.toLocaleString('en-US',{maximumFractionDigits:0})}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  async function open(pass){
+    var enc=await (await fetch('assets/budget.enc.json',{cache:'no-store'})).json();
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveKey']);
+    var key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(enc.salt),iterations:enc.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    var plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(enc.iv)},key,b64(enc.data));
+    return JSON.parse(new TextDecoder().decode(plain));
+  }
+  async function prices(){
+    try{var r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple&vs_currencies=usd');return await r.json()}catch(e){return null}
+  }
+  function crypto2(n,p){if(!p)return '';return COINS.map(function(c){var v=p[c[0]]&&p[c[0]].usd;return v?(n/v).toLocaleString('en-US',{maximumFractionDigits:c[2]})+' '+c[1]:''}).filter(Boolean).join(' · ')}
+  function render(b,p){
+    var grand=0,tbd=0,html='';
+    b.sections.forEach(function(s){
+      var sub=0,rows=s.items.map(function(i){
+        var t=i.unit==null?null:i.qty*i.unit; if(t==null)tbd++; else sub+=t;
+        return '<tr><td>'+esc(i.item)+(i.note&&i.unit!=null?'<div class="note">'+esc(i.note)+'</div>':'')+'</td><td class="num">'+i.qty+'</td><td class="num">'+(i.unit==null?'<span class="tbd">TBD</span>':usd(i.unit))+'</td><td class="num">'+(t==null?'<span class="tbd">TBD</span>':usd(t))+'</td><td class="num small">'+(t==null?'':crypto2(t,p))+'</td></tr>';
+      }).join('');
+      grand+=sub;
+      html+='<section class="sec"><h2>'+esc(s.name)+'</h2><div class="tbl"><table><thead><tr><th>Item</th><th class="num">Qty</th><th class="num">Each</th><th class="num">Total</th><th class="num">In crypto</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr><td colspan="3">Subtotal</td><td class="num">'+usd(sub)+'</td><td class="num small">'+crypto2(sub,p)+'</td></tr></tfoot></table></div></section>';
+    });
+    var tiles='<div class="tile"><span>Total so far</span><b>'+usd(grand)+'</b></div>'+COINS.map(function(c){var v=p&&p[c[0]]&&p[c[0]].usd;return v?'<div><span>In '+c[1]+'</span><b>'+(grand/v).toLocaleString('en-US',{maximumFractionDigits:c[2]})+'</b></div>':''}).join('');
+    var pr=p?'<div class="prices">'+COINS.map(function(c){return p[c[0]]?'<span>1 '+c[1]+' = '+usd(p[c[0]].usd)+'</span>':''}).join('')+'<span>Live prices from CoinGecko</span></div>':'<p class="small">Live crypto prices are unavailable right now, so only dollars are shown.</p>';
+    out.innerHTML='<div class="stack" style="display:grid;gap:10px"><h2 style="font-size:1.6rem">'+esc(b.title)+'</h2><p class="small">Updated '+esc(b.updated)+'. '+esc(b.note||'')+(tbd?' '+tbd+' line'+(tbd>1?'s':'')+' still TBD, not counted in the total.':'')+'</p></div><div class="totals">'+tiles.replace('class="tile"','')+'</div>'+pr+html;
+    out.style.display='grid';out.style.gap='28px';
+  }
+  async function go(pass,quiet){
+    try{
+      var b=await open(pass);
+      try{sessionStorage.setItem('clb',pass)}catch(e){}
+      form.hidden=true;out.hidden=false;render(b,null);
+      var p=await prices();if(p)render(b,p);
+      if(!quiet&&window.comedyLabCelebrate)window.comedyLabCelebrate();
+    }catch(e){if(!quiet){err.hidden=false;pw.select()}}
+  }
+  form.addEventListener('submit',function(e){e.preventDefault();err.hidden=true;go(pw.value)});
+  try{var s=sessionStorage.getItem('clb');if(s)go(s,true)}catch(e){}
+})();
+</script>
+<script src="assets/js/fun.js"></script>
+</body>
+</html>
