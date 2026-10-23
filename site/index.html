@@ -69,6 +69,11 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .how b{font:500 .85rem/1 var(--mono);color:var(--rock)}
 .how h3{margin:0;font-size:1.2rem}
 .how p{color:var(--muted)}
+.how>div{position:relative;padding-top:18px}
+.how>div::before{content:"";position:absolute;left:0;top:0;height:3px;width:32px;border-radius:3px;background:var(--rock);transition:width .45s cubic-bezier(.3,1.3,.5,1)}
+.how>div:hover::before{width:100%}
+.how h3{transition:color .25s}
+.how>div:hover h3{color:var(--rock)}
 .how p a{color:var(--rock);font-weight:700}
 .how-logo{display:block;width:72px}
 .how-logo img{display:block;width:100%;height:auto;border-radius:8px}
@@ -249,8 +254,8 @@ a.btn{text-decoration:none;display:inline-block}
 @media (prefers-reduced-motion:no-preference){
   .btn,a.btn{transition:transform .2s cubic-bezier(.3,1.6,.5,1),box-shadow .2s}
   .btn:hover,a.btn:hover{transform:translateY(-2px) rotate(-1.5deg);box-shadow:0 8px 18px rgba(0,0,0,.18)}
-  .slot,.ph,.how>div,.links a,.donate{transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
-  .slot:hover,.how>div:hover,.links a:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,0,0,.12)}
+  .slot,.ph,.links a,.donate{transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
+  .slot:hover,.links a:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,0,0,.12)}
   .slot.star:hover .portrait{animation:jiggle .5s ease}
   @keyframes jiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-2deg) scale(1.02)}75%{transform:rotate(2deg) scale(1.02)}}
   .hero svg,.back svg{cursor:pointer;transition:transform .3s}

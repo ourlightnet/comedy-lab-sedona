@@ -100,7 +100,7 @@
     var btn = t.closest('.btn, button, .copy, .tabs button');
     if (btn) { squish(btn); burst(x, y, 22, { speed: 6 }); return; }
 
-    var tile = t.closest('.logo-grid > *, .collab-logos > *, .slot, .ph, .how > div, .links a, .donate');
+    var tile = t.closest('.logo-grid > *, .collab-logos > *, .slot, .ph, .links a, .donate');
     if (tile) { squish(tile); burst(x, y, 10, { speed: 4 }); }
   }
 
