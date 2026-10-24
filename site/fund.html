@@ -266,7 +266,7 @@ body{padding-bottom:140px}
       (i.count>1?'<span class="per">'+i.count+' '+i.label+'s × '+money(i.unit)+'</span>':'')+part+step+'<button type="button" class="btn add">Fund it 🧪</button></div>';
   }
   var p1=F.items.filter(function(i){return i.phase!==2}),p2=F.items.filter(function(i){return i.phase===2});
-  document.getElementById('reg').innerHTML=p1.filter(function(i){return !i.covered}).concat(p1.filter(function(i){return i.covered})).map(card).join('');
+  document.getElementById('reg').innerHTML=p1.filter(function(i){return i.covered}).concat(p1.filter(function(i){return !i.covered})).map(card).join('');
   document.getElementById('reg2').innerHTML=p2.map(card).join('');
   function regClick(e){
     var g=e.target.closest('.gift[data-id]');if(!g)return;var i=byId[g.dataset.id],o=g.querySelector('output');
