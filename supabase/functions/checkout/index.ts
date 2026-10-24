@@ -9,10 +9,10 @@
 const SITE = "https://comedylabsedona.com";
 
 const PRICES: Record<string, { name: string; cents: number; max: number }> = {
-  all: { name: "Fund the entire Comedy Lab experiment", cents: 802511, max: 1 },
+  all: { name: "Fund the entire Comedy Lab experiment", cents: 732511, max: 1 },
   insurance: { name: "Event insurance", cents: 35000, max: 1 },
-  comedian: { name: "Comedian stipend", cents: 50000, max: 9 },
-  editor: { name: "Editor stipend", cents: 50000, max: 2 },
+  comedian: { name: "Comedian stipend", cents: 40000, max: 9 },
+  editor: { name: "Crew stipend", cents: 40000, max: 3 },
   bounty: { name: "Quarterly bounty prize", cents: 30000, max: 4 },
   boost: { name: "Quarter of social boosting", cents: 30000, max: 4 },
 };
