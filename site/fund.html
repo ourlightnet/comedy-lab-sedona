@@ -123,6 +123,11 @@ body{padding-bottom:140px}
 .site-foot li{overflow-wrap:anywhere}
 .foot-legal{margin-top:40px;padding-top:20px;border-top:1px solid #2A2F31;font:500 .74rem/1.4 var(--mono);letter-spacing:.06em;color:#8A9093;max-width:none}
 @media (max-width:900px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand,.foot-contact{grid-column:1/-1}}
+.xp{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-top:44px;padding-top:26px;border-top:3px solid var(--rock,#0A7D5E)}
+.xp-tag{font:400 clamp(1.8rem,4.5vw,2.6rem)/1 "Dela Gothic One","Arial Black",sans-serif;color:var(--rock,#0A7D5E)}
+.xp-sub{font:500 .85rem/1.2 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--brass,#A9874E)}
+.xp-card{margin-top:14px;padding:22px 24px;border-radius:18px;background:var(--surface,#F5F5F2);border:1px solid var(--line,#E2E2DE)}
+.xp-card p{margin:0;max-width:62ch;font-size:1.1rem}
 </style>
 </head>
 <body>
@@ -142,22 +147,30 @@ body{padding-bottom:140px}
 
   <section class="donors-sec"><div class="eyebrow">Our donors</div><h2>Already in the lab</h2>
     <div class="beaker" role="img" aria-label="Research funded so far"><div class="beaker__fill" id="beaker-fill"></div><span class="beaker__txt" id="beaker-txt"></span></div>
+    <div class="eyebrow">Cash</div>
     <div class="donors" id="donors"></div>
+    <div class="eyebrow">In kind</div>
+    <div class="donors" id="inkind"></div>
   </section>
 
   <div class="big">
-    <div class="all"><div class="eyebrow">The big dare</div><h3>Fund the entire experiment</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise: nine comedians, two editors, and a year of prizes and launch fuel. Legends only.</p><button class="btn" type="button" id="add-all">I dare. Add it all 🔥</button></div>
+    <div class="all"><div class="eyebrow">The big dare</div><h3>Fund the entire experiment</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise: the lab stamp, the big prize, and a year of bounties and launch fuel. Legends only.</p><button class="btn" type="button" id="add-all">I dare. Add it all 🔥</button></div>
     <div class="any"><div class="eyebrow">Any size</div><h3>Drop something in the beaker</h3><p class="small">$5 or $5,000. Every drop makes the reaction bigger.</p>
       <form id="gift-form" class="gift-form"><label for="gift-amt" class="sr">Amount in dollars</label><span class="dollar">$</span><input id="gift-amt" type="number" min="1" step="1" inputmode="numeric" placeholder="50" required><button class="btn" type="submit">Pour it in 🧪</button></form>
       <p class="small">Prefer crypto? <a href="./#donate">Donate BTC, ETH or XRP →</a></p></div>
   </div>
 
-  <section style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Lab supplies · The house weekend</div><h2>Pick your part in the experiment</h2></div>
+  <div class="xp"><span class="xp-tag">Experiment 1</span><span class="xp-sub">The house weekend · March 2027</span></div>
+  <section style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Lab supplies</div><h2>Pick your part in the experiment</h2></div>
   <div class="reg" id="reg"></div></section>
 
-  <section id="phase2" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Experiment 2</div><h2>Phase Two: The Contest and the Bounties</h2>
+  <div class="xp"><span class="xp-tag">Experiment 2</span><span class="xp-sub">The contest and the bounties</span></div>
+  <section id="phase2" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><h2>Phase Two: The Contest and the Bounties</h2>
     <p style="margin:0;max-width:62ch;opacity:.85">Hypothesis: if we put a prize on it and push it into the feeds, the whole internet starts playing along. Help us test it with a $300 prize pot for the best clip and the launch fuel to get the clips seen.</p></div>
   <div class="reg" id="reg2"></div></section>
+
+  <div class="xp"><span class="xp-tag">Experiment 3</span><span class="xp-sub">2028 and beyond</span></div>
+  <div class="xp-card"><p>🌎 Repeat in 2028 and expand to other houses and cities.</p></div>
 
   <section id="nice" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Nice to have</div><h2>Pay the test subjects</h2>
     <p style="margin:0;max-width:62ch;opacity:.85">The Lab runs without these. Our comedians and crew are in it for the experiment, and any city can copy the Comedy Lab with volunteers. But if you'd love to pay the people making the comedy, this is the spot. These aren't counted in the totals above.</p></div>
@@ -254,6 +267,7 @@ body{padding-bottom:140px}
   function bump(el){var c=document.querySelector('.cart-head');if(c&&c.animate)c.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:350})}
 
   document.getElementById('donors').innerHTML=F.donors.map(function(d){return '<div class="donor"><b>'+esc(d.name)+'</b><span class="amt">'+money(d.amount)+'</span><p>'+esc(d.note)+'</p></div>'}).join('');
+  document.getElementById('inkind').innerHTML=(F.inkind||[]).map(function(d){return '<div class="donor"><b>'+esc(d.name)+'</b><span class="amt">'+money(d.amount)+'</span><p>'+esc(d.note)+'</p></div>'}).join('');
   document.getElementById('all-amt').textContent=money(F.all.amount);
   var raised=F.donors.reduce(function(a,d){return a+d.amount},0),goal=raised+F.all.amount,pct=Math.round(raised/goal*100);
   document.getElementById('beaker-txt').textContent=pct+'% funded · '+money(raised)+' of '+money(Math.round(goal*100)/100);

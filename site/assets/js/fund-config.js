@@ -12,8 +12,11 @@ window.FUND = {
   anyLink: '',
   all: { id: 'all', title: 'Fund the entire experiment', amount: 3025.11 },
   donors: [
-    { name: 'City of Sedona', amount: 4600, note: 'Grant. Covers the house, crew beds, food and event insurance, with $374.89 toward the big prize.' },
-    { name: 'LightNet', amount: 250, note: 'Costumes, plus the website, donated in kind.' }
+    { name: 'City of Sedona', amount: 4600, note: 'Grant. Covers the house, crew beds, food and event insurance, with $374.89 toward the big prize.' }
+  ],
+  inkind: [
+    { name: 'LightNet', amount: 1500, note: 'The website.' },
+    { name: 'Sedona Quantum Consciousness', amount: 300, note: 'The costume closet: ETs, angels and ascended masters.' }
   ],
   items: [
     { id: 'house', icon: '🏡', title: 'The laboratory', desc: 'Twin Pines: four bedrooms, a hot tub and unknown amounts of comedy. Every room is a set.', unit: 2622.36, count: 1, covered: 'City of Sedona' },

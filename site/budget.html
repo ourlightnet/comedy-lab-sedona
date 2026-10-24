@@ -124,7 +124,9 @@ main .wrap>*,#out>*{min-width:0}
     var inc=0,bud=0,spent=0,open=0,html='';
     var irows=b.income.map(function(i){if(i.amount!=null)inc+=i.amount;
       return '<tr><td>'+esc(i.item)+(i.note?'<div class="note">'+esc(i.note)+'</div>':'')+'</td><td class="num">'+(i.amount==null?'<span class="note">In-kind</span>':money(i.amount))+'</td></tr>'}).join('');
-    html+='<section class="sec"><h2>Donors</h2><div class="tbl"><table class="narrow"><thead><tr><th>Donor</th><th class="num">Amount</th></tr></thead><tbody>'+irows+'</tbody><tfoot><tr><td>Total from donors</td><td class="num">'+money(inc)+'</td></tr></tfoot></table></div></section>';
+    html+='<section class="sec"><h2>Cash donors</h2><div class="tbl"><table class="narrow"><thead><tr><th>Donor</th><th class="num">Amount</th></tr></thead><tbody>'+irows+'</tbody><tfoot><tr><td>Total from donors</td><td class="num">'+money(inc)+'</td></tr></tfoot></table></div></section>';
+    if(b.inkind&&b.inkind.length){var kv=0;var krows=b.inkind.map(function(i){kv+=i.value||0;return '<tr><td>'+esc(i.item)+(i.note?'<div class="note">'+esc(i.note)+'</div>':'')+'</td><td class="num">'+(i.value?money(i.value):'')+'</td></tr>'}).join('');
+      html+='<section class="sec"><h2>In-kind donors</h2><div class="tbl"><table class="narrow"><thead><tr><th>Donor</th><th class="num">Value</th></tr></thead><tbody>'+krows+'</tbody><tfoot><tr><td>Total in kind (not counted in cash)</td><td class="num">'+money(kv)+'</td></tr></tfoot></table></div></section>';}
     b.sections.forEach(function(s){
       var sb=0,ss=0,rows=s.items.map(function(i){
         if(i.budget==null)open++;else sb+=i.budget; if(i.spent!=null)ss+=i.spent;
