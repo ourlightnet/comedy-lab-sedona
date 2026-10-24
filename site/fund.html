@@ -158,6 +158,10 @@ body{padding-bottom:140px}
   <section id="phase2" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Experiment 2</div><h2>Phase Two: The Contest and the Bounties</h2>
     <p style="margin:0;max-width:62ch;opacity:.85">Hypothesis: if we put a prize on it and push it into the feeds, the whole internet starts playing along. Help us test it with a $300 prize pot for the best clip and the launch fuel to get the clips seen.</p></div>
   <div class="reg" id="reg2"></div></section>
+
+  <section id="nice" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Nice to have</div><h2>Pay the test subjects</h2>
+    <p style="margin:0;max-width:62ch;opacity:.85">The Lab runs without these. Our comedians and crew are in it for the experiment, and any city can copy the Comedy Lab with volunteers. But if you'd love to pay the people making the comedy, this is the spot. These aren't counted in the totals above.</p></div>
+  <div class="reg" id="reg3"></div></section>
   <p class="small">Payments are processed securely by Stripe for LightNet, the nonprofit behind the Comedy Lab. Questions? <a href="mailto:donations@comedylabsedona.com">donations@comedylabsedona.com</a> or text 424-280-9561. See where every dollar goes in our <a href="budget.html">Open Innovation Budget</a>.</p>
 </div></main>
 
@@ -260,14 +264,15 @@ body{padding-bottom:140px}
   function card(i){
     var total=i.unit*i.count;
     if(i.covered)return '<div class="gift done"><span class="ico" aria-hidden="true">'+i.icon+'</span><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="amt">'+money(total)+'</div><span class="cov">✓ Covered by '+esc(i.covered)+'</span></div>';
-    var part=i.coveredAmount?'<span class="part">'+money(i.coveredAmount)+' already covered by City of Sedona</span>':'';
+    var part=i.coveredAmount?'<span class="part">'+money(i.coveredAmount)+' already covered by the City of Sedona</span>':'';
     var step=i.count>1?'<label class="step">How many '+i.label+'s?<span><button type="button" data-d="-1" aria-label="Fewer">−</button><output>'+i.count+'</output><button type="button" data-d="1" aria-label="More">+</button></span></label>':'';
     return '<div class="gift" data-id="'+i.id+'"><span class="ico" aria-hidden="true">'+i.icon+'</span><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="amt">'+money(total)+'<small>total</small></div>'+
       (i.count>1?'<span class="per">'+i.count+' '+i.label+'s × '+money(i.unit)+'</span>':'')+part+step+'<button type="button" class="btn add">Fund it 🧪</button></div>';
   }
-  var p1=F.items.filter(function(i){return i.phase!==2}),p2=F.items.filter(function(i){return i.phase===2});
+  var p1=F.items.filter(function(i){return !i.phase}),p2=F.items.filter(function(i){return i.phase===2}),p3=F.items.filter(function(i){return i.phase==='nice'});
   document.getElementById('reg').innerHTML=p1.filter(function(i){return i.covered}).concat(p1.filter(function(i){return !i.covered})).map(card).join('');
   document.getElementById('reg2').innerHTML=p2.map(card).join('');
+  document.getElementById('reg3').innerHTML=p3.map(card).join('');
   function regClick(e){
     var g=e.target.closest('.gift[data-id]');if(!g)return;var i=byId[g.dataset.id],o=g.querySelector('output');
     var d=e.target.closest('[data-d]');
@@ -276,6 +281,7 @@ body{padding-bottom:140px}
   }
   document.getElementById('reg').addEventListener('click',regClick);
   document.getElementById('reg2').addEventListener('click',regClick);
+  document.getElementById('reg3').addEventListener('click',regClick);
   document.getElementById('cart-list').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){delete cart[b.dataset.rm];refresh()}});
   document.getElementById('cart-toggle').onclick=function(){var b=document.getElementById('cart-body');b.hidden=!b.hidden;this.setAttribute('aria-expanded',!b.hidden)};
   document.getElementById('checkout').onclick=function(){
