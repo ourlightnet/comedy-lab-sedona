@@ -131,6 +131,14 @@ body{padding-bottom:140px}
 .xp-sub{font:500 .85rem/1.2 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--brass,#A9874E)}
 .xp-card{margin-top:14px;padding:22px 24px;border-radius:18px;background:var(--surface,#F5F5F2);border:1px solid var(--line,#E2E2DE)}
 .xp-card p{margin:0;max-width:62ch;font-size:1.1rem}
+.x2{--rock:#6A3FD0;--xbg:rgba(106,63,208,.07)}
+.x3{--rock:#C2501E;--xbg:rgba(194,80,30,.08)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .x2{--rock:#B49BFF;--xbg:rgba(180,155,255,.1)}:root:not([data-theme="light"]) .x3{--rock:#FF9A66;--xbg:rgba(255,154,102,.1)}}
+:root[data-theme="dark"] .x2{--rock:#B49BFF;--xbg:rgba(180,155,255,.1)}:root[data-theme="dark"] .x3{--rock:#FF9A66;--xbg:rgba(255,154,102,.1)}
+.xp.x2,.xp.x3{border-top-width:5px}
+.xp-card.x3,.exp2.x2,.xpanel{background:var(--xbg);border-color:var(--rock)}
+.xp-card.x3{border-width:2px}
+.xpanel{padding:22px clamp(16px,3vw,26px);border:2px solid var(--rock);border-radius:18px}
 </style>
 </head>
 <body>
@@ -167,13 +175,13 @@ body{padding-bottom:140px}
   <section style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Lab supplies</div><h2>Pick your part in the experiment</h2></div>
   <div class="reg" id="reg"></div></section>
 
-  <div class="xp"><span class="xp-tag">Experiment 2</span><span class="xp-sub">The contest and the bounties</span></div>
-  <section id="phase2" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><h2>Phase Two: The Contest and the Bounties</h2><b id="p2-total" style="font:400 1.4rem/1 var(--display,'Dela Gothic One',sans-serif);color:var(--rock,#0A7D5E)"></b>
+  <div class="xp x2"><span class="xp-tag">Experiment 2</span><span class="xp-sub">The contest and the bounties</span></div>
+  <section id="phase2" class="x2 xpanel" style="display:grid;gap:16px;margin-top:14px"><div class="stack" style="display:grid;gap:8px"><h2>Phase Two: The Contest and the Bounties</h2><b id="p2-total" style="font:400 1.4rem/1 var(--display,'Dela Gothic One',sans-serif);color:var(--rock,#0A7D5E)"></b>
     <p style="margin:0;max-width:62ch;opacity:.85">Hypothesis: if we put a prize on it and push it into the feeds, the whole internet starts playing along. Help us test it with a $300 prize pot for the best clip and the launch fuel to get the clips seen.</p></div>
   <div class="reg" id="reg2"></div></section>
 
-  <div class="xp"><span class="xp-tag">Experiment 3</span><span class="xp-sub">2028 and beyond</span></div>
-  <div class="xp-card"><p>🌎 Repeat in 2028 and expand to other houses and cities.</p></div>
+  <div class="xp x3"><span class="xp-tag">Experiment 3</span><span class="xp-sub">2028 and beyond</span></div>
+  <div class="xp-card x3"><p>🌎 Repeat in 2028 and expand to other houses and cities.</p></div>
 
   <section id="nice" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Nice to have</div><h2>Pay the test subjects</h2>
     <p style="margin:0;max-width:62ch;opacity:.85">The Lab runs without these. Our comedians and crew are in it for the experiment, and any city can copy the Comedy Lab with volunteers. But if you'd love to pay the people making the comedy, this is the spot. These aren't counted in the totals above.</p></div>

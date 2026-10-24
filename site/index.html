@@ -103,9 +103,10 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .note b{font-family:var(--mono);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--juniper)}
 
 /* Lineup board */
-.board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:32px}
 .slot{min-height:150px;border-radius:12px;padding:18px;display:grid;align-content:space-between;gap:12px;border:1px solid var(--line);background:var(--surface);min-width:0}
-.slot .n{font:500 .78rem/1 var(--mono);color:var(--muted)}
+.slot .n{font:500 .78rem/1.3 var(--mono);color:var(--muted);overflow-wrap:anywhere}
+@media (max-width:640px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}.board.crew{grid-template-columns:minmax(0,1fr)}.board.crew .slot{min-height:0;grid-template-columns:1fr auto;align-items:center}.board.crew .slot .n,.board.crew .slot h3{grid-column:1}.board.crew .slot .tag{grid-column:2;grid-row:1/span 3;align-self:center}}
 .slot h3{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(1rem,2.4vw,1.45rem);line-height:1.15;overflow-wrap:anywhere}
 .tag{justify-self:start;font:500 .72rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:6px 10px}
 .slot.in{background:var(--juniper);border-color:var(--juniper);color:#FFFFFF}
@@ -307,6 +308,14 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 .xp-sub{font:500 .85rem/1.2 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--brass,#A9874E)}
 .xp-card{margin-top:14px;padding:22px 24px;border-radius:18px;background:var(--surface,#F5F5F2);border:1px solid var(--line,#E2E2DE)}
 .xp-card p{margin:0;max-width:62ch;font-size:1.1rem}
+.x2{--rock:#6A3FD0;--xbg:rgba(106,63,208,.07)}
+.x3{--rock:#C2501E;--xbg:rgba(194,80,30,.08)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .x2{--rock:#B49BFF;--xbg:rgba(180,155,255,.1)}:root:not([data-theme="light"]) .x3{--rock:#FF9A66;--xbg:rgba(255,154,102,.1)}}
+:root[data-theme="dark"] .x2{--rock:#B49BFF;--xbg:rgba(180,155,255,.1)}:root[data-theme="dark"] .x3{--rock:#FF9A66;--xbg:rgba(255,154,102,.1)}
+.xp.x2,.xp.x3{border-top-width:5px}
+.xp-card.x3,.exp2.x2,.xpanel{background:var(--xbg);border-color:var(--rock)}
+.xp-card.x3{border-width:2px}
+.xpanel{padding:22px clamp(16px,3vw,26px);border:2px solid var(--rock);border-radius:18px}
 .exp2{margin-top:14px;padding:22px 24px;border:3px dashed var(--rock);border-radius:18px;display:grid;gap:8px}
 .exp2 h3{margin:0;font:400 1.5rem/1.15 var(--display)}
 .exp2 p{margin:0;color:var(--muted);max-width:62ch}
@@ -325,7 +334,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 .sky{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .sky .stars{position:absolute;inset:-10% 0;width:100%;height:120%;transform:translate3d(0,var(--sy,0),0)}
 .sky .moon{position:absolute;right:max(-60px,calc(50% - 640px));top:40px;width:clamp(180px,26vw,340px);opacity:.9;filter:drop-shadow(0 0 40px rgba(255,248,220,.9));transform:translate3d(0,var(--my,0),0)}
-@media(max-width:640px){.sky .moon{width:160px;right:-50px;top:20px;opacity:.6}}
+@media(max-width:640px){.sky .moon{width:120px;right:-44px;top:-18px;opacity:.4}}
 .pic{position:relative;overflow:hidden;outline:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .pic .portrait{position:relative;z-index:1;transition:opacity .35s}
 .pic .alter{position:absolute;inset:0;z-index:2;width:100%;height:100%;opacity:0;transition:opacity .35s;pointer-events:none}
@@ -503,7 +512,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
     <div class="slot open"><span class="n">09 · Comedian</span><h3>Your name here</h3><span class="bio"><a href="seat.html">Want this seat? →</a></span><span class="tag">Open</span></div>
   </div>
   <div class="stack" style="margin-top:40px"><div class="eyebrow">Behind the camera</div><h3 style="margin:0;font:400 1.6rem/1.1 var(--display)">The crew</h3><p>Three crew seats turn the chaos into clips.</p></div>
-  <div class="board">
+  <div class="board crew">
     <div class="slot open"><span class="n">Editor</span><h3>Your name here</h3><span class="bio"><a href="seat.html">Want this seat? →</a></span><span class="tag">Open</span></div>
     <div class="slot open"><span class="n">Editor/Special FX</span><h3>Your name here</h3><span class="bio"><a href="seat.html">Want this seat? →</a></span><span class="tag">Open</span></div>
     <div class="slot open"><span class="n">Hair/Makeup/Costumes</span><h3>Your name here</h3><span class="bio"><a href="seat.html">Want this seat? →</a></span><span class="tag">Open</span></div>
@@ -540,7 +549,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
       <button role="tab" aria-selected="false" data-sort="new">New</button>
     </div>
     <p class="lw-note" id="preview" hidden>Preview mode: votes and lines are saved only in this browser until the shared database is connected.</p>
-    <ol class="list" id="list" data-limit="12" aria-live="polite"></ol>
+    <ol class="list" id="list" data-limit="5" aria-live="polite"></ol>
     <p><a class="btn" href="lines.html">See all lines →</a></p>
     <form class="add" id="add" autocomplete="on">
       <label for="text">Add a line</label>
@@ -626,12 +635,12 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
       <div class="cta-row"><!-- Tickets: put the ticket link in href and remove "hidden". --><a class="btn" href="#" hidden>Get tickets</a><span class="save__soon">Tickets soon</span><a class="btn ghost" href="assets/comedy-lab-results-night.ics" download>Add to calendar</a><a class="btn ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Comedy+Lab+Results+Night&amp;dates=20270320T030000Z/20270320T050000Z&amp;details=See+every+clip+from+the+Comedy+Lab+house+weekend%2C+plus+live+improv.+comedylabsedona.com&amp;location=Humankind.center" target="_blank" rel="noopener">Google Calendar</a></div>
     </div>
   </div>
-  <div class="xp"><span class="xp-tag">Experiment 2</span><span class="xp-sub">The contest and the bounties</span></div>
-  <div class="exp2"><div class="eyebrow">Coming next</div>
+  <div class="xp x2"><span class="xp-tag">Experiment 2</span><span class="xp-sub">The contest and the bounties</span></div>
+  <div class="exp2 x2"><div class="eyebrow">Coming next</div>
     <h3>You play along</h3>
     <p>When the clips start going viral, it's your turn. 🏆 You upvote your favorite clip, and the winning team takes the $300 bounty. Take an opening line, film your own 60-second clip, and get in the running. <a href="fund.html#phase2">Fund the research →</a></p></div>
-  <div class="xp"><span class="xp-tag">Experiment 3</span><span class="xp-sub">2028 and beyond</span></div>
-  <div class="xp-card"><p>🌎 Repeat in 2028 and expand to other houses and cities.</p></div>
+  <div class="xp x3"><span class="xp-tag">Experiment 3</span><span class="xp-sub">2028 and beyond</span></div>
+  <div class="xp-card x3"><p>🌎 Repeat in 2028 and expand to other houses and cities.</p></div>
 </div></section>
 <!-- Paused: the phases with public play-along. Restore by swapping this back in.
 <section id="houses"><div class="wrap">
@@ -713,7 +722,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
     <nav aria-label="Explore"><h4>Explore</h4><ul>
       <li><a href="#how">How it works</a></li>
       <li><a href="#prompts">Opening lines</a></li>
-      <li><a href="lines.html">Opening lines</a></li>
+      <li><a href="lines.html">All opening lines</a></li>
       <li><a href="#comedians">Comedians</a></li>
       <li><a href="seat.html">Get a seat</a></li>
       <li><a href="#updates">Get updates</a></li>
