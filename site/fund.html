@@ -226,7 +226,7 @@ body{padding-bottom:140px}
       <li><a href="https://biglaughsfestival.com/" target="_blank" rel="noopener">Big Laughs Festival ↗</a></li>
       <li><a href="https://www.sedonaaz.gov" target="_blank" rel="noopener">City of Sedona ↗</a></li>
       <li><a href="https://humankind.center" target="_blank" rel="noopener">Humankind ↗</a></li>
-      <li>Sedona Quantum Consciousness</li>
+      <li><a href="https://sedonaqc.org/" target="_blank" rel="noopener">Sedona Quantum Consciousness ↗</a></li>
       <li><a href="https://fashionlabsedona.com" target="_blank" rel="noopener">Fashion Lab Sedona ↗</a></li>
       <li><a href="https://lightnet.org" target="_blank" rel="noopener">LightNet ↗</a></li>
     </ul></nav>
@@ -277,7 +277,7 @@ body{padding-bottom:140px}
   function bump(el){var c=document.querySelector('.cart-head');if(c&&c.animate)c.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:350})}
 
   document.getElementById('donors').innerHTML=F.donors.map(function(d){return '<div class="donor"><b>'+esc(d.name)+'</b><span class="amt">'+money(d.amount)+'</span><p>'+esc(d.note)+'</p></div>'}).join('');
-  document.getElementById('inkind').innerHTML=(F.inkind||[]).map(function(d){return '<div class="donor"><b>'+esc(d.name)+'</b><span class="amt">'+money(d.amount)+'</span><p>'+esc(d.note)+'</p></div>'}).join('');
+  document.getElementById('inkind').innerHTML=(F.inkind||[]).map(function(d){return '<div class="donor"><b>'+(d.url?'<a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+esc(d.name)+'</a>':esc(d.name))+'</b><span class="amt">'+money(d.amount)+'</span><p>'+esc(d.note)+'</p></div>'}).join('');
   document.getElementById('all-amt').textContent=money(F.all.amount);
   function left(list){return list.reduce(function(a,i){return a+(i.covered?0:i.unit*i.count-(i.coveredAmount||0))},0)}
   var e1=Math.round(left(F.items.filter(function(i){return !i.phase}))*100)/100,e2=Math.round(left(F.items.filter(function(i){return i.phase===2}))*100)/100;

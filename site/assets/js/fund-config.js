@@ -16,7 +16,7 @@ window.FUND = {
   ],
   inkind: [
     { name: 'LightNet', amount: 1500, note: 'The website.' },
-    { name: 'Sedona Quantum Consciousness', amount: 300, note: 'The costume closet: ETs, angels and ascended masters.' }
+    { name: 'Sedona Quantum Consciousness', url: 'https://sedonaqc.org/', amount: 300, note: 'The costume closet: ETs, angels and ascended masters.' }
   ],
   items: [
     { id: 'house', icon: '🏡', title: 'The laboratory', desc: 'Twin Pines: four bedrooms, a hot tub and unknown amounts of comedy. Every room is a set.', unit: 2622.36, count: 1, covered: 'City of Sedona' },
