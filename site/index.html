@@ -324,7 +324,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 #prompts.moonlit h2{color:var(--fg)}
 .dark-green{--fg:#F2F2EE;--muted:#B9C7C2;--line:#24423B;--surface:#123029;--bg:#0B201C;background:linear-gradient(180deg,#0B201C,#0E2A24);color:var(--fg);border-top:0}
 .dark-black{--fg:#F2F2EE;--muted:#B5B9BB;--line:#2A2D2F;--surface:#17191A;--bg:#0B0B0B;background:#0B0B0B;color:var(--fg);border-top:0}
-#how .btn{color:#FFFFFF}
+#how .btn,#vote .btn:not(.ghost){color:#FFFFFF}
 .person-logo img.on-white{background:#FFFFFF;border-radius:10px;padding:6px 10px;box-sizing:border-box}
 .dark-green h2,.dark-green h3,.dark-black h2,.dark-black h3{color:var(--fg)}
 .dark-green a:not(.btn),.dark-black a:not(.btn){color:#7FE0BF}
@@ -564,37 +564,6 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   </div>
 </div></section>
 
-<section id="vote"><div class="wrap">
-  <div class="stack">
-    <div class="eyebrow">Join</div>
-    <h2>Get in the house</h2>
-    <p>Five seats are still open. Apply for one, or suggest someone who belongs in the house.</p>
-  </div>
-  <div class="vote-grid solo">
-      <div class="panel seat-cta">
-        <h3>Want a seat in the house?</h3>
-        <p class="hint">Comedians, editors and filmers: apply for one of the five open seats, or suggest someone who belongs in the house.</p>
-        <div class="cta-row"><a class="btn" href="seat.html">Apply for a seat →</a><a class="btn ghost" href="seat.html?mode=suggest">Suggest someone</a></div>
-      </div>
-      <!-- Public clip submissions are paused. Remove "hidden" to bring them back. -->
-      <div class="panel" id="clip" hidden>
-        <h3>Submit a clip</h3>
-        <p class="hint">60 seconds or less, made from a Comedy Lab prompt. Post it anywhere (Instagram, TikTok, YouTube Shorts or a Google Drive link) and send us the link with your name and city. The team reviews every clip.</p>
-        <form class="mailform" data-subject="Comedy Lab: new clip" aria-label="Submit a clip">
-          <label for="k-name">Your name<input id="k-name" name="Name" required maxlength="80" autocomplete="name"></label>
-          <label for="k-email">Email<input id="k-email" name="email" type="email" required maxlength="200" autocomplete="email"></label>
-          <label for="k-city">City<input id="k-city" name="City" required maxlength="80" autocomplete="address-level2"></label>
-          <label for="k-link">Link to your clip<input id="k-link" name="Clip link" data-url inputmode="url" required placeholder="Instagram, TikTok, YouTube Shorts or Google Drive" maxlength="400"></label>
-          <label for="k-prompt">Which prompt? (optional)<input id="k-prompt" name="Prompt" maxlength="200"></label>
-          <input class="signup__trap" type="text" name="_honey" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button class="btn" type="submit">Submit my clip</button>
-          <p class="signup__done" role="status" hidden>Got it! The team reviews every clip.</p>
-          <p class="signup__err" role="status" hidden>That didn't send. Please try again, or DM us on Instagram.</p>
-        </form>
-      </div>
-  </div>
-</div></section>
-
 <section id="updates" class="updates"><div class="wrap">
   <div class="stack">
     <div class="eyebrow">Stay in the loop</div>
@@ -712,6 +681,37 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   </div>
 </div></section>
 </main>
+
+<section id="vote" class="dark-green"><div class="wrap">
+  <div class="stack">
+    <div class="eyebrow">Join</div>
+    <h2>Get in the house</h2>
+    <p>Five seats are still open. Apply for one, or suggest someone who belongs in the house.</p>
+  </div>
+  <div class="vote-grid solo">
+      <div class="panel seat-cta">
+        <h3>Want a seat in the house?</h3>
+        <p class="hint">Comedians, editors and filmers: apply for one of the five open seats, or suggest someone who belongs in the house.</p>
+        <div class="cta-row"><a class="btn" href="seat.html">Apply for a seat →</a><a class="btn ghost" href="seat.html?mode=suggest">Suggest someone</a></div>
+      </div>
+      <!-- Public clip submissions are paused. Remove "hidden" to bring them back. -->
+      <div class="panel" id="clip" hidden>
+        <h3>Submit a clip</h3>
+        <p class="hint">60 seconds or less, made from a Comedy Lab prompt. Post it anywhere (Instagram, TikTok, YouTube Shorts or a Google Drive link) and send us the link with your name and city. The team reviews every clip.</p>
+        <form class="mailform" data-subject="Comedy Lab: new clip" aria-label="Submit a clip">
+          <label for="k-name">Your name<input id="k-name" name="Name" required maxlength="80" autocomplete="name"></label>
+          <label for="k-email">Email<input id="k-email" name="email" type="email" required maxlength="200" autocomplete="email"></label>
+          <label for="k-city">City<input id="k-city" name="City" required maxlength="80" autocomplete="address-level2"></label>
+          <label for="k-link">Link to your clip<input id="k-link" name="Clip link" data-url inputmode="url" required placeholder="Instagram, TikTok, YouTube Shorts or Google Drive" maxlength="400"></label>
+          <label for="k-prompt">Which prompt? (optional)<input id="k-prompt" name="Prompt" maxlength="200"></label>
+          <input class="signup__trap" type="text" name="_honey" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" type="submit">Submit my clip</button>
+          <p class="signup__done" role="status" hidden>Got it! The team reviews every clip.</p>
+          <p class="signup__err" role="status" hidden>That didn't send. Please try again, or DM us on Instagram.</p>
+        </form>
+      </div>
+  </div>
+</div></section>
 
 <footer class="site-foot"><div class="wrap">
   <div class="foot-grid">
