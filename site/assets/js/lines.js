@@ -39,7 +39,9 @@
   /* Backends: both return promises with the same shapes. */
   var api = live ? (function () {
     var base = cfg.SUPABASE_URL.replace(/\/$/, '') + '/rest/v1/';
-    var h = { apikey: cfg.SUPABASE_ANON_KEY, Authorization: 'Bearer ' + cfg.SUPABASE_ANON_KEY, 'Content-Type': 'application/json' };
+    var h = { apikey: cfg.SUPABASE_ANON_KEY, 'Content-Type': 'application/json' };
+    // Older anon keys are JWTs and go in the Bearer header too; new sb_publishable keys only go in apikey.
+    if (/^eyJ/.test(cfg.SUPABASE_ANON_KEY)) h.Authorization = 'Bearer ' + cfg.SUPABASE_ANON_KEY;
     function req(path, opts) {
       return fetch(base + path, Object.assign({ headers: h }, opts)).then(function (r) {
         if (!r.ok) return r.text().then(function (t) { throw new Error(t || r.status); });
