@@ -25,7 +25,7 @@ window.FUND = {
     { id: 'tags', icon: '🎞️', title: 'The lab stamp', desc: 'Our opening and closing tags, branded on every clip that escapes the house.', unit: 400, count: 1 },
     { id: 'insurance', icon: '🦺', title: 'Lab safety', desc: 'Event insurance, in case the experiment gets out of hand.', unit: 350, count: 1, covered: 'City of Sedona' },
     { id: 'comedian', icon: '🎤', title: 'Sponsor a test subject', desc: 'Each of the nine comedians gets a $400 stipend. They signed the waiver. Mostly.', unit: 400, count: 9, label: 'comedian', phase: 'nice' },
-    { id: 'editor', icon: '🎬', title: 'Fund a lab technician', desc: '$400 stipends for the crew: two editors who turn pure chaos into 60-second clips, plus a makeup and FX artist.', unit: 400, count: 3, label: 'crew member', phase: 'nice' },
+    { id: 'editor', icon: '🎬', title: 'Fund a lab technician', desc: '$400 stipends for the crew: an editor and an editor/special FX who turn pure chaos into 60-second clips, plus hair/makeup/costumes.', unit: 400, count: 3, label: 'crew member', phase: 'nice' },
     { id: 'prize', icon: '🏆', title: 'The big prize', desc: '$600 to the team behind the top clip of the house weekend. Glory, plus rent money.', unit: 600, count: 1, coveredAmount: 374.89 },
     { id: 'bounty', icon: '🏆', title: 'The prize pot', desc: '$300 each quarter to the team with the most upvoted clip. Competition is good for science.', unit: 300, count: 4, label: 'quarter', phase: 2 },
     { id: 'boost', icon: '🚀', title: 'Launch fuel', desc: '$300 each quarter to boost the clips into the algorithm\'s orbit.', unit: 300, count: 4, label: 'quarter', phase: 2 }
