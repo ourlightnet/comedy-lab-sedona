@@ -157,7 +157,7 @@ body{padding-bottom:140px}
   </section>
 
   <div class="big">
-    <div class="all"><div class="eyebrow">The big dare</div><h3>Fund the entire experiment</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise: the lab stamp, the big prize, and a year of bounties and launch fuel. Legends only.</p><button class="btn" type="button" id="add-all">I dare. Add it all 🔥</button></div>
+    <div class="all"><div class="eyebrow">The big dare</div><h3>Fund the entire experiment</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise: the lab stamp, the big prize, and a year of bounties and launch fuel. Legends only.</p><button class="btn" type="button" id="add-all">I dare. Add it all 🔥</button><p class="small" id="all-split" style="opacity:.85;margin:0"></p></div>
     <div class="any"><div class="eyebrow">Any size</div><h3>Drop something in the beaker</h3><p class="small">$5 or $5,000. Every drop makes the reaction bigger.</p>
       <form id="gift-form" class="gift-form"><label for="gift-amt" class="sr">Amount in dollars</label><span class="dollar">$</span><input id="gift-amt" type="number" min="1" step="1" inputmode="numeric" placeholder="50" required><button class="btn" type="submit">Pour it in 🧪</button></form>
       <p class="small">Prefer crypto? <a href="./#donate">Donate BTC, ETH or XRP →</a></p></div>
@@ -168,7 +168,7 @@ body{padding-bottom:140px}
   <div class="reg" id="reg"></div></section>
 
   <div class="xp"><span class="xp-tag">Experiment 2</span><span class="xp-sub">The contest and the bounties</span></div>
-  <section id="phase2" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><h2>Phase Two: The Contest and the Bounties</h2>
+  <section id="phase2" style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><h2>Phase Two: The Contest and the Bounties</h2><b id="p2-total" style="font:400 1.4rem/1 var(--display,'Dela Gothic One',sans-serif);color:var(--rock,#0A7D5E)"></b>
     <p style="margin:0;max-width:62ch;opacity:.85">Hypothesis: if we put a prize on it and push it into the feeds, the whole internet starts playing along. Help us test it with a $300 prize pot for the best clip and the launch fuel to get the clips seen.</p></div>
   <div class="reg" id="reg2"></div></section>
 
@@ -272,6 +272,10 @@ body{padding-bottom:140px}
   document.getElementById('donors').innerHTML=F.donors.map(function(d){return '<div class="donor"><b>'+esc(d.name)+'</b><span class="amt">'+money(d.amount)+'</span><p>'+esc(d.note)+'</p></div>'}).join('');
   document.getElementById('inkind').innerHTML=(F.inkind||[]).map(function(d){return '<div class="donor"><b>'+esc(d.name)+'</b><span class="amt">'+money(d.amount)+'</span><p>'+esc(d.note)+'</p></div>'}).join('');
   document.getElementById('all-amt').textContent=money(F.all.amount);
+  function left(list){return list.reduce(function(a,i){return a+(i.covered?0:i.unit*i.count-(i.coveredAmount||0))},0)}
+  var e1=Math.round(left(F.items.filter(function(i){return !i.phase}))*100)/100,e2=Math.round(left(F.items.filter(function(i){return i.phase===2}))*100)/100;
+  document.getElementById('all-split').textContent=money(e1)+' for Experiment 1 + '+money(e2)+' for Experiment 2';
+  document.getElementById('p2-total').textContent='Experiment 2 total: '+money(e2);
   var raised=F.donors.reduce(function(a,d){return a+d.amount},0),goal=raised+F.all.amount,pct=Math.round(raised/goal*100);
   document.getElementById('beaker-txt').textContent=pct+'% funded · '+money(raised)+' of '+money(Math.round(goal*100)/100);
   setTimeout(function(){document.getElementById('beaker-fill').style.width=pct+'%'},200);
