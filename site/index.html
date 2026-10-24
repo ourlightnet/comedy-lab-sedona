@@ -313,9 +313,13 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 .exp2 a{color:var(--rock);font-weight:700}
 #prompts.moonlit{position:relative;overflow:hidden;isolation:isolate;--fg:#F2F2EE;--muted:#B8BDBF;--line:#45494C;--surface:#36393C;--bg:#26282A;background:linear-gradient(180deg,#2B2D30 0%,#222426 100%);color:var(--fg)}
 #prompts.moonlit h2{color:var(--fg)}
-#house{--fg:#F2F2EE;--muted:#B9C7C2;--line:#24423B;--surface:#123029;--bg:#0B201C;background:linear-gradient(180deg,#0B201C,#0E2A24);color:var(--fg);border-top:0}
-#house h2{color:var(--fg)}
-#house a:not(.btn){color:#7FE0BF}
+.dark-green{--fg:#F2F2EE;--muted:#B9C7C2;--line:#24423B;--surface:#123029;--bg:#0B201C;background:linear-gradient(180deg,#0B201C,#0E2A24);color:var(--fg);border-top:0}
+.dark-black{--fg:#F2F2EE;--muted:#B5B9BB;--line:#2A2D2F;--surface:#17191A;--bg:#0B0B0B;background:#0B0B0B;color:var(--fg);border-top:0}
+#how .btn{color:#FFFFFF}
+.person-logo img.on-white{background:#FFFFFF;border-radius:10px;padding:6px 10px;box-sizing:border-box}
+.dark-green h2,.dark-green h3,.dark-black h2,.dark-black h3{color:var(--fg)}
+.dark-green a:not(.btn),.dark-black a:not(.btn){color:#7FE0BF}
+.dark-green a.btn.ghost,.dark-black a.btn.ghost,.dark-green .btn.ghost,.dark-black .btn.ghost{color:#7FE0BF;border-color:#7FE0BF}
 
 #prompts.moonlit .btn{color:#FFFFFF}
 .sky{position:absolute;inset:0;z-index:-1;pointer-events:none}
@@ -441,7 +445,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 </div></section>
 
 <main>
-<section id="how"><div class="wrap">
+<section id="how" class="dark-black"><div class="wrap">
   <div class="stack"><div class="eyebrow">How it works</div><h2>One house. 48 Hours. Viral Comedy.</h2></div>
   <div class="how">
     <div><b>The crew</b><h3>12 people, one roof, 48 hours</h3><p>Comedians, editors and filmers move into one house together for <strong>48 hours</strong> and make comedy as a team.</p></div>
@@ -450,7 +454,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   </div>
 </div></section>
 
-<section id="house"><div class="wrap">
+<section id="house" class="dark-green"><div class="wrap">
   <div class="stack">
     <div class="eyebrow">The house</div>
     <h2>Every Room is a Set</h2>
@@ -506,11 +510,11 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   </div>
 </div></section>
 
-<section id="hosts"><div class="wrap">
+<section id="hosts" class="dark-green"><div class="wrap">
   <div class="stack"><h2>Consulting and Support</h2></div>
   <div class="people">
     <div class="person solo"><div>
-      <a href="https://thedreammachine.org" target="_blank" rel="noopener" class="person-logo"><img src="assets/img/dream-machine-wide.png?v=2" alt="The Dream Machine" width="480" height="123" loading="lazy"></a>
+      <a href="https://thedreammachine.org" target="_blank" rel="noopener" class="person-logo"><img class="on-white" src="assets/img/dream-machine-wide.png?v=2" alt="The Dream Machine" width="480" height="123" loading="lazy"></a>
       <h3>Zenka Caro</h3><span class="role">Producer · Founder of LightNet and the Dream Machine</span>
       <p>Sedona-based futurist known for making the impossible possible. Zenka founded the nonprofit LightNet, The Dream Machine and the Fashion Lab Sedona.</p>
       <span class="lk"><a href="https://zenka.org" target="_blank" rel="noopener">zenka.org</a><a href="https://lightnet.org" target="_blank" rel="noopener">lightnet.org</a><a href="https://thedreammachine.org" target="_blank" rel="noopener">thedreammachine.org</a></span>
@@ -642,7 +646,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 -->
 
 
-<section id="donate"><div class="wrap">
+<section id="donate" class="dark-green"><div class="wrap">
   <div class="stack"><div class="eyebrow">Donate in crypto</div><h2>Science Runs on Snacks</h2>
   <p>Your gift feeds the house, fills the prize pot and keeps the experiment running.</p></div>
   <div class="donate-grid">
