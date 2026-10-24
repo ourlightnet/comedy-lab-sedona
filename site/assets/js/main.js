@@ -111,7 +111,7 @@
   els.forEach(function(e){io.observe(e)});
 })();
 
-/* Moon parallax on Winners Monthly: the moon drifts slower than the page, the stars a little faster. */
+/* Moon parallax on Opening Lines: the moon drifts slower than the page, the stars a little faster. */
 (function(){
   var sec=document.querySelector('#prompts.moonlit');
   if(!sec||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
