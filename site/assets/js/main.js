@@ -89,6 +89,9 @@
   document.getElementById("lb-close").onclick=function(){d.close()};
   d.addEventListener("click",function(e){if(e.target===d)d.close()});
   d.addEventListener("keydown",function(e){if(e.key==="ArrowLeft")show(i-1);if(e.key==="ArrowRight")show(i+1)});
+  var x0=null;d.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+  d.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(dx<0?i+1:i-1);x0=null});
+  d.addEventListener("keydown",function(e){if(e.key==="ArrowLeft")show(i-1);if(e.key==="ArrowRight")show(i+1)});
 })();
 
 /* Copy buttons in the donate section. */
