@@ -10,7 +10,9 @@
 window.FUND = {
   checkoutUrl: '',
   anyLink: '',
-  all: { id: 'all', title: 'Fund the entire experiment', amount: 7951.49 },
+  // all.link: optional Stripe Payment Link for exactly this amount, used by
+  // the Buy now button until checkoutUrl is set.
+  all: { id: 'all', title: 'Fund the entire experiment', amount: 7951.49, link: '' },
   donors: [
     { name: 'City of Sedona', amount: 4600, note: 'Grant. Covers the house, crew beds, food and event insurance, the third crew room, and $48.51 toward costumes.' }
   ],
