@@ -144,6 +144,25 @@ body{padding-bottom:140px}
 .xp-card.x3,.exp2.x2,.xpanel{background:var(--xbg);border-color:var(--rock)}
 .xp-card.x3{border-width:2px}
 .xpanel{padding:22px clamp(16px,3vw,26px);border:2px solid var(--rock);border-radius:18px}
+.donate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:28px}
+.donate{display:grid;grid-template-columns:1fr;justify-items:center;text-align:center;align-content:start;gap:18px;padding:24px;border-radius:16px;background:#0B0B0B;color:#FFFFFF;border:2px solid var(--rock)}
+.donate .coin{display:flex;align-items:center;gap:10px;font:400 1.35rem/1 var(--display);color:#FFFFFF}
+.donate .coin svg{width:40px;height:40px;flex:none}
+.donate .card-ico{font-size:34px;line-height:1}
+.give{display:grid;gap:4px;margin-top:44px;scroll-margin-top:20px}
+.donate p{color:#E8E8E4}
+.donate .qr{display:block;background:#FFFFFF;border-radius:12px;padding:8px;line-height:0}
+.donate .qr img{width:150px;height:150px}
+.donate-info{display:grid;gap:12px;min-width:0}
+.donate-info .eyebrow{color:#3FCF9E}
+.donate code{font:500 clamp(.8rem,1.6vw,.95rem)/1.4 var(--mono);overflow-wrap:anywhere;color:#FFFFFF}
+.donate-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.donate .tag-code{font-size:1.25rem;font-weight:700;color:#3FCF9E}
+.donate .btn{background:#3FCF9E;color:#0B0B0B;text-decoration:none;display:inline-block}
+.donate .btn.ghost{background:transparent;color:#3FCF9E;border:1.5px solid #3FCF9E}
+.donate .hint{color:#A9AEB0;font-size:.85rem}
+.btc-done{color:#3FCF9E;font-weight:700}
+@media (max-width:620px){.donate{grid-template-columns:1fr;justify-items:center;text-align:center}.donate-btns{justify-content:center}}
 </style>
 </head>
 <body>
@@ -169,16 +188,66 @@ body{padding-bottom:140px}
     <div class="donors" id="inkind"></div>
   </section>
 
-  <div class="big">
+  <div class="big" id="dare">
     <div class="all"><div class="eyebrow">The big dare</div><h3>Fund the entire experiment</h3><b id="all-amt"></b><p style="opacity:.85">Everything still to raise for Experiments 1 and 2: the test subjects, the lab technicians, the lab stamp, costumes, and a year of bounties and launch fuel. Legends only.</p><div class="all-btns" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center"><button class="btn" type="button" id="buy-all">Buy now 💳</button><button class="btn ghost" type="button" id="add-all">I dare. Add it all 🔥</button></div><p class="small" id="buy-note" hidden style="margin:0;opacity:.85"></p><p class="small" id="all-split" style="opacity:.85;margin:0"></p></div>
     <div class="any"><div class="eyebrow">Any size</div><h3>Drop something in the beaker</h3><p class="small">$5 or $5,000. Every drop makes the reaction bigger.</p>
       <form id="gift-form" class="gift-form"><label for="gift-amt" class="sr">Amount in dollars</label><span class="dollar">$</span><input id="gift-amt" type="number" min="1" step="1" inputmode="numeric" placeholder="50" required><button class="btn" type="submit">Pour it in 🧪</button></form>
-      <p class="small">Prefer crypto? <a href="./#donate">Donate BTC, ETH or XRP →</a></p></div>
+      <p class="small">Prefer crypto? <a href="#give">Donate BTC, ETH or XRP →</a></p></div>
   </div>
 
   <div class="xp"><span class="xp-tag">Experiment 1</span><span class="xp-sub">The house weekend · March 2027</span></div>
   <section style="display:grid;gap:16px"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Lab supplies</div><h2>Pick your part in the experiment</h2></div>
   <div class="reg" id="reg"></div></section>
+
+  <section id="give" class="give"><div class="stack" style="display:grid;gap:8px"><div class="eyebrow">Ways to give</div><h2>Card or crypto</h2>
+    <p style="margin:0;max-width:62ch;opacity:.85">Pay by credit card through Stripe, or send Bitcoin, Ethereum or XRP straight to the Lab. Every gift goes to LightNet, the nonprofit behind the Comedy Lab.</p></div>
+  <div class="donate-grid">
+    <div class="donate">
+      <div class="coin"><span class="card-ico" aria-hidden="true">💳</span><span>Credit card</span></div>
+      <div class="donate-info">
+        <p style="margin:0">Fund the whole experiment in one go, or pick lab supplies above and check out with your cart. Stripe emails your donation receipt.</p>
+        <div class="donate-btns"><a class="btn" href="#dare">Fund it all</a><a class="btn ghost" href="#reg">Pick supplies</a></div>
+        <p class="hint">Secure checkout by Stripe for LightNet.</p>
+      </div>
+    </div>
+
+    <div class="donate">
+      <div class="coin"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#F7931A"/><g transform="rotate(14 32 32)" fill="#FFFFFF"><rect x="26" y="12" width="3.5" height="8"/><rect x="33" y="12" width="3.5" height="8"/><rect x="26" y="44" width="3.5" height="8"/><rect x="33" y="44" width="3.5" height="8"/><path d="M21 18h15.5c5.5 0 9 2.9 9 7.2 0 3-1.6 5-4.2 5.9 3.4.8 5.7 3.2 5.7 6.8 0 5-3.9 8.1-10 8.1H21v-4.4h3.6V22.4H21zM30 22.4v8h5.4c2.8 0 4.5-1.5 4.5-4s-1.7-4-4.5-4zm0 12.3v9h6c3.1 0 5-1.7 5-4.5s-1.9-4.5-5-4.5z"/></g></svg><span>Bitcoin</span></div>
+      <a class="qr" href="bitcoin:3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4" aria-label="Open in your Bitcoin wallet"><img src="assets/img/btc-qr.svg" alt="QR code for the Comedy Lab Bitcoin address" width="200" height="200"></a>
+      <div class="donate-info">
+        <span class="eyebrow">BTC deposit address</span>
+        <code>3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4</code>
+        <div class="donate-btns"><button class="btn copy" type="button" data-addr="3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4">Copy address</button><a class="btn ghost" href="bitcoin:3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4">Open in wallet</a></div>
+        <p class="hint">Send Bitcoin (BTC) only. Other coins sent here can't be recovered.</p>
+        <p class="btc-done" role="status" hidden>Copied!</p>
+      </div>
+    </div>
+    <div class="donate">
+      <div class="coin"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#627EEA"/><path fill="#FFFFFF" fill-opacity=".6" d="M32 8v17.7l15 6.7z"/><path fill="#FFFFFF" d="M32 8 17 32.4l15-6.7z"/><path fill="#FFFFFF" fill-opacity=".6" d="M32 44v12l15-20.8z"/><path fill="#FFFFFF" d="M32 56V44l-15-8.8z"/><path fill="#FFFFFF" fill-opacity=".2" d="m32 41.2 15-8.8-15-6.7z"/><path fill="#FFFFFF" fill-opacity=".6" d="m17 32.4 15 8.8V25.7z"/></svg><span>Ethereum</span></div>
+      <a class="qr" href="ethereum:0xB891Bca38a41dCBA51d40F01527Fd446903FE132" aria-label="Open in your Ethereum wallet"><img src="assets/img/eth-qr.svg" alt="QR code for the Comedy Lab Ethereum address" width="200" height="200"></a>
+      <div class="donate-info">
+        <span class="eyebrow">ETH deposit address</span>
+        <code>0xB891Bca38a41dCBA51d40F01527Fd446903FE132</code>
+        <div class="donate-btns"><button class="btn copy" type="button" data-addr="0xB891Bca38a41dCBA51d40F01527Fd446903FE132">Copy address</button><a class="btn ghost" href="ethereum:0xB891Bca38a41dCBA51d40F01527Fd446903FE132">Open in wallet</a></div>
+        <p class="hint">Send ETH on the Ethereum network only. Other networks or coins can't be recovered.</p>
+        <p class="btc-done" role="status" hidden>Copied!</p>
+      </div>
+    </div>
+    <div class="donate">
+      <div class="coin"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#23292F" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="2"/><path fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" d="M16 17l10.6 10.4a7.7 7.7 0 0 0 10.8 0L48 17M16 47l10.6-10.4a7.7 7.7 0 0 1 10.8 0L48 47"/></svg><span>XRP</span></div>
+      <span class="qr"><img src="assets/img/xrp-qr.svg" alt="QR code for the Comedy Lab XRP address" width="200" height="200"></span>
+      <div class="donate-info">
+        <span class="eyebrow">XRP deposit address</span>
+        <code>rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh</code>
+        <span class="eyebrow">Destination tag (required)</span>
+        <code class="tag-code">3350527767</code>
+        <div class="donate-btns"><button class="btn copy" type="button" data-addr="rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh">Copy address</button><button class="btn ghost copy" type="button" data-addr="3350527767">Copy tag</button></div>
+        <p class="hint">Send XRP on the Ripple network and <strong>always include the tag</strong>, or the gift can't be credited.</p>
+        <p class="btc-done" role="status" hidden>Copied!</p>
+      </div>
+    </div>
+  </div>
+  </section>
 
   <div class="xp x2"><span class="xp-tag">Experiment 2</span><span class="xp-sub">The contest and the bounties</span></div>
   <section id="phase2" class="x2 xpanel" style="display:grid;gap:16px;margin-top:14px"><div class="stack" style="display:grid;gap:8px"><h2>Phase Two: The Contest and the Bounties</h2><b id="p2-total" style="font:400 1.4rem/1 var(--display,'Dela Gothic One',sans-serif);color:var(--rock,#0A7D5E)"></b>
@@ -345,6 +414,10 @@ body{padding-bottom:140px}
   if(/[?&]thanks=1/.test(location.search)){cart={};document.getElementById('thanks').hidden=false;setTimeout(function(){window.comedyLabCelebrate&&window.comedyLabCelebrate()},400)}
   refresh();
 })();
+</script>
+<script>
+/* Copy buttons on the crypto cards. */
+document.querySelectorAll('.donate .copy').forEach(function(b){b.addEventListener('click',function(){var m=b.closest('.donate-info').querySelector('.btc-done');var done=function(){m.hidden=false;setTimeout(function(){m.hidden=true},2000)};if(navigator.clipboard)navigator.clipboard.writeText(b.dataset.addr).then(done)})});
 </script>
 <script src="assets/js/fun.js"></script>
 </body>
