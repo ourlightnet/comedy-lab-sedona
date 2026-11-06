@@ -377,6 +377,8 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 }
 .donate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:28px}
 .donate{display:grid;grid-template-columns:1fr;justify-items:center;text-align:center;align-content:start;gap:18px;padding:24px;border-radius:16px;background:#0B0B0B;color:#FFFFFF;border:2px solid var(--rock)}
+.donate .coin{display:flex;align-items:center;gap:10px;font:400 1.35rem/1 var(--display);color:#FFFFFF}
+.donate .coin svg{width:40px;height:40px;flex:none}
 .donate .qr{display:block;background:#FFFFFF;border-radius:12px;padding:8px;line-height:0}
 .donate .qr img{width:150px;height:150px}
 .donate-info{display:grid;gap:12px;min-width:0}
@@ -638,6 +640,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   <p>Your gift feeds the house, fills the prize pot and keeps the experiment running.</p></div>
   <div class="donate-grid">
     <div class="donate">
+      <div class="coin"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#F7931A"/><g transform="rotate(14 32 32)" fill="#FFFFFF"><rect x="26" y="12" width="3.5" height="8"/><rect x="33" y="12" width="3.5" height="8"/><rect x="26" y="44" width="3.5" height="8"/><rect x="33" y="44" width="3.5" height="8"/><path d="M21 18h15.5c5.5 0 9 2.9 9 7.2 0 3-1.6 5-4.2 5.9 3.4.8 5.7 3.2 5.7 6.8 0 5-3.9 8.1-10 8.1H21v-4.4h3.6V22.4H21zM30 22.4v8h5.4c2.8 0 4.5-1.5 4.5-4s-1.7-4-4.5-4zm0 12.3v9h6c3.1 0 5-1.7 5-4.5s-1.9-4.5-5-4.5z"/></g></svg><span>Bitcoin</span></div>
       <a class="qr" href="bitcoin:3GTgH8Xfr2vxYw3pdxjbcVrAaD6u56dJN4" aria-label="Open in your Bitcoin wallet"><img src="assets/img/btc-qr.svg" alt="QR code for the Comedy Lab Bitcoin address" width="200" height="200"></a>
       <div class="donate-info">
         <span class="eyebrow">BTC deposit address</span>
@@ -648,6 +651,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
       </div>
     </div>
     <div class="donate">
+      <div class="coin"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#627EEA"/><path fill="#FFFFFF" fill-opacity=".6" d="M32 8v17.7l15 6.7z"/><path fill="#FFFFFF" d="M32 8 17 32.4l15-6.7z"/><path fill="#FFFFFF" fill-opacity=".6" d="M32 44v12l15-20.8z"/><path fill="#FFFFFF" d="M32 56V44l-15-8.8z"/><path fill="#FFFFFF" fill-opacity=".2" d="m32 41.2 15-8.8-15-6.7z"/><path fill="#FFFFFF" fill-opacity=".6" d="m17 32.4 15 8.8V25.7z"/></svg><span>Ethereum</span></div>
       <a class="qr" href="ethereum:0xB891Bca38a41dCBA51d40F01527Fd446903FE132" aria-label="Open in your Ethereum wallet"><img src="assets/img/eth-qr.svg" alt="QR code for the Comedy Lab Ethereum address" width="200" height="200"></a>
       <div class="donate-info">
         <span class="eyebrow">ETH deposit address</span>
@@ -658,6 +662,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
       </div>
     </div>
     <div class="donate">
+      <div class="coin"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#23292F" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="2"/><path fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" d="M16 17l10.6 10.4a7.7 7.7 0 0 0 10.8 0L48 17M16 47l10.6-10.4a7.7 7.7 0 0 1 10.8 0L48 47"/></svg><span>XRP</span></div>
       <span class="qr"><img src="assets/img/xrp-qr.svg" alt="QR code for the Comedy Lab XRP address" width="200" height="200"></span>
       <div class="donate-info">
         <span class="eyebrow">XRP deposit address</span>
