@@ -106,7 +106,7 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:32px}
 .slot{min-height:150px;border-radius:12px;padding:18px;display:grid;align-content:space-between;gap:12px;border:1px solid var(--line);background:var(--surface);min-width:0}
 .slot .n{font:500 .78rem/1.3 var(--mono);color:var(--muted);overflow-wrap:anywhere}
-@media (max-width:640px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}.board.crew{grid-template-columns:minmax(0,1fr)}.board.crew .slot{min-height:0;grid-template-columns:1fr auto;align-items:center}.board.crew .slot .n,.board.crew .slot h3{grid-column:1}.board.crew .slot .tag{grid-column:2;grid-row:1/span 3;align-self:center}}
+@media (max-width:640px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}.board.crew{grid-template-columns:minmax(0,1fr)}.board.crew .slot{min-height:0;grid-template-columns:1fr auto;align-items:center}.board.crew .slot .n,.board.crew .slot h3{grid-column:1}.board.crew .slot.curated{justify-items:start;text-align:left}.board.crew .slot .tag{grid-column:2;grid-row:1/span 3;align-self:center}}
 .slot h3{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(1rem,2.4vw,1.45rem);line-height:1.15;overflow-wrap:anywhere}
 .tag{justify-self:start;font:500 .72rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:6px 10px}
 .slot.in{background:var(--juniper);border-color:var(--juniper);color:#FFFFFF}
@@ -118,7 +118,8 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .slot.wild{border:3px dashed var(--rock);background:var(--xbg)}@media (max-width:640px){.board .slot.wild{grid-column:1/-1}}.slot.wild h3{color:var(--rock)}.slot.wild .tag{background:var(--rock);color:var(--bg)}.slot.wild .bio a{color:var(--rock);font-weight:700}
 .slot.curated{border:2px solid var(--brass);background:var(--surface)}
 .slot.curated{justify-items:center;text-align:center}.slot.curated .n{justify-self:start}
-.slot.curated .cur-logo{display:block;width:clamp(72px,60%,200px)}.slot.curated .bio{font-size:clamp(.9rem,1.6vw,1.1rem)}.slot.curated .tag{justify-self:center}.slot.curated .cur-logo img{width:100%;height:auto;display:block}
+.slot.curated .cur-logo{display:block;width:clamp(72px,60%,200px)}.slot.curated .bio{font-size:clamp(.9rem,1.6vw,1.1rem)}.slot.curated .cur-word{font:400 clamp(1.4rem,3vw,2rem)/1 var(--display);color:var(--fg);text-decoration:none;letter-spacing:-.01em}
+.slot.curated .tag{justify-self:center}.slot.curated .cur-logo img{width:100%;height:auto;display:block}
 .slot.curated .tag{background:var(--brass);color:#0B0B0B}
 .slot.open h3{color:var(--muted)}
 .slot.open .tag{border:1px solid var(--line);color:var(--muted)}
@@ -528,11 +529,11 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
     <div class="slot curated"><span class="n">08 · Comedian</span><a class="cur-logo" href="https://biglaughsfestival.com/" target="_blank" rel="noopener"><img src="assets/img/big-laughs-festival.png" alt="Big Laughs Festival" width="602" height="600" loading="lazy"></a><span class="bio">Curated by <strong>Big Laughs Festival</strong></span><span class="tag">Curated</span></div>
     <div class="slot wild x2"><span class="n">09 · Comedian</span><h3>The final seat: you?</h3><span class="bio">Comedians compete for the last spot in the house, and the audience picks the winner. <a href="seat.html">Throw your hat in →</a></span><span class="tag">Audience pick</span></div>
   </div>
-  <div class="stack" style="margin-top:40px"><div class="eyebrow">Behind the camera</div><h3 style="margin:0;font:400 1.6rem/1.1 var(--display)">The crew</h3><p>Three crew seats turn the chaos into clips.</p></div>
+  <div class="stack" style="margin-top:40px"><div class="eyebrow">Behind the camera</div><h3 style="margin:0;font:400 1.6rem/1.1 var(--display)">The crew</h3><p>Three crew seats turn the chaos into clips. LightNet is curating two, and one editor seat is open.</p></div>
   <div class="board crew">
     <div class="slot open"><span class="n">Editor</span><h3>Your name here</h3><span class="bio"><a href="seat.html">Want this seat? →</a></span><span class="tag">Open</span></div>
-    <div class="slot open"><span class="n">Editor/Special FX</span><h3>Your name here</h3><span class="bio"><a href="seat.html">Want this seat? →</a></span><span class="tag">Open</span></div>
-    <div class="slot open"><span class="n">Hair/Makeup/Costumes</span><h3>Your name here</h3><span class="bio"><a href="seat.html">Want this seat? →</a></span><span class="tag">Open</span></div>
+    <div class="slot curated"><span class="n">Editor/Special FX</span><a class="cur-word" href="https://lightnet.org" target="_blank" rel="noopener">LightNet</a><span class="bio">Curated by <strong>LightNet</strong></span><span class="tag">Curated</span></div>
+    <div class="slot curated"><span class="n">Hair/Makeup/Costumes</span><a class="cur-word" href="https://lightnet.org" target="_blank" rel="noopener">LightNet</a><span class="bio">Curated by <strong>LightNet</strong></span><span class="tag">Curated</span></div>
   </div>
 </div></section>
 
@@ -669,7 +670,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   <div class="stack">
     <div class="eyebrow">Join</div>
     <h2>Get in the house</h2>
-    <p>The final comedian seat and three crew seats are still open. Apply for one, or suggest someone who belongs in the house.</p>
+    <p>The final comedian seat and one editor seat are still open. Apply for one, or suggest someone who belongs in the house.</p>
   </div>
   <div class="vote-grid solo">
       <div class="panel seat-cta">
