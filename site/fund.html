@@ -419,6 +419,11 @@ body{padding-bottom:140px}
 /* Copy buttons on the crypto cards. */
 document.querySelectorAll('.donate .copy').forEach(function(b){b.addEventListener('click',function(){var m=b.closest('.donate-info').querySelector('.btc-done');var done=function(){m.hidden=false;setTimeout(function(){m.hidden=true},2000)};if(navigator.clipboard)navigator.clipboard.writeText(b.dataset.addr).then(done)})});
 </script>
+<script>
+/* Always open at the top unless a link points to a section. */
+if("scrollRestoration" in history)history.scrollRestoration="manual";
+if(!location.hash){window.scrollTo(0,0);addEventListener("load",function(){window.scrollTo(0,0)})}
+</script>
 <script src="assets/js/fun.js"></script>
 </body>
 </html>
