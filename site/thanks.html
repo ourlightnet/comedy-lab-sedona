@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script src="assets/js/gate.js"></script>
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<script src="assets/js/favicon.js" defer></script>
+<script src="assets/js/nav.js" defer></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Experiment Funded · What on Earth!?</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Thank you for funding the Comedy Lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Figtree:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+body{margin:0}[hidden]{display:none!important}
+:root{
+  --bg:#FFFFFF; --surface:#F5F5F2; --fg:#0B0B0B; --muted:#555B5E;
+  --rock:#0A7D5E; --brass:#A9874E; --line:#E2E2DE;
+  --display:"Dela Gothic One","Arial Black",Impact,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B0B0B; --surface:#161616; --fg:#F4F4F2; --muted:#A9AEB0;
+  --rock:#3FCF9E; --brass:#C9A66B; --line:#2A2F31; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B0B0B; --surface:#161616; --fg:#F4F4F2; --muted:#A9AEB0;
+  --rock:#3FCF9E; --brass:#C9A66B; --line:#2A2F31; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--body)}
+a{color:var(--rock);text-underline-offset:3px}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.05;text-wrap:balance;margin:0}
+p{margin:0;max-width:62ch}
+.eyebrow{font:500 .78rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+.btn{display:inline-block;text-decoration:none;font:700 1rem/1 var(--body);padding:14px 20px;border-radius:999px;border:0;background:var(--rock);color:var(--bg);cursor:pointer;text-align:center}
+.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--rock)}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#0F3B33 0%,#000 70%);color:#FFFFFF;text-align:center}
+.hero .wrap{display:grid;justify-items:center;gap:18px;padding-block:56px 64px}
+.stamp{display:inline-block;font:500 .85rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#3FCF9E;border:3px solid #3FCF9E;border-radius:10px;padding:10px 14px;transform:rotate(-6deg);animation:stamp .6s cubic-bezier(.2,1.6,.4,1) .2s both}
+@keyframes stamp{from{transform:rotate(-6deg) scale(2.4);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
+.hero h1{font-size:clamp(2.4rem,8vw,4.6rem)}
+.hero p{font-size:1.2rem;opacity:.9;margin-inline:auto}
+.flask{font-size:clamp(4rem,14vw,7rem);line-height:1;animation:bub 2.6s ease-in-out infinite}
+@keyframes bub{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(4deg)}}
+.orbit{position:absolute;inset:auto -10% -60px;height:160px;border:2px solid rgba(255,255,255,.12);border-radius:50%;transform:rotate(-6deg);pointer-events:none}
+@media (prefers-reduced-motion:reduce){.stamp,.flask{animation:none}}
+.tile-band{height:22px;background:repeating-linear-gradient(45deg,var(--fg) 0 2px,transparent 2px 13px),repeating-linear-gradient(-45deg,var(--fg) 0 2px,transparent 2px 13px),var(--bg);border-block:3px solid var(--fg)}
+
+main .wrap{display:grid;gap:56px;padding-block:48px 72px}
+section{display:grid;gap:16px}
+section h2{font-size:clamp(1.7rem,4.5vw,2.4rem)}
+
+/* Certificate */
+.cert{position:relative;background:#FFFDF6;color:#0B0B0B;border-radius:18px;padding:clamp(22px,5vw,44px) clamp(22px,5vw,44px) clamp(96px,16vw,120px);text-align:center;border:3px double #A9874E;box-shadow:0 0 0 8px #FFFDF6,0 0 0 10px #A9874E,0 24px 48px rgba(0,0,0,.18);display:grid;gap:12px;justify-items:center;margin:10px}
+.cert .eyebrow{color:#A9874E}
+.cert h3{font-size:clamp(1.4rem,4vw,2rem)}
+.cert .who{font:400 clamp(1.8rem,6vw,3rem)/1.1 var(--display);color:#0A7D5E;border-bottom:2px solid #A9874E;padding:0 18px 8px;min-width:60%;overflow-wrap:anywhere}
+.cert p{color:#3A3F42;margin-inline:auto}
+.cert .seal{position:absolute;right:clamp(10px,3vw,26px);bottom:clamp(10px,3vw,22px);width:clamp(64px,12vw,92px);height:clamp(64px,12vw,92px);border-radius:50%;background:#0A7D5E;color:#FFFFFF;display:grid;place-items:center;text-align:center;font:500 .6rem/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;transform:rotate(12deg);box-shadow:inset 0 0 0 4px #FFFDF6,inset 0 0 0 6px #0A7D5E}
+.cert .date{font:500 .8rem/1 var(--mono);letter-spacing:.1em;color:#6B6F72;text-transform:uppercase}
+.name-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.name-row input{font:500 1rem var(--body);padding:12px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);min-width:min(100%,260px)}
+
+/* Next steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.steps .ico{font-size:1.8rem;line-height:1}
+.steps b{display:block;font:400 1.15rem/1.2 var(--display);margin-bottom:4px}
+.steps p{color:var(--muted)}
+
+/* Share */
+.dare{background:#0B0B0B;color:#FFFFFF;border-radius:18px;padding:clamp(22px,4vw,36px);border:2px solid #3FCF9E}
+.dare h2{color:#FFFFFF}
+.dare p{opacity:.85}
+.dare .btn{background:#3FCF9E;color:#0B0B0B}
+.dare .btn.ghost{background:transparent;color:#3FCF9E;border-color:#3FCF9E}
+.copied{color:#3FCF9E;font-weight:700}
+
+footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;text-align:center}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="orbit" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="stamp">Experiment funded</span>
+    <div class="flask" aria-hidden="true">🧪</div>
+    <h1>You just funded comedy science.</h1>
+    <p>Thank you! You’re officially part of the research. Stripe has emailed your donation receipt, and the comedians have been notified that someone believes in them.</p>
+  </div>
+</header>
+<div class="tile-band" aria-hidden="true"></div>
+
+<main><div class="wrap">
+
+  <section aria-labelledby="cert-h">
+    <div class="eyebrow">Your credentials</div>
+    <h2 id="cert-h">Make it official</h2>
+    <p>Type your name to sign your certificate, then save it and frame it. Or post it. Mostly post it.</p>
+    <div class="name-row"><label for="who" class="eyebrow" style="color:var(--muted)">Your name</label><input id="who" maxlength="40" placeholder="Dr. Your Name" autocomplete="name"><button class="btn" type="button" id="save-cert">Save certificate</button></div>
+    <div class="cert" id="cert">
+      <div class="eyebrow">The Comedy Lab · Research department</div>
+      <h3>Certificate of Lab Benefactorship</h3>
+      <p>This certifies that</p>
+      <div class="who" id="cert-who">A Brave Benefactor</div>
+      <p>helped fund <strong>What on Earth!?</strong>, a Dream Machine Experiment: nine comedians, one house in Sedona and 48 hours of Interdimensional Comedy.</p>
+      <div class="date" id="cert-date"></div>
+      <div class="seal" aria-hidden="true">Lab<br>certified<br>✦</div>
+    </div>
+  </section>
+
+  <section aria-labelledby="next-h">
+    <div class="eyebrow">What happens next</div>
+    <h2 id="next-h">The experiment timeline</h2>
+    <ol class="steps">
+      <li><span class="ico" aria-hidden="true">📬</span><div><b>Check your inbox</b><p>Your receipt from Stripe is on its way. Your gift goes to LightNet, the nonprofit behind the Comedy Lab.</p></div></li>
+      <li><span class="ico" aria-hidden="true">🏡</span><div><b>March 7 to 10, 2027: lab sealed</b><p>The comedians move into the house above Sedona. Opening lines are pulled from a hat, and the clips start coming.</p></div></li>
+      <li><span class="ico" aria-hidden="true">🎬</span><div><b>March 19, 2027: Results night</b><p>We premiere every clip at Humankind.center, 8 to 10pm, plus live improv. Come see what you funded.</p>
+        <div class="row" style="margin-top:12px"><a class="btn ghost" href="assets/comedy-lab-results-night.ics" download>Add to calendar</a></div></div></li>
+      <li><span class="ico" aria-hidden="true">🌍</span><div><b>Then: the world plays along</b><p>The clips go out, and comedians everywhere riff on the same opening lines for bounties.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="dare" aria-labelledby="dare-h">
+    <div class="eyebrow" style="color:#3FCF9E">Peer review</div>
+    <h2 id="dare-h">Dare a friend</h2>
+    <p>Experiments need replication. Send this to the funniest person you know and dare them to fund the next drop.</p>
+    <div class="row">
+      <button class="btn" type="button" id="share">Share the dare</button>
+      <button class="btn ghost" type="button" id="copy">Copy link</button>
+      <a class="btn ghost" id="sh-x" target="_blank" rel="noopener">Post on X</a>
+      <a class="btn ghost" id="sh-fb" target="_blank" rel="noopener">Facebook</a>
+      <a class="btn ghost" id="sh-mail">Email</a>
+    </div>
+    <p class="copied" id="copied" role="status" hidden>Link copied!</p>
+  </section>
+
+  <section aria-labelledby="loop-h">
+    <div class="eyebrow">Stay in the loop</div>
+    <h2 id="loop-h">Watch the results come in</h2>
+    <p>Get new clips, new opening lines and news from the house, or vote on the lines that start the comedy.</p>
+    <div class="row">
+      <a class="btn" href="./#updates">Get the updates</a>
+      <a class="btn ghost" href="lines.html">Vote on opening lines</a>
+      <a class="btn ghost" href="https://instagram.com/comedylabsedona" target="_blank" rel="noopener">Follow on Instagram</a>
+      <a class="btn ghost" href="fund.html">Fund more research</a>
+    </div>
+  </section>
+
+</div></main>
+<footer><div class="wrap">Questions about your gift? Email <a href="mailto:donations@comedylabsedona.com">donations@comedylabsedona.com</a> or text <a href="sms:+14242809561">424-280-9561</a>.</div></footer>
+
+<script>
+(function(){
+  var URL_='https://comedylabsedona.com/fund.html';
+  var MSG='I just funded a comedy experiment: nine comedians, one house in Sedona, 48 hours. I dare you to fund the next drop 🧪';
+  var who=document.getElementById('who'),out=document.getElementById('cert-who');
+  var d=new Date();document.getElementById('cert-date').textContent=d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' · Sedona, Arizona';
+  try{var saved=localStorage.getItem('cl-benefactor');if(saved){who.value=saved;out.textContent=saved}}catch(e){}
+  who.addEventListener('input',function(){out.textContent=who.value.trim()||'A Brave Benefactor';try{localStorage.setItem('cl-benefactor',who.value.trim())}catch(e){}});
+
+  /* Draw the certificate to a PNG for saving. */
+  document.getElementById('save-cert').onclick=function(){
+    var W=1600,H=1100,c=document.createElement('canvas');c.width=W;c.height=H;var x=c.getContext('2d');
+    x.fillStyle='#FFFDF6';x.fillRect(0,0,W,H);
+    x.strokeStyle='#A9874E';x.lineWidth=6;x.strokeRect(40,40,W-80,H-80);x.lineWidth=2;x.strokeRect(60,60,W-120,H-120);
+    x.textAlign='center';x.fillStyle='#A9874E';x.font='500 26px "JetBrains Mono",monospace';x.fillText('THE COMEDY LAB  ·  RESEARCH DEPARTMENT',W/2,170);
+    x.fillStyle='#0B0B0B';x.font='64px "Dela Gothic One","Arial Black",sans-serif';x.fillText('Certificate of Lab Benefactorship',W/2,270);
+    x.fillStyle='#3A3F42';x.font='34px Figtree,system-ui,sans-serif';x.fillText('This certifies that',W/2,370);
+    x.fillStyle='#0A7D5E';var name=out.textContent,fs=96;x.font=fs+'px "Dela Gothic One","Arial Black",sans-serif';
+    while(x.measureText(name).width>W-260&&fs>40){fs-=4;x.font=fs+'px "Dela Gothic One","Arial Black",sans-serif'}
+    x.fillText(name,W/2,500);x.strokeStyle='#A9874E';x.lineWidth=3;x.beginPath();x.moveTo(300,535);x.lineTo(W-300,535);x.stroke();
+    x.fillStyle='#3A3F42';x.font='34px Figtree,system-ui,sans-serif';
+    x.fillText('helped fund What on Earth!?, a Dream Machine Experiment:',W/2,630);
+    x.fillText('nine comedians, one house in Sedona and 48 hours of Interdimensional Comedy.',W/2,682);
+    x.fillStyle='#6B6F72';x.font='500 26px "JetBrains Mono",monospace';x.fillText(document.getElementById('cert-date').textContent.toUpperCase(),W/2,800);
+    x.save();x.translate(W-260,H-250);x.rotate(.2);x.fillStyle='#0A7D5E';x.beginPath();x.arc(0,0,110,0,7);x.fill();
+    x.strokeStyle='#FFFDF6';x.lineWidth=5;x.beginPath();x.arc(0,0,96,0,7);x.stroke();
+    x.fillStyle='#FFFFFF';x.font='500 24px "JetBrains Mono",monospace';x.fillText('LAB',0,-18);x.fillText('CERTIFIED',0,14);x.fillText('✦',0,48);x.restore();
+    x.font='72px serif';x.fillText('🧪',230,H-200);
+    var a=document.createElement('a');a.download='comedy-lab-certificate.png';a.href=c.toDataURL('image/png');document.body.appendChild(a);a.click();a.remove();
+    window.comedyLabCelebrate&&window.comedyLabCelebrate();
+  };
+
+  var enc=encodeURIComponent;
+  document.getElementById('sh-x').href='https://twitter.com/intent/tweet?text='+enc(MSG)+'&url='+enc(URL_);
+  document.getElementById('sh-fb').href='https://www.facebook.com/sharer/sharer.php?u='+enc(URL_);
+  document.getElementById('sh-mail').href='mailto:?subject='+enc('I dare you to fund comedy science')+'&body='+enc(MSG+'\n\n'+URL_);
+  var copied=document.getElementById('copied');
+  function copy(){if(navigator.clipboard)navigator.clipboard.writeText(MSG+' '+URL_).then(function(){copied.hidden=false;setTimeout(function(){copied.hidden=true},2200)})}
+  document.getElementById('copy').onclick=copy;
+  var sh=document.getElementById('share');
+  if(navigator.share)sh.onclick=function(){navigator.share({title:'Fund the Research',text:MSG,url:URL_}).catch(function(){})};
+  else sh.onclick=copy;
+
+  /* Big celebration on arrival. */
+  function party(){window.comedyLabCelebrate&&window.comedyLabCelebrate()}
+  setTimeout(party,350);setTimeout(party,1600);
+})();
+</script>
+<script src="assets/js/fun.js"></script>
+</body>
+</html>
