@@ -74,7 +74,7 @@ Deno.serve(async (req) => {
   // Settings > Customer emails > "Successful payments" is on.
   form.append("payment_intent_data[description]", "Donation to LightNet for the Comedy Lab. No goods or services were provided in exchange.");
   form.append("customer_creation", "always");
-  form.append("success_url", `${SITE}/fund.html?thanks=1`);
+  form.append("success_url", `${SITE}/thanks.html`);
   form.append("cancel_url", `${SITE}/fund.html`);
 
   const r = await fetch("https://api.stripe.com/v1/checkout/sessions", {
