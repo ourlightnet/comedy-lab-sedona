@@ -14,7 +14,7 @@ const PRICES: Record<string, { name: string; cents: number; max: number }> = {
   tags: { name: "Opening and closing clip tags", cents: 40000, max: 1 },
   comedian: { name: "Comedian stipend", cents: 40000, max: 9 },
   editor: { name: "Crew stipend", cents: 40000, max: 3 },
-  bounty: { name: "Quarterly bounty prize", cents: 30000, max: 4 },
+  bounty: { name: "$300 bounty prize", cents: 30000, max: 4 },
   boost: { name: "Quarter of social boosting", cents: 30000, max: 4 },
 };
 

@@ -252,7 +252,7 @@ body{padding-bottom:140px}
 
   <div class="xp x2"><span class="xp-tag">Experiment 2</span><span class="xp-sub">The contest and the bounties</span></div>
   <section id="phase2" class="x2 xpanel" style="display:grid;gap:16px;margin-top:14px"><div class="stack" style="display:grid;gap:8px"><h2>Phase Two: The Contest and the Bounties</h2><b id="p2-total" style="font:400 1.4rem/1 var(--display,'Dela Gothic One',sans-serif);color:var(--rock,#0A7D5E)"></b>
-    <p style="margin:0;max-width:62ch;opacity:.85">Hypothesis: if we put a prize on it and push it into the feeds, the whole internet starts playing along. Help us test it with a $300 prize pot for the best clip and the launch fuel to get the clips seen.</p></div>
+    <p style="margin:0;max-width:62ch;opacity:.85">Hypothesis: if we put a prize on it and push it into the feeds, the whole internet starts playing along. Help us test it with four $300 bounties (three for the best crowd clips, one for the best clip from the house) and the launch fuel to get the clips seen.</p></div>
   <div class="reg" id="reg2"></div></section>
 
   <div class="xp x3"><span class="xp-tag">Experiment 3</span><span class="xp-sub">2028 and beyond</span></div>
@@ -329,12 +329,13 @@ body{padding-bottom:140px}
   function load(){try{return JSON.parse(localStorage.getItem('cl-cart'))||{}}catch(e){return {}}}
   function save(){try{localStorage.setItem('cl-cart',JSON.stringify(cart))}catch(e){}}
   var cart=load();
+  function plural(w){return /[^aeiou]y$/.test(w)?w.slice(0,-1)+'ies':w+'s'}
   function lines(){
     var out=[];
     if(cart.all)out.push({key:'all',title:F.all.title,qty:1,total:F.all.amount});
     Object.keys(cart).forEach(function(k){
       if(k==='all'||k==='gift')return; var i=byId[k]; if(!i)return;
-      out.push({key:k,title:i.title+(i.count>1?' · '+cart[k]+' '+i.label+(cart[k]>1?'s':''):''),qty:cart[k],total:cart[k]*i.unit});
+      out.push({key:k,title:i.title+(i.count>1?' · '+cart[k]+' '+(cart[k]>1?plural(i.label):i.label):''),qty:cart[k],total:cart[k]*i.unit});
     });
     if(cart.gift)out.push({key:'gift',title:'Gift, any amount',qty:1,total:cart.gift});
     return out;
@@ -370,9 +371,9 @@ body{padding-bottom:140px}
     var total=i.unit*i.count;
     if(i.covered)return '<div class="gift done"><span class="ico" aria-hidden="true">'+i.icon+'</span><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="amt">'+money(total)+'</div><span class="cov">✓ Covered by '+esc(i.covered)+'</span></div>';
     var part=i.coveredAmount?'<span class="part">'+money(i.coveredAmount)+' already covered by the City of Sedona</span>':'';
-    var step=i.count>1?'<label class="step">How many '+i.label+'s?<span><button type="button" data-d="-1" aria-label="Fewer">−</button><output>'+i.count+'</output><button type="button" data-d="1" aria-label="More">+</button></span></label>':'';
+    var step=i.count>1?'<label class="step">How many '+plural(i.label)+'?<span><button type="button" data-d="-1" aria-label="Fewer">−</button><output>'+i.count+'</output><button type="button" data-d="1" aria-label="More">+</button></span></label>':'';
     return '<div class="gift" data-id="'+i.id+'"><span class="ico" aria-hidden="true">'+i.icon+'</span><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="amt">'+money(total)+'<small>total</small></div>'+
-      (i.count>1?'<span class="per">'+i.count+' '+i.label+'s × '+money(i.unit)+'</span>':'')+part+step+'<button type="button" class="btn add">Fund it 🧪</button></div>';
+      (i.count>1?'<span class="per">'+i.count+' '+plural(i.label)+' × '+money(i.unit)+'</span>':'')+part+step+'<button type="button" class="btn add">Fund it 🧪</button></div>';
   }
   var p1=F.items.filter(function(i){return !i.phase}),p2=F.items.filter(function(i){return i.phase===2}),p3=F.items.filter(function(i){return i.phase==='nice'});
   document.getElementById('reg').innerHTML=p1.filter(function(i){return i.covered}).concat(p1.filter(function(i){return !i.covered})).map(card).join('');

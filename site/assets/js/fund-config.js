@@ -30,7 +30,7 @@ window.FUND = {
     { id: 'insurance', icon: '🦺', title: 'Lab safety', desc: 'Event insurance, in case the experiment gets out of hand.', unit: 350, count: 1, covered: 'City of Sedona' },
     { id: 'comedian', icon: '🎤', title: 'Sponsor a test subject', desc: 'Each of the nine comedians gets a $400 stipend. They signed the waiver. Mostly.', unit: 400, count: 9, label: 'comedian' },
     { id: 'editor', icon: '🎬', title: 'Fund a lab technician', desc: '$400 stipends for the crew: an editor and an editor/special FX who turn pure chaos into 60-second clips, plus hair/makeup/costumes.', unit: 400, count: 3, label: 'crew member' },
-    { id: 'bounty', icon: '🏆', title: 'The prize pot', desc: '$300 each quarter to the team with the most upvoted clip. Competition is good for science.', unit: 300, count: 4, label: 'quarter', phase: 2 },
+    { id: 'bounty', icon: '🏆', title: 'The prize pot', desc: 'Four $300 bounties: three for the best crowd clips riffing on our opening lines, one for the best clip from the house. Competition is good for science.', unit: 300, count: 4, label: 'bounty', phase: 2 },
     { id: 'boost', icon: '🚀', title: 'Launch fuel', desc: '$300 each quarter to boost the clips into the algorithm\'s orbit.', unit: 300, count: 4, label: 'quarter', phase: 2 }
   ]
 };
