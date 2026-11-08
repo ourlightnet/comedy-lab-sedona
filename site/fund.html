@@ -318,6 +318,7 @@ body{padding-bottom:140px}
   <p class="foot-legal">© 2026 The Comedy Lab Sedona · A Dream Machine project</p>
 </div></footer>
 <script src="assets/js/fund-config.js"></script>
+<script src="assets/js/lines-config.js"></script>
 <script>
 /* Registry cart. Items go in a cart kept in this browser; checkout sends the
    item ids and quantities to the Stripe checkout function, which prices them. */
@@ -361,9 +362,15 @@ body{padding-bottom:140px}
   var e1=Math.round(left(F.items.filter(function(i){return !i.phase}))*100)/100,e2=Math.round(left(F.items.filter(function(i){return i.phase===2}))*100)/100;
   document.getElementById('all-split').textContent=money(e1)+' for Experiment 1 + '+money(e2)+' for Experiment 2';
   document.getElementById('p2-total').textContent='Experiment 2 total: '+money(e2);
-  var raised=F.donors.reduce(function(a,d){return a+d.amount},0),goal=raised+F.all.amount,pct=Math.round(raised/goal*100);
-  document.getElementById('beaker-txt').textContent=pct+'% funded · '+money(raised)+' of '+money(Math.round(goal*100)/100);
-  setTimeout(function(){document.getElementById('beaker-fill').style.width=pct+'%'},200);
+  var raised=F.donors.reduce(function(a,d){return a+d.amount},0),goal=raised+F.all.amount;
+  function beaker(r){var pct=Math.min(100,Math.round(r/goal*100));document.getElementById('beaker-txt').textContent=pct+'% funded · '+money(Math.round(r*100)/100)+' of '+money(Math.round(goal*100)/100);setTimeout(function(){document.getElementById('beaker-fill').style.width=pct+'%'},200)}
+  beaker(raised);
+  // Card gifts made on this page, totaled live by the stripe-webhook function.
+  var LC=window.LINES_CONFIG||{};
+  if(LC.SUPABASE_URL&&LC.SUPABASE_ANON_KEY)fetch(LC.SUPABASE_URL.replace(/\/$/,'')+'/rest/v1/donations_total?select=total,n',{headers:{apikey:LC.SUPABASE_ANON_KEY}})
+    .then(function(r){return r.ok?r.json():[]}).then(function(rows){var t=rows[0];if(!t||!(+t.total>0))return;
+      var el=document.createElement('div');el.className='donor';el.innerHTML='<b>People like you</b><span class="amt">'+money(Math.round(+t.total*100)/100)+'</span><p>'+t.n+' card gift'+(t.n>1?'s':'')+' and counting. Thank you!</p>';
+      document.getElementById('donors').appendChild(el);beaker(raised+(+t.total))}).catch(function(){});
   document.getElementById('add-all').onclick=function(){cart={all:1};refresh();bump()};
   document.getElementById('gift-form').onsubmit=function(e){e.preventDefault();var v=Math.round(+document.getElementById('gift-amt').value*100)/100;if(v>0){cart.gift=(cart.gift||0)+v;delete cart.all;refresh();bump();this.reset()}};
 

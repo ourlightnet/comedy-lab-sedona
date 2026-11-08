@@ -1,5 +1,6 @@
-// Stripe webhook: when a Fund the Research checkout completes and the donor
-// ticked "Keep me updated" on the Stripe page, add them to the Brevo list.
+// Stripe webhook: when a Fund the Research checkout completes, record the
+// gift for the Fund page total, and if the donor ticked "Keep me updated"
+// on the Stripe page, add them to the Brevo list.
 //
 // Secrets (Supabase dashboard → Edge Functions → Secrets):
 //   STRIPE_WEBHOOK_SECRET  whsec_... from Stripe → Developers → Webhooks → this endpoint
@@ -35,6 +36,22 @@ Deno.serve(async (req) => {
   if (event.type !== "checkout.session.completed") return new Response("ignored");
 
   const s = event.data.object;
+
+  // Count the gift toward the Fund page total (donations table, see donations.sql).
+  if (s.payment_status === "paid" && s.amount_total) {
+    const db = await fetch(`${Deno.env.get("SUPABASE_URL")}/rest/v1/donations?on_conflict=session_id`, {
+      method: "POST",
+      headers: {
+        apikey: Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+        Authorization: `Bearer ${Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")}`,
+        "Content-Type": "application/json",
+        Prefer: "resolution=ignore-duplicates,return=minimal",
+      },
+      body: JSON.stringify({ session_id: s.id, amount: s.amount_total / 100 }),
+    });
+    if (!db.ok) console.error("donations insert failed", db.status, await db.text());
+  }
+
   const email = s.customer_details?.email;
   const optedIn = s.consent?.promotions === "opt_in";
   if (!email || (OPT_IN_ONLY && !optedIn)) return new Response("not added");
