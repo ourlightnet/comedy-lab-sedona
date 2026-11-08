@@ -8,7 +8,7 @@
    phase: 2 puts an item in the Phase 2 (play along) request;
    phase: 'nice' lists it under Nice to have, outside the totals. */
 window.FUND = {
-  checkoutUrl: '',
+  checkoutUrl: 'https://zagijqsxpwwyglvtukrf.supabase.co/functions/v1/checkout',
   anyLink: '',
   // all.link: optional Stripe Payment Link for exactly this amount, used by
   // the Buy now button until checkoutUrl is set.
