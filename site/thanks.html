@@ -41,12 +41,13 @@ p{margin:0;max-width:62ch}
 
 /* Hero */
 .hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#0F3B33 0%,#000 70%);color:#FFFFFF;text-align:center}
-.hero .wrap{display:grid;justify-items:center;gap:18px;padding-block:56px 64px}
+.hero .wrap{display:grid;justify-items:center;gap:16px;padding-block:28px 56px}
 .stamp{display:inline-block;font:500 .85rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#3FCF9E;border:3px solid #3FCF9E;border-radius:10px;padding:10px 14px;transform:rotate(-6deg);animation:stamp .6s cubic-bezier(.2,1.6,.4,1) .2s both}
 @keyframes stamp{from{transform:rotate(-6deg) scale(2.4);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
-.hero h1{font-size:clamp(2.4rem,8vw,4.6rem)}
+.hero h1{font-size:clamp(3rem,13vw,7rem);color:#3FCF9E;text-shadow:0 0 40px rgba(63,207,158,.45)}
+.hero .sub{font:400 clamp(1.4rem,4.5vw,2.2rem)/1.15 var(--display);opacity:1}
 .hero p{font-size:1.2rem;opacity:.9;margin-inline:auto}
-.flask{font-size:clamp(4rem,14vw,7rem);line-height:1;animation:bub 2.6s ease-in-out infinite}
+.flask{font-size:clamp(3rem,10vw,5rem);line-height:1;animation:bub 2.6s ease-in-out infinite}
 @keyframes bub{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(4deg)}}
 .orbit{position:absolute;inset:auto -10% -60px;height:160px;border:2px solid rgba(255,255,255,.12);border-radius:50%;transform:rotate(-6deg);pointer-events:none}
 @media (prefers-reduced-motion:reduce){.stamp,.flask{animation:none}}
@@ -89,10 +90,11 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
 <header class="hero">
   <div class="orbit" aria-hidden="true"></div>
   <div class="wrap">
-    <span class="stamp">Experiment funded</span>
     <div class="flask" aria-hidden="true">🧪</div>
-    <h1>You just funded comedy science.</h1>
-    <p>Thank you! You’re officially part of the research. Stripe has emailed your donation receipt, and the comedians have been notified that someone believes in them.</p>
+    <h1>Experiment Funded!</h1>
+    <span class="stamp">Thank you, benefactor</span>
+    <p class="sub">You just funded comedy science.</p>
+    <p> You’re officially part of the research. Stripe has emailed your donation receipt, and the comedians have been notified that someone believes in them.</p>
   </div>
 </header>
 <div class="tile-band" aria-hidden="true"></div>
