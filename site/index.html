@@ -118,7 +118,8 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .slot.wild{border:3px dashed var(--rock);background:var(--xbg)}@media (max-width:640px){.board .slot.wild{grid-column:1/-1}}.slot.wild h3{color:var(--rock)}.slot.wild .tag{background:var(--rock);color:var(--bg)}.slot.wild .bio a{color:var(--rock);font-weight:700}
 .slot.curated{border:2px solid var(--brass);background:var(--surface)}
 .slot.curated{justify-items:center;text-align:center}.slot.curated .n{justify-self:start}
-.slot.curated .cur-logo{display:block;width:clamp(72px,60%,200px)}.slot.curated .bio{font-size:clamp(.9rem,1.6vw,1.1rem)}.slot.curated .cur-word{font:400 clamp(1.4rem,3vw,2rem)/1 var(--display);color:var(--fg);text-decoration:none;letter-spacing:-.01em}
+.slot.curated .cur-logo{display:block;width:clamp(72px,60%,200px)}.slot.curated .bio{font-size:clamp(.9rem,1.6vw,1.1rem)}.slot.curated .cur-wide{width:clamp(120px,70%,220px)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .slot.curated .cur-logo img.on-white{background:#FFFFFF;border-radius:8px;padding:6px 8px;box-sizing:border-box}}:root[data-theme="dark"] .slot.curated .cur-logo img.on-white{background:#FFFFFF;border-radius:8px;padding:6px 8px;box-sizing:border-box}
+.slot.curated .cur-word{font:400 clamp(1.4rem,3vw,2rem)/1 var(--display);color:var(--fg);text-decoration:none;letter-spacing:-.01em}
 .slot.curated .tag{justify-self:center}.slot.curated .cur-logo img{width:100%;height:auto;display:block}
 .slot.curated .tag{background:var(--brass);color:#0B0B0B}
 .slot.open h3{color:var(--muted)}
@@ -532,8 +533,8 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   <div class="stack" style="margin-top:40px"><div class="eyebrow">Behind the camera</div><h3 style="margin:0;font:400 1.6rem/1.1 var(--display)">The crew</h3><p>Three crew seats turn the chaos into clips. LightNet is curating two, and one editor seat is open.</p></div>
   <div class="board crew">
     <div class="slot open"><span class="n">Editor</span><h3>Your name here</h3><span class="bio"><a href="seat.html">Want this seat? →</a></span><span class="tag">Open</span></div>
-    <div class="slot curated"><span class="n">Editor/Special FX</span><a class="cur-word" href="https://lightnet.org" target="_blank" rel="noopener">LightNet</a><span class="bio">Curated by <strong>LightNet</strong></span><span class="tag">Curated</span></div>
-    <div class="slot curated"><span class="n">Hair/Makeup/Costumes</span><a class="cur-word" href="https://lightnet.org" target="_blank" rel="noopener">LightNet</a><span class="bio">Curated by <strong>LightNet</strong></span><span class="tag">Curated</span></div>
+    <div class="slot curated"><span class="n">Editor/Special FX</span><a class="cur-logo cur-wide" href="https://lightnet.org" target="_blank" rel="noopener"><img class="on-white" src="assets/img/collab/lightnet.png" alt="LightNet" width="600" height="142" loading="lazy"></a><span class="bio">Curated by <strong>LightNet</strong></span><span class="tag">Curated</span></div>
+    <div class="slot curated"><span class="n">Hair/Makeup/Costumes</span><a class="cur-logo cur-wide" href="https://lightnet.org" target="_blank" rel="noopener"><img class="on-white" src="assets/img/collab/lightnet.png" alt="LightNet" width="600" height="142" loading="lazy"></a><span class="bio">Curated by <strong>LightNet</strong></span><span class="tag">Curated</span></div>
   </div>
 </div></section>
 
