@@ -394,8 +394,8 @@ body{padding-bottom:140px}
     if(F.checkoutUrl){
       btn.disabled=true;btn.textContent='Opening Stripe…';
       fetch(F.checkoutUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cart:cart})})
-        .then(function(r){return r.json()}).then(function(r){if(!r.url)throw 0;location.href=r.url})
-        .catch(function(){btn.disabled=false;refresh();var n=document.getElementById('cart-note');n.hidden=false;n.textContent='Checkout didn’t open. Please try again.'});
+        .then(function(r){return r.json()}).then(function(r){if(!r.url)throw new Error(r.error||r.msg||r.message||'no url');location.href=r.url})
+        .catch(function(x){btn.disabled=false;refresh();var n=document.getElementById('cart-note');n.hidden=false;n.textContent='Checkout didn’t open. Please try again. ('+(x&&x.message||'error')+')'});
     } else if(F.anyLink){window.open(F.anyLink,'_blank','noopener')}
   };
   // Buy now: straight to Stripe for the whole experiment, skipping the cart.
@@ -406,8 +406,8 @@ body{padding-bottom:140px}
       if(F.checkoutUrl){
         b.disabled=true;b.textContent='Opening Stripe…';
         fetch(F.checkoutUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cart:{all:1}})})
-          .then(function(r){return r.json()}).then(function(r){if(!r.url)throw 0;location.href=r.url})
-          .catch(function(){b.disabled=false;b.textContent='Buy now 💳';n.hidden=false;n.textContent='Checkout didn’t open. Please try again.'});
+          .then(function(r){return r.json()}).then(function(r){if(!r.url)throw new Error(r.error||r.msg||r.message||'no url');location.href=r.url})
+          .catch(function(x){b.disabled=false;b.textContent='Buy now 💳';n.hidden=false;n.textContent='Checkout didn’t open. Please try again. ('+(x&&x.message||'error')+')'});
       } else window.open(F.all.link,'_blank','noopener');
     };
   })();

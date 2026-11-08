@@ -18,18 +18,23 @@ const PRICES: Record<string, { name: string; cents: number; max: number }> = {
   boost: { name: "Quarter of social boosting", cents: 30000, max: 4 },
 };
 
-const cors = {
-  "Access-Control-Allow-Origin": SITE,
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "content-type",
-};
+// Pages allowed to call this function (with and without www).
+const ORIGINS = [SITE, "https://www.comedylabsedona.com"];
+let cors: Record<string, string> = {};
 
 function reply(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: { ...cors, "Content-Type": "application/json" } });
 }
 
 Deno.serve(async (req) => {
+  const origin = req.headers.get("origin") ?? "";
+  cors = {
+    "Access-Control-Allow-Origin": ORIGINS.includes(origin) ? origin : SITE,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  };
   if (req.method === "OPTIONS") return new Response(null, { headers: cors });
+  if (!Deno.env.get("STRIPE_SECRET_KEY")) return reply({ error: "STRIPE_SECRET_KEY secret is missing" }, 500);
   if (req.method !== "POST") return reply({ error: "POST only" }, 405);
 
   let cart: Record<string, number>;
