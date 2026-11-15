@@ -6,7 +6,7 @@
    as a fallback checkout before checkoutUrl is set.
    covered / coveredAmount: what donors have already paid for.
    phase: 2 puts an item in the Phase 2 (play along) request;
-   phase: 'nice' lists it under Nice to have, outside the totals. */
+   phase: 'stretch' lists it under Stretch goals, outside the totals. */
 window.FUND = {
   checkoutUrl: 'https://zagijqsxpwwyglvtukrf.supabase.co/functions/v1/checkout',
   anyLink: '',
@@ -31,6 +31,10 @@ window.FUND = {
     { id: 'comedian', icon: '🎤', title: 'Sponsor a test subject', desc: 'Each of the nine comedians gets a $400 stipend. They signed the waiver. Mostly.', unit: 400, count: 9, label: 'comedian' },
     { id: 'editor', icon: '🎬', title: 'Fund a lab technician', desc: '$400 stipends for the crew: an editor and an editor/special FX who turn pure chaos into 60-second clips, plus hair/makeup/costumes.', unit: 400, count: 3, label: 'crew member' },
     { id: 'bounty', icon: '🏆', title: 'The prize pot', desc: 'Four $300 bounties: three for the best crowd clips riffing on our opening lines, one for the best clip from the house. Competition is good for science.', unit: 300, count: 4, label: 'bounty', phase: 2 },
-    { id: 'boost', icon: '🚀', title: 'Launch fuel', desc: '$300 each quarter to boost the clips into the algorithm\'s orbit.', unit: 300, count: 4, label: 'quarter', phase: 2 }
+    { id: 'boost', icon: '🚀', title: 'Launch fuel', desc: '$300 each quarter to boost the clips into the algorithm\'s orbit.', unit: 300, count: 4, label: 'quarter', phase: 2 },
+    { id: 'bigbounty', icon: '💰', title: 'The mega bounty', desc: 'Raise the top bounty from $300 to $1,200 for the funniest clip of all.', unit: 900, count: 1, phase: 'stretch' },
+    { id: 'prize2', icon: '🥈', title: 'Second place', desc: 'A $400 prize for the runner-up clip. Science rewards the bronze too, but we can only afford silver.', unit: 400, count: 1, phase: 'stretch' },
+    { id: 'travel', icon: '✈️', title: 'Fly in a test subject', desc: 'Bring in out-of-town comedians and crew: $300 for the trip plus $250 for the airport transfer.', unit: 550, count: 4, label: 'traveler', phase: 'stretch' },
+    { id: 'admin', icon: '🛰️', title: 'Mission control', desc: 'An offshore admin keeping the Lab running all year, at $250 a month.', unit: 250, count: 12, label: 'month', phase: 'stretch' }
   ]
 };

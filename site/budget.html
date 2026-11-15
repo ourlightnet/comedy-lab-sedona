@@ -135,11 +135,11 @@ main .wrap>*,#out>*{min-width:0}
       html+='<section class="sec"><h2>In-kind donors</h2><div class="tbl"><table class="narrow"><thead><tr><th>Donor</th><th class="num">Value</th></tr></thead><tbody>'+krows+'</tbody><tfoot><tr><td>Total in kind (not counted in cash)</td><td class="num">'+money(kv)+'</td></tr></tfoot></table></div></section>';}
     b.sections.forEach(function(s){
       var sb=0,ss=0,rows=s.items.map(function(i){
-        if(i.budget==null)open++;else sb+=i.budget; if(i.spent!=null)ss+=i.spent;
+        if(i.budget==null){if(!s.stretch)open++}else sb+=i.budget; if(i.spent!=null)ss+=i.spent;
         var name=i.link?'<a href="'+esc(i.link)+'" target="_blank" rel="noopener">'+esc(i.item)+' ↗</a>':esc(i.item);
         return '<tr><td>'+name+(i.note?'<div class="note">'+esc(i.note)+'</div>':'')+'</td><td class="num">'+(i.budget==null?'<span class="tbd">Open</span>':money(i.budget))+'</td><td class="num">'+(i.spent==null?'<span class="note">–</span>':money(i.spent))+'</td><td class="num small">'+(i.budget?crypto2(i.budget,p):'')+'</td></tr>';
       }).join('');
-      bud+=sb;spent+=ss;
+      if(!s.stretch){bud+=sb;spent+=ss}
       html+='<section class="sec"><h2>'+esc(s.name)+'</h2><div class="tbl"><table><thead><tr><th>Item</th><th class="num">Budgeted</th><th class="num">Spent</th><th class="num">In crypto</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr><td>Subtotal</td><td class="num">'+money(sb)+'</td><td class="num">'+money(ss)+'</td><td class="num small">'+crypto2(sb,p)+'</td></tr></tfoot></table></div></section>';
     });
     if(b.wishlist&&b.wishlist.length)html+='<section class="sec"><h2>Wish list</h2><ul class="wish">'+b.wishlist.map(function(w){return '<li>'+esc(w)+'</li>'}).join('')+'</ul></section>';
