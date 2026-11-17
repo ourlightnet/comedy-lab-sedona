@@ -12,7 +12,7 @@ window.FUND = {
   anyLink: '',
   // all.link: optional Stripe Payment Link for exactly this amount, used by
   // the Buy now button until checkoutUrl is set.
-  all: { id: 'all', title: 'Fund the entire experiment', amount: 8851.47, link: '' },
+  all: { id: 'all', title: 'Fund the entire experiment', amount: 14851.47, link: '' },
   // expected: income not in hand yet, taken off the Fund it all amount.
   expected: [{ name: 'Estimated ticket sales', amount: 300 }],
   donors: [
