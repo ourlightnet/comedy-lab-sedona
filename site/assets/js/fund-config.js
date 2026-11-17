@@ -12,9 +12,11 @@ window.FUND = {
   anyLink: '',
   // all.link: optional Stripe Payment Link for exactly this amount, used by
   // the Buy now button until checkoutUrl is set.
-  all: { id: 'all', title: 'Fund the entire experiment', amount: 7951.49, link: '' },
+  all: { id: 'all', title: 'Fund the entire experiment', amount: 8851.47, link: '' },
+  // expected: income not in hand yet, taken off the Fund it all amount.
+  expected: [{ name: 'Estimated ticket sales', amount: 300 }],
   donors: [
-    { name: 'City of Sedona', amount: 4600, note: 'Grant. Covers the house, crew beds, food and event insurance, the third crew room, and $48.51 toward costumes.' }
+    { name: 'City of Sedona', amount: 4600, note: 'Grant. Covers the house, crew beds, food and event insurance, the third crew room, and $48.53 toward costumes.' }
   ],
   inkind: [
     { name: 'LightNet', amount: 1500, note: 'The website.' },
@@ -22,18 +24,17 @@ window.FUND = {
   ],
   items: [
     { id: 'house', icon: '🏡', title: 'The laboratory', desc: 'Twin Pines: four bedrooms, a hot tub and unknown amounts of comedy. Every room is a set.', unit: 2622.36, count: 1, covered: 'City of Sedona' },
-    { id: 'motel', icon: '🛏️', title: 'The crew bunker', desc: 'Two rooms at Motel in the Pines so the crew can sleep between experiments, March 7 to 10.', unit: 652.75, count: 1, covered: 'City of Sedona' },
-    { id: 'room', icon: '🛌', title: 'One more crew bunk', desc: 'A third room at Motel in the Pines so the whole crew gets a bed, March 7 to 10.', unit: 326.38, count: 1, covered: 'City of Sedona' },
+    { id: 'motel', icon: '🛏️', title: 'The crew bunker', desc: 'Two rooms at Motel in the Pines so the crew can sleep between experiments, March 7 to 10.', unit: 652.74, count: 1, covered: 'City of Sedona' },
+    { id: 'room', icon: '🛌', title: 'One more crew bunk', desc: 'A third room at Motel in the Pines so the whole crew gets a bed, March 7 to 10.', unit: 326.37, count: 1, covered: 'City of Sedona' },
     { id: 'food', icon: '🍕', title: 'Brain fuel', desc: '48 hours of comedy runs on pizza. Science has confirmed this.', unit: 600, count: 1, covered: 'City of Sedona' },
     { id: 'tags', icon: '🎞️', title: 'The lab stamp', desc: 'Our opening and closing tags, branded on every clip that escapes the house.', unit: 400, count: 1 },
-    { id: 'costumes', icon: '👽', title: 'The wardrobe department', desc: 'More antennae, halos and ascended-master robes for the costume closet.', unit: 400, count: 1, coveredAmount: 48.51 },
+    { id: 'costumes', icon: '👽', title: 'The wardrobe department', desc: 'More antennae, halos and ascended-master robes for the costume closet.', unit: 400, count: 1, coveredAmount: 48.53 },
     { id: 'insurance', icon: '🦺', title: 'Lab safety', desc: 'Event insurance, in case the experiment gets out of hand.', unit: 350, count: 1, covered: 'City of Sedona' },
     { id: 'comedian', icon: '🎤', title: 'Sponsor a test subject', desc: 'Each of the nine comedians gets a $400 stipend. They signed the waiver. Mostly.', unit: 400, count: 9, label: 'comedian' },
     { id: 'editor', icon: '🎬', title: 'Fund a lab technician', desc: '$400 stipends for the crew: an editor and an editor/special FX who turn pure chaos into 60-second clips, plus hair/makeup/costumes.', unit: 400, count: 3, label: 'crew member' },
-    { id: 'bounty', icon: '🏆', title: 'The prize pot', desc: 'Four $300 bounties: three for the best crowd clips riffing on our opening lines, one for the best clip from the house. Competition is good for science.', unit: 300, count: 4, label: 'bounty', phase: 2 },
+    { id: 'bounty', icon: '🏆', title: 'The prize pot', desc: 'A $1,200 bounty for the winning clip, two quarters running. Competition is good for science.', unit: 1200, count: 2, label: 'bounty', phase: 2 },
     { id: 'boost', icon: '🚀', title: 'Launch fuel', desc: '$300 each quarter to boost the clips into the algorithm\'s orbit.', unit: 300, count: 4, label: 'quarter', phase: 2 },
-    { id: 'bigbounty', icon: '💰', title: 'The mega bounty', desc: 'Raise the top bounty from $300 to $1,200 for the funniest clip of all.', unit: 900, count: 1, phase: 'stretch' },
-    { id: 'prize2', icon: '🥈', title: 'Second place', desc: 'A $400 prize for the runner-up clip. Science rewards the bronze too, but we can only afford silver.', unit: 400, count: 1, phase: 'stretch' },
+    { id: 'prize2', icon: '🥈', title: 'Second place', desc: 'A $400 prize for the runner-up clip in each bounty round. Science rewards the bronze too, but we can only afford silver.', unit: 400, count: 2, label: 'prize', phase: 'stretch' },
     { id: 'travel', icon: '✈️', title: 'Fly in a test subject', desc: 'Bring in out-of-town comedians and crew: $300 for the trip plus $250 for the airport transfer.', unit: 550, count: 4, label: 'traveler', phase: 'stretch' },
     { id: 'admin', icon: '🛰️', title: 'Mission control', desc: 'An offshore admin keeping the Lab running all year, at $250 a month.', unit: 250, count: 12, label: 'month', phase: 'stretch' }
   ]
