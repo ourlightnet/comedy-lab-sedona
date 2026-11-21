@@ -2,11 +2,12 @@
    screens and fold into a menu button on phones. Edit LINKS to change it. */
 (function () {
   var LINKS = [
-    ['How it works', '#how'],
+    ['Why now', '#why'],
     ['The house', '#house'],
     ['Comedians', '#comedians'],
     ['Opening lines', '#prompts'],
-    ['The Experiment', '#experiment']
+    ['The Experiment', '#experiment'],
+    ['How it works', '#how']
   ];
   var CTA = ['Fund the Research 🧪', 'fund.html'];
 

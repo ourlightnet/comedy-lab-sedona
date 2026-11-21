@@ -404,6 +404,29 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 @media (max-width:820px){.logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:480px){.logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.logo-grid>*{height:100px}}
 .also{margin-top:16px;color:var(--muted);font-size:.95rem}
+.hero-copy{display:grid;gap:10px;margin-top:4px}
+.hero p.hook{font:400 clamp(1.4rem,3.4vw,2.1rem)/1.15 var(--display);color:#FFFFFF;margin:0}
+.hero-copy p.idc{margin:0}
+.hero p.wrong{font-style:italic;opacity:.92;margin:0}
+.hero .wrap>.eyebrow{margin-top:6px;color:#3FCF9E;opacity:1}
+.why{background:radial-gradient(1200px 500px at 85% -10%,rgba(155,93,229,.45),transparent 60%),radial-gradient(900px 500px at 0% 110%,rgba(63,207,158,.35),transparent 60%),#07060F;color:#FFFFFF;position:relative;overflow:hidden}
+.why::before{content:"";position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 20%,#fff,transparent),radial-gradient(1px 1px at 78% 12%,#fff,transparent),radial-gradient(1.5px 1.5px at 40% 70%,#fff,transparent),radial-gradient(1px 1px at 90% 80%,#fff,transparent),radial-gradient(1px 1px at 22% 88%,#fff,transparent),radial-gradient(1.5px 1.5px at 60% 30%,#fff,transparent);opacity:.6;pointer-events:none}
+.why .wrap{position:relative;display:grid;gap:clamp(28px,4vw,44px)}
+.why .eyebrow{color:#3FCF9E}
+.why h2{font-size:clamp(2.6rem,7vw,5rem);line-height:.95;margin-top:10px;color:#FFFFFF}
+.why h2 span{background:linear-gradient(90deg,#3FCF9E,#B98CFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.why-grid{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:16px;align-items:stretch}
+.why-card{border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:26px 24px;background:rgba(255,255,255,.04);display:grid;align-content:start;gap:12px}
+.why-card h3{font:400 1.35rem/1.15 var(--display);margin:0;color:#FFFFFF}
+.why-card p{margin:0;color:#E4E2EE;font-size:1.05rem;line-height:1.5}
+.why-n{font:500 .8rem/1 var(--mono);letter-spacing:.14em;color:#3FCF9E}
+.why-big{background:linear-gradient(160deg,rgba(155,93,229,.28),rgba(63,207,158,.12));border-color:rgba(185,140,255,.5)}
+.why-ifs{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.why-ifs li{background:rgba(0,0,0,.35);border-radius:14px;padding:12px 14px 12px 40px;position:relative;font-size:1.02rem;line-height:1.4}
+.why-ifs li::before{content:"?!";position:absolute;left:12px;top:11px;font:400 .95rem/1 var(--display);color:#B98CFF}
+.why-end{margin:0;max-width:30ch;font:400 clamp(1.3rem,3vw,2rem)/1.25 var(--display);color:#FFFFFF}
+.why-end strong{font-weight:400;color:#3FCF9E}
+@media (max-width:860px){.why-grid{grid-template-columns:1fr}}
 .hero p.idc{font:500 clamp(.95rem,1.8vw,1.1rem)/1.4 var(--mono);color:#3FCF9E;margin-top:-10px}
 .slot.star{padding:0;overflow:hidden;align-content:start}
 .board .slot.open{align-content:center}
@@ -433,7 +456,6 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 <header class="hero">
   <svg class="mesa" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"><path fill="#000000" d="M0 90V62h90l20-22h130l14 18h120l30-40h160l22 30h80l18-14h200l26 26h120l30-20h140V90z"/></svg>
   <div class="wrap">
-    <div class="eyebrow">A Dream Machine Experiment · Year 1</div>
     <div class="logo">
       <svg viewBox="0 0 140 140" role="img" aria-label="The Wonderverse logo: a planet circled by five orbiting dimensions">
         <defs><linearGradient id="dm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FD6CF"/><stop offset=".55" stop-color="#14A37F"/><stop offset="1" stop-color="#0A4F3E"/></linearGradient><clipPath id="globe"><circle cx="70" cy="70" r="40"/></clipPath></defs>
@@ -454,9 +476,12 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
       </svg>
       <div class="logo-words"><span class="by">Comedy Lab Sedona presents</span><h1>The Wonderverse</h1><span class="tagline">Comedy From Every Dimension.</span></div>
     </div>
-    <p>9 comedians, 5 dimensions and 1 house in Sedona.</p>
-    <p class="idc">Interdimensional Comedy starring ascended masters, ETs, angels and your dead grandparents.</p>
-    <div class="facts"><span>12-person crew</span><span>60 sec or less</span></div>
+    <div class="hero-copy">
+      <p class="hook">9 Comedians. 48 Hours. No Scripts.</p>
+      <p class="idc">ETs. Angels. Ascended Masters. Dead Grandmothers.</p>
+      <p class="wrong">One house in Sedona. What could possibly go wrong?</p>
+    </div>
+    <div class="eyebrow">March 2027 · A Dream Machine Experiment</div>
   </div>
 </header>
 <div class="tile-band" aria-hidden="true"></div>
@@ -471,14 +496,15 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 </div></section>
 
 <main>
-<section id="how" class="dark-black"><div class="wrap">
-  <blockquote class="whatif">What if laughter is the shortest distance between the impossible and the imaginable?</blockquote>
-  <div class="stack"><div class="eyebrow">How it works</div><h2>One house. 48 Hours. Viral Comedy.</h2></div>
-  <div class="how">
-    <div><b>The crew</b><h3>12 people, one roof, 48 hours</h3><p>Comedians, editors and a makeup artist move into one house together for <strong>48 hours</strong> and make comedy as a team.</p></div>
-    <div><b>The prompt</b><h3>It starts with a line</h3><p>Each round opens with an absurd, irresistible prompt. The team turns it into a 60-second-or-less micro clip for Instagram, TikTok and YouTube Shorts.</p></div>
-    <div><b>The reveal</b><h3>Watch what happened</h3><p>We premiere the clips at Humankind.center on March 19, 2027, then release them and dare everyone to riff on the same opening lines for a $1,200 bounty.</p><a class="btn" href="#results" style="justify-self:start">Get tickets 🎟️</a></div>
+<section id="why" class="why" aria-labelledby="why-h"><div class="wrap">
+  <div class="why-head"><div class="eyebrow">The big question</div><h2 id="why-h">Why improv?<br><span>Why now?</span></h2></div>
+  <div class="why-grid">
+    <div class="why-card"><span class="why-n">01</span><h3>The impossible is on the table</h3><p>AI is challenging what it means to be conscious. ET arrival is becoming a serious conversation. Even life and death are up for debate.</p></div>
+    <div class="why-card why-big"><span class="why-n">02</span><h3>What if it’s all real? Now what?</h3>
+      <ul class="why-ifs"><li>What if your dead grandmother has opinions about your dating life?</li><li>What if an extraterrestrial needs a driver’s license?</li><li>What if enlightenment comes with customer service?</li></ul></div>
+    <div class="why-card"><span class="why-n">03</span><h3>Play with the unthinkable</h3><p>Improv lets us replace fear with curiosity and disagreement with shared laughter.</p></div>
   </div>
+  <p class="why-end">We’re sneaking radical ideas into the world’s social feeds, <strong>one 60-second laugh at a time.</strong></p>
 </div></section>
 
 <section id="house" class="dark-green"><div class="wrap">
@@ -630,6 +656,16 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   <p>Your gift feeds the house, fills the prize pot and keeps the experiment running.</p></div>
   <a class="fund-cta" href="fund.html"><span class="eyebrow">Card or crypto</span><b>Fund the Research 🧪</b><span class="cta-coins">💳<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#F7931A"/><g transform="rotate(14 32 32)" fill="#FFFFFF"><rect x="26" y="12" width="3.5" height="8"/><rect x="33" y="12" width="3.5" height="8"/><rect x="26" y="44" width="3.5" height="8"/><rect x="33" y="44" width="3.5" height="8"/><path d="M21 18h15.5c5.5 0 9 2.9 9 7.2 0 3-1.6 5-4.2 5.9 3.4.8 5.7 3.2 5.7 6.8 0 5-3.9 8.1-10 8.1H21v-4.4h3.6V22.4H21zM30 22.4v8h5.4c2.8 0 4.5-1.5 4.5-4s-1.7-4-4.5-4zm0 12.3v9h6c3.1 0 5-1.7 5-4.5s-1.9-4.5-5-4.5z"/></g></svg><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#627EEA"/><path fill="#FFFFFF" fill-opacity=".6" d="M32 8v17.7l15 6.7z"/><path fill="#FFFFFF" d="M32 8 17 32.4l15-6.7z"/><path fill="#FFFFFF" fill-opacity=".6" d="M32 44v12l15-20.8z"/><path fill="#FFFFFF" d="M32 56V44l-15-8.8z"/><path fill="#FFFFFF" fill-opacity=".2" d="m32 41.2 15-8.8-15-6.7z"/><path fill="#FFFFFF" fill-opacity=".6" d="m17 32.4 15 8.8V25.7z"/></svg><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#23292F" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="2"/><path fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" d="M16 17l10.6 10.4a7.7 7.7 0 0 0 10.8 0L48 17M16 47l10.6-10.4a7.7 7.7 0 0 1 10.8 0L48 47"/></svg></span><span>Pay by credit card, Bitcoin, Ethereum or XRP. Sponsor a test subject, stamp the clips, or dare to fund the whole experiment. →</span></a>
   <p class="also" style="margin-top:20px">Questions about donating? Text <a href="sms:+14242809561">424-280-9561</a> or email <a href="mailto:donations@comedylabsedona.com">donations<wbr>@comedylabsedona.com</a>.</p>
+</div></section>
+
+<section id="how" class="dark-black"><div class="wrap">
+  <blockquote class="whatif">What if laughter is the shortest distance between the impossible and the imaginable?</blockquote>
+  <div class="stack"><div class="eyebrow">How it works</div><h2>One house. 48 Hours. Viral Comedy.</h2></div>
+  <div class="how">
+    <div><b>The crew</b><h3>12 people, one roof, 48 hours</h3><p>Comedians, editors and a makeup artist move into one house together for <strong>48 hours</strong> and make comedy as a team.</p></div>
+    <div><b>The prompt</b><h3>It starts with a line</h3><p>Each round opens with an absurd, irresistible prompt. The team turns it into a 60-second-or-less micro clip for Instagram, TikTok and YouTube Shorts.</p></div>
+    <div><b>The reveal</b><h3>Watch what happened</h3><p>We premiere the clips at Humankind.center on March 19, 2027, then release them and dare everyone to riff on the same opening lines for a $1,200 bounty.</p><a class="btn" href="#results" style="justify-self:start">Get tickets 🎟️</a></div>
+  </div>
 </div></section>
 
 <section id="partners"><div class="wrap">
