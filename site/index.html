@@ -140,6 +140,11 @@ section{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--line)}
 .logo svg{width:clamp(96px,16vw,140px);height:auto;flex:none}
 .logo-words{display:grid;gap:6px;min-width:0}
 .hero .logo-words h1{font-size:clamp(2.6rem,9vw,5.6rem)}
+.title-row{display:flex;align-items:center;gap:clamp(10px,2vw,20px)}
+.logo .title-row svg{width:clamp(64px,10vw,124px)}
+.hero .title-row h1{font-size:clamp(2rem,8.2vw,5rem);min-width:0}
+@media (min-width:700px){.hero .title-row h1{white-space:nowrap}}
+@media (max-width:699px){.logo .title-row svg{width:58px}}
 .logo-words .tagline{font:700 clamp(1.05rem,2.4vw,1.4rem)/1.2 var(--body,"Figtree",sans-serif);color:#3FCF9E}
 .logo-words .by{font:500 .8rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;opacity:.9}
 
@@ -406,7 +411,7 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
 .also{margin-top:16px;color:var(--muted);font-size:.95rem}
 .hero-copy{display:grid;gap:10px;margin-top:4px}
 .hero p.hook{font:400 clamp(1.4rem,3.4vw,2.1rem)/1.15 var(--display);color:#FFFFFF;margin:0}
-.hero-copy p.idc{margin:0}
+.hero-copy p.idc{margin:0 0 6px}
 .hero p.wrong{font-style:italic;opacity:.92;margin:0}
 .hero .wrap>.eyebrow{margin-top:6px;color:#3FCF9E;opacity:1}
 .why{background:radial-gradient(1200px 500px at 85% -10%,rgba(155,93,229,.45),transparent 60%),radial-gradient(900px 500px at 0% 110%,rgba(63,207,158,.35),transparent 60%),#07060F;color:#FFFFFF;position:relative;overflow:hidden}
@@ -457,7 +462,8 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
   <svg class="mesa" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"><path fill="#000000" d="M0 90V62h90l20-22h130l14 18h120l30-40h160l22 30h80l18-14h200l26 26h120l30-20h140V90z"/></svg>
   <div class="wrap">
     <div class="logo">
-      <svg viewBox="0 0 140 140" role="img" aria-label="The Wonderverse logo: a planet circled by five orbiting dimensions">
+      
+      <div class="logo-words"><span class="by">Comedy Lab Sedona presents</span><div class="title-row"><svg viewBox="0 0 140 140" role="img" aria-label="The Wonderverse logo: a planet circled by five orbiting dimensions">
         <defs><linearGradient id="dm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FD6CF"/><stop offset=".55" stop-color="#14A37F"/><stop offset="1" stop-color="#0A4F3E"/></linearGradient><clipPath id="globe"><circle cx="70" cy="70" r="40"/></clipPath></defs>
         <ellipse cx="70" cy="70" rx="64" ry="20" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity=".55" transform="rotate(-18 70 70)"/>
         <circle cx="70" cy="70" r="40" fill="url(#dm)"/>
@@ -473,12 +479,11 @@ a.btn.ghost{background:transparent;border:1.5px solid var(--rock);color:var(--ro
           <circle cx="70" cy="90" r="4.5"/>
         </g>
         <path d="M70 50 L75 65 L90 70 L75 75 L70 90 L65 75 L50 70 L65 65Z" fill="#FFFFFF"/>
-      </svg>
-      <div class="logo-words"><span class="by">Comedy Lab Sedona presents</span><h1>The Wonderverse</h1><span class="tagline">Comedy From Every Dimension.</span></div>
+      </svg><h1>The Wonderverse</h1></div><span class="tagline">Comedy From Every Dimension.</span></div>
     </div>
     <div class="hero-copy">
-      <p class="hook">9 Comedians. 48 Hours. No Scripts.</p>
       <p class="idc">ETs. Angels. Ascended Masters. Dead Grandmothers.</p>
+      <p class="hook">9 Comedians. 48 Hours. No Scripts.</p>
       <p class="wrong">One house in Sedona. What could possibly go wrong?</p>
     </div>
     <div class="eyebrow">March 2027 · A Dream Machine Experiment</div>
