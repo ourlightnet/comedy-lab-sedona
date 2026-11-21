@@ -1,4 +1,4 @@
-# Brevo setup for What on Earth!?
+# Brevo setup for The Wonderverse
 
 The header and footer images are hosted on the site, so nothing needs uploading:
 - https://comedylabsedona.com/assets/email/header.png

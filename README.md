@@ -1,6 +1,6 @@
 # The Comedy Lab Sedona
 
-The website for **What on Earth!?**, the Comedy Lab's 9-month comedy clip contest in Sedona. A Dream Machine project.
+The website for **The Wonderverse** (Comedy From Every Dimension), Comedy Lab Sedona's 9-month comedy clip contest in Sedona. A Dream Machine project.
 
 Live at https://comedylabsedona.com
 

@@ -48,7 +48,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (form._honey.value) return;
-      // Accept links typed without https://, like zenka.org
+      // Accept links typed without https://, like example.org
       form.querySelectorAll('[data-url]').forEach(function (i) {
         var v = i.value.trim();
         if (v && !/^[a-z]+:\/\//i.test(v) && !/^@/.test(v)) i.value = 'https://' + v;

@@ -40,7 +40,7 @@
   var logo = '<svg viewBox="0 0 140 140" aria-hidden="true"><defs><linearGradient id="navdm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FD6CF"/><stop offset=".55" stop-color="#14A37F"/><stop offset="1" stop-color="#0A4F3E"/></linearGradient></defs>' +
     '<ellipse cx="70" cy="70" rx="64" ry="20" fill="none" stroke="#FFFFFF" stroke-width="5" opacity=".55" transform="rotate(-18 70 70)"/><circle cx="70" cy="70" r="40" fill="url(#navdm)"/>' +
     '<path d="M6 70A64 20 0 0 0 134 70" fill="none" stroke="#FFFFFF" stroke-width="5" transform="rotate(-18 70 70)"/>' +
-    '<text x="70" y="82" text-anchor="middle" font-family="Dela Gothic One, Arial Black, sans-serif" font-size="34" fill="#FFFFFF">!?</text></svg>';
+    '<path d="M70 50 L75 65 L90 70 L75 75 L70 90 L65 75 L50 70 L65 65Z" fill="#FFFFFF"/></svg>';
 
   function build() {
     if (document.querySelector('.sitenav')) return;
@@ -50,7 +50,7 @@
     }).join('') + '<li><a class="cta" href="' + CTA[1] + '"' + (here(CTA[1]) ? ' aria-current="page"' : '') + '>' + CTA[0] + '</a></li>';
     var nav = document.createElement('nav');
     nav.className = 'sitenav'; nav.setAttribute('aria-label', 'Site');
-    nav.innerHTML = '<div class="sitenav__in"><a class="sitenav__brand" href="' + (home ? '#top' : './') + '">' + logo + '<span>What on Earth!?</span></a>' +
+    nav.innerHTML = '<div class="sitenav__in"><a class="sitenav__brand" href="' + (home ? '#top' : './') + '">' + logo + '<span>The Wonderverse</span></a>' +
       '<button class="sitenav__toggle" type="button" aria-expanded="false" aria-controls="sitenav-links"><i aria-hidden="true"><b></b><b></b><b></b></i>Menu</button>' +
       '<ul class="sitenav__links" id="sitenav-links">' + items + '</ul></div>';
     document.body.insertBefore(nav, document.body.firstChild);
