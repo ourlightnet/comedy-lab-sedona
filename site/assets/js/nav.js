@@ -3,9 +3,9 @@
 (function () {
   var LINKS = [
     ['Why now', '#why'],
+    ['Opening lines', '#prompts'],
     ['The house', '#house'],
     ['Comedians', '#comedians'],
-    ['Opening lines', '#prompts'],
     ['The Experiment', '#experiment'],
     ['How it works', '#how']
   ];
